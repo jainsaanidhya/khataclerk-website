@@ -1121,6 +1121,558 @@
             gap: clamp(0.8rem, 2vw, 1.2rem);
         }
 
+        /* Key Features Section */
+        .features {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: white;
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card__icon {
+            width: clamp(45px, 9vw, 60px);
+            height: clamp(45px, 9vw, 60px);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .feature-card__icon svg {
+            width: clamp(24px, 5vw, 30px);
+            height: clamp(24px, 5vw, 30px);
+            color: white;
+        }
+
+        .feature-card__icon--emerald {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+        }
+
+        .feature-card__title {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: clamp(0.5rem, 1vw, 0.7rem);
+        }
+
+        .feature-card__text {
+            color: var(--gray-600);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            line-height: 1.6;
+        }
+
+        /* Competitors Section */
+        .competitors {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: var(--gray-50);
+        }
+
+        .comparison {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison__header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            padding: clamp(1rem, 2vw, 1.5rem);
+            background: var(--navy);
+            color: white;
+        }
+
+        .comparison__col {
+            font-family: var(--font-display);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .comparison__col--us {
+            color: var(--emerald-light);
+        }
+
+        .comparison__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            padding: clamp(0.8rem, 2vw, 1.2rem);
+            border-bottom: 1px solid var(--gray-100);
+            align-items: center;
+        }
+
+        .comparison__row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison__feature {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        .comparison__value {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            text-align: center;
+        }
+
+        .comparison__value svg {
+            width: clamp(16px, 4vw, 20px);
+            height: clamp(16px, 4vw, 20px);
+            flex-shrink: 0;
+        }
+
+        .comparison__value span {
+            font-size: clamp(0.75rem, 1.3vw, 0.85rem);
+            font-weight: 600;
+        }
+
+        .comparison__value--good svg {
+            color: var(--emerald);
+        }
+
+        .comparison__value--good span {
+            color: var(--emerald-dark);
+        }
+
+        .comparison__value--bad svg {
+            color: #dc2626;
+        }
+
+        .comparison__value--bad span {
+            color: var(--gray-600);
+        }
+
+        /* Audience Section */
+        .audience {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: white;
+        }
+
+        .audience__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .audience-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .audience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            background: white;
+        }
+
+        .audience-card__icon {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .audience-card__title {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: clamp(0.5rem, 1vw, 0.7rem);
+        }
+
+        .audience-card__text {
+            color: var(--gray-600);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+        }
+
+        .pricing__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: clamp(1.8rem, 3vw, 2.5rem);
+            border: 2px solid var(--gray-100);
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .price-card--featured {
+            border-color: var(--emerald);
+            box-shadow: 0 8px 32px rgba(4, 120, 87, 0.15);
+        }
+
+        .price-card--enterprise {
+            background: linear-gradient(135deg, var(--navy), #1e293b);
+            border-color: var(--navy);
+            color: white;
+        }
+
+        .price-card__badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: clamp(0.75rem, 1.3vw, 0.85rem);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .price-card__header {
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            padding-bottom: clamp(1.5rem, 3vw, 2rem);
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .price-card--enterprise .price-card__header {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .price-card__name {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .price-card--enterprise .price-card__name {
+            color: white;
+        }
+
+        .price-card__price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .price-card__currency {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--emerald);
+        }
+
+        .price-card--enterprise .price-card__currency {
+            color: var(--emerald-light);
+        }
+
+        .price-card__amount {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .price-card--enterprise .price-card__amount {
+            color: white;
+        }
+
+        .price-card__period {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--gray-600);
+        }
+
+        .price-card--enterprise .price-card__period {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .price-card__annual {
+            margin-top: 0.5rem;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--emerald-dark);
+            font-weight: 600;
+        }
+
+        .price-card__features {
+            list-style: none;
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            flex: 1;
+        }
+
+        .price-card__features li {
+            display: flex;
+            align-items: start;
+            gap: 0.8rem;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .price-card__features svg {
+            width: 20px;
+            height: 20px;
+            color: var(--emerald);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .price-card--enterprise .price-card__features svg {
+            color: var(--emerald-light);
+        }
+
+        .price-card--enterprise .price-card__features span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .price-card__btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .price-card__guarantee {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            padding-top: clamp(1rem, 2vw, 1.5rem);
+            border-top: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+            color: var(--emerald-dark);
+            font-weight: 600;
+        }
+
+        .price-card__guarantee svg {
+            width: clamp(18px, 4vw, 22px);
+            height: clamp(18px, 4vw, 22px);
+            color: var(--emerald);
+            flex-shrink: 0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: white;
+        }
+
+        .faq__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .faq-item__question {
+            font-family: var(--font-display);
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: clamp(0.6rem, 1.5vw, 0.8rem);
+            line-height: 1.3;
+        }
+
+        .faq-item__answer {
+            color: var(--gray-600);
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            line-height: 1.7;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+        }
+
+        .guarantee__card {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .guarantee__icon {
+            width: clamp(70px, 14vw, 100px);
+            height: clamp(70px, 14vw, 100px);
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .guarantee__icon svg {
+            width: clamp(40px, 8vw, 60px);
+            height: clamp(40px, 8vw, 60px);
+            color: var(--emerald);
+        }
+
+        .guarantee__title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.2;
+        }
+
+        .guarantee__text {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .guarantee__features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .guarantee__feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            font-weight: 600;
+        }
+
+        .guarantee__feature svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .guarantee__cta {
+            display: inline-flex;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: clamp(3rem, 6vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
+        }
+
+        .footer__main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .footer__col--brand {
+            grid-column: 1 / -1;
+        }
+
+        .footer__logo {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--emerald-light);
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+        }
+
+        .footer__tagline {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__company {
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            opacity: 0.7;
+        }
+
+        .footer__title {
+            font-family: var(--font-display);
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            font-weight: 700;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+        }
+
+        .footer__links {
+            list-style: none;
+        }
+
+        .footer__links li {
+            margin-bottom: clamp(0.5rem, 1vw, 0.7rem);
+        }
+
+        .footer__links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            transition: color 0.3s;
+        }
+
+        .footer__links a:hover {
+            color: var(--emerald-light);
+        }
+
+        .footer__bottom {
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+            opacity: 0.7;
+        }
+
+        .footer__made {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
         /* Tablet & Desktop */
         @media (min-width: 768px) {
             .hero__container {
@@ -1141,6 +1693,19 @@
 
             .step__number {
                 text-align: left;
+            }
+
+            .footer__col--brand {
+                grid-column: span 2;
+            }
+
+            .comparison__header,
+            .comparison__row {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .comparison__value {
+                flex-direction: row;
             }
         }
     </style>
@@ -1367,7 +1932,7 @@
                         </svg>
                     </div>
                     <h3 class="pain-card__title">20+ Hours Wasted</h3>
-                    <p class="pain-card__text">Teams spends entire days typing invoices instead of growing your business. That's over 1,000 hours a year lost to data entry.</p>
+                    <p class="pain-card__text">Your team spends entire days typing invoices instead of growing your business. That's over 1,000 hours a year lost to data entry.</p>
                     <div class="pain-card__stat">1,040 hours/year = ₹5 lakhs+ lost</div>
                 </div>
 
@@ -1392,7 +1957,7 @@
                         </svg>
                     </div>
                     <h3 class="pain-card__title">Month-End Chaos</h3>
-                    <p class="pain-card__text">The stress never ends when you're manually entering invoices. Delayed reports., GST filing panic. Auditor questions.</p>
+                    <p class="pain-card__text">Always behind on books. GST filing panic. Auditor questions. Delayed reports. The stress never ends when you're manually entering invoices.</p>
                     <div class="pain-card__stat">Books 2-3 weeks behind always</div>
                 </div>
             </div>
@@ -1567,6 +2132,585 @@
             </div>
         </div>
     </section>
+
+    <!-- Key Features Section -->
+    <section class="features" id="features">
+        <div class="features__container container">
+            <div class="section-header">
+                <div class="section-header__badge section-header__badge--primary">Complete Platform</div>
+                <h2 class="section-header__title">Everything You Need</h2>
+                <p class="section-header__subtitle">Powerful features built for Indian businesses. <strong>No compromises.</strong></p>
+            </div>
+
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Any Format</h3>
+                    <p class="feature-card__text">PDF, images, scans, photos, emails—even handwritten invoices and low-quality bills.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Full Control</h3>
+                    <p class="feature-card__text">Customize fields, set rules, approve workflows. You decide what happens, always.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">95% Accuracy</h3>
+                    <p class="feature-card__text">From your first invoice. No training period. No "it gets better." Works perfectly day one.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">GST Native</h3>
+                    <p class="feature-card__text">Auto-validates GSTIN, extracts CGST/SGST/IGST, reconciliation-ready for GSTR filings.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Unlimited Users</h3>
+                    <p class="feature-card__text">All plans include unlimited users. Everyone posts to one master Tally server.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Direct Integration</h3>
+                    <p class="feature-card__text">Tally, Zoho Books, QuickBooks. Real-time posting. No exports, no imports, no CSV hell.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Bulk Processing</h3>
+                    <p class="feature-card__text">Upload 100 invoices, get 100 perfect entries in minutes. Auto-approval for trusted vendors.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon feature-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Secure</h3>
+                    <p class="feature-card__text">Bank-grade encryption. Indian data centers. SOC 2 certified. Your data never leaves India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitors Section -->
+    <section class="competitors">
+        <div class="competitors__container container">
+            <div class="section-header">
+                <div class="section-header__badge section-header__badge--warning">The Difference</div>
+                <h2 class="section-header__title">Why KhataClerk Wins</h2>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison__header">
+                    <div class="comparison__label"></div>
+                    <div class="comparison__col comparison__col--us">KhataClerk</div>
+                    <div class="comparison__col comparison__col--them">Others</div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">Setup</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Zero config</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Manual mapping</span>
+                    </div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">Accuracy</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>95% day one</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>"Improves over time"</span>
+                    </div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">File Support</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Any format</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Excel/CSV only</span>
+                    </div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">Integration</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Direct posting</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Export → Import</span>
+                    </div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">Users</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Unlimited included</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Pay per user</span>
+                    </div>
+                </div>
+
+                <div class="comparison__row">
+                    <div class="comparison__feature">GST</div>
+                    <div class="comparison__value comparison__value--good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Built-in validation</span>
+                    </div>
+                    <div class="comparison__value comparison__value--bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>You figure it out</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="audience">
+        <div class="audience__container container">
+            <div class="section-header">
+                <div class="section-header__badge section-header__badge--primary">Perfect For</div>
+                <h2 class="section-header__title">Built for Indian Businesses</h2>
+            </div>
+
+            <div class="audience__grid">
+                <div class="audience-card">
+                    <div class="audience-card__icon">🏪</div>
+                    <h3 class="audience-card__title">Retail Shops</h3>
+                    <p class="audience-card__text">Process supplier invoices daily. Handle hundreds of bills effortlessly.</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-card__icon">🏢</div>
+                    <h3 class="audience-card__title">Small Businesses</h3>
+                    <p class="audience-card__text">Manage expenses efficiently. Keep books up-to-date without extra staff.</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-card__icon">👨‍💼</div>
+                    <h3 class="audience-card__title">Accountants</h3>
+                    <p class="audience-card__text">Handle multiple clients faster. Spend time on analysis, not data entry.</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-card__icon">🏭</div>
+                    <h3 class="audience-card__title">Distributors</h3>
+                    <p class="audience-card__text">Track purchase orders and bills. Reconcile inventory automatically.</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-card__icon">🚚</div>
+                    <h3 class="audience-card__title">E-commerce Sellers</h3>
+                    <p class="audience-card__text">Reconcile marketplace invoices. Handle GST compliance seamlessly.</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-card__icon">🏗️</div>
+                    <h3 class="audience-card__title">Contractors</h3>
+                    <p class="audience-card__text">Track project expenses. Manage vendor bills across multiple sites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="pricing__container container">
+            <div class="section-header">
+                <div class="section-header__badge section-header__badge--primary">Simple Pricing</div>
+                <h2 class="section-header__title">Choose Your Plan</h2>
+                <p class="section-header__subtitle">Transparent pricing. No hidden fees. <strong>30-day money-back guarantee.</strong></p>
+            </div>
+
+            <div class="pricing__grid">
+                <div class="price-card">
+                    <div class="price-card__header">
+                        <h3 class="price-card__name">Free</h3>
+                        <div class="price-card__price">
+                            <span class="price-card__currency">₹</span>
+                            <span class="price-card__amount">0</span>
+                            <span class="price-card__period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="price-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>5 invoices/month</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>All features</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Unlimited users</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="price-card__btn btn btn--secondary">Start Free</a>
+                </div>
+
+                <div class="price-card price-card--featured">
+                    <div class="price-card__badge">Most Popular</div>
+                    <div class="price-card__header">
+                        <h3 class="price-card__name">Starter</h3>
+                        <div class="price-card__price">
+                            <span class="price-card__currency">₹</span>
+                            <span class="price-card__amount">1,200</span>
+                            <span class="price-card__period">/month</span>
+                        </div>
+                        <div class="price-card__annual">or ₹10,000/year (save ₹4,400)</div>
+                    </div>
+                    <ul class="price-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>500 invoices/month</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Unlimited users</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>All integrations</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>WhatsApp support</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="price-card__btn btn btn--primary">Start Free Trial</a>
+                    <div class="price-card__guarantee">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"></polyline>
+                        </svg>
+                        <span>30-Day Money-Back Guarantee</span>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-card__header">
+                        <h3 class="price-card__name">Professional</h3>
+                        <div class="price-card__price">
+                            <span class="price-card__currency">₹</span>
+                            <span class="price-card__amount">2,500</span>
+                            <span class="price-card__period">/month</span>
+                        </div>
+                        <div class="price-card__annual">or ₹25,000/year (save ₹5,000)</div>
+                    </div>
+                    <ul class="price-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>2,500 invoices/month</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Unlimited users</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Advanced analytics</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Dedicated manager</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>API access</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="price-card__btn btn btn--secondary">Start Free Trial</a>
+                    <div class="price-card__guarantee">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"></polyline>
+                        </svg>
+                        <span>30-Day Money-Back Guarantee</span>
+                    </div>
+                </div>
+
+                <div class="price-card price-card--enterprise">
+                    <div class="price-card__header">
+                        <h3 class="price-card__name">Enterprise</h3>
+                        <div class="price-card__price">
+                            <span class="price-card__amount" style="font-size: clamp(1.5rem, 3vw, 2rem);">Custom</span>
+                        </div>
+                    </div>
+                    <ul class="price-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Unlimited invoices</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Unlimited users</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Custom integrations</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>On-premise option</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>SLA guarantee</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>24/7 phone support</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="price-card__btn btn btn--secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="faq__container container">
+            <div class="section-header">
+                <div class="section-header__badge section-header__badge--primary">Questions</div>
+                <h2 class="section-header__title">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq__grid">
+                <div class="faq-item">
+                    <h3 class="faq-item__question">How accurate is KhataClerk?</h3>
+                    <p class="faq-item__answer">We guarantee 95% accuracy from day one. Our system improves as it learns your vendors, approaching 99% accuracy over time.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Which accounting software do you support?</h3>
+                    <p class="faq-item__answer">Direct integration with Tally (ERP 9, Prime, Cloud), Zoho Books, QuickBooks Online, and Busy. Plus REST API for custom integrations.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Can multiple users post to one Tally?</h3>
+                    <p class="faq-item__answer">Yes! Unlimited users can scan and process invoices from anywhere. All entries sync to your central Tally server in real-time.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Is my data secure?</h3>
+                    <p class="faq-item__answer">Absolutely. We use 256-bit encryption, store data in Indian data centers, and are SOC 2 Type II certified. Your data never leaves India.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">What file formats work?</h3>
+                    <p class="faq-item__answer">PDF, JPG, PNG, TIFF, multi-page scans. Even handwritten invoices and low-quality photos work perfectly.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Can I customize field extraction?</h3>
+                    <p class="faq-item__answer">Yes! Just tell us what fields you need extracted. We configure everything—you don't touch any settings.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">What if the AI makes a mistake?</h3>
+                    <p class="faq-item__answer">You review everything before posting. Edit any field with one click. The system learns from your corrections.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Is there a contract?</h3>
+                    <p class="faq-item__answer">No lock-in. Monthly billing. Cancel anytime. We earn your business every month.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">How fast is setup?</h3>
+                    <p class="faq-item__answer">Sign up → Upload test invoice → See results. Takes 5 minutes. Full integration setup in 30 minutes with our team.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-item__question">Do you support regional languages?</h3>
+                    <p class="faq-item__answer">Yes! Our system handles invoices in English, Hindi, and major regional languages commonly used in Indian business documents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Money-Back Guarantee Section -->
+    <section class="guarantee">
+        <div class="guarantee__container container">
+            <div class="guarantee__card">
+                <div class="guarantee__icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2.5"></polyline>
+                    </svg>
+                </div>
+                <h2 class="guarantee__title">100% Risk-Free. Guaranteed.</h2>
+                <p class="guarantee__text">Try KhataClerk for 30 days. If it doesn't save you time and eliminate errors, we'll refund every rupee. <strong>No questions asked.</strong></p>
+
+                <div class="guarantee__features">
+                    <div class="guarantee__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>30-day money-back guarantee</span>
+                    </div>
+                    <div class="guarantee__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>No credit card for trial</span>
+                    </div>
+                    <div class="guarantee__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Cancel anytime</span>
+                    </div>
+                    <div class="guarantee__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Full refund if unsatisfied</span>
+                    </div>
+                </div>
+
+                <a href="#" class="guarantee__cta btn btn--primary">
+                    <span>Start Free Trial</span>
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__main">
+                <div class="footer__col footer__col--brand">
+                    <div class="footer__logo">KhataClerk</div>
+                    <p class="footer__tagline">Intelligence that just works for you.</p>
+                    <p class="footer__company">A product by Perceptive Labs Private Limited</p>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Product</h4>
+                    <ul class="footer__links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">API Docs</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Resources</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">GST Guide</a></li>
+                        <li><a href="#">Tally Tips</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="https://perceptivelabs.in" target="_blank">About Perceptive Labs</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Other Products</h4>
+                    <ul class="footer__links">
+                        <li><a href="https://scanmyinvoice.com" target="_blank">ScanMyInvoice</a></li>
+                        <li><a href="#">MirrorBi</a></li>
+                    </ul>
+                    <h4 class="footer__title" style="margin-top: 1.5rem;">Connect</h4>
+                    <ul class="footer__links">
+                        <li><a href="mailto:support@khataclerk.com">support@khataclerk.com</a></li>
+                        <li><a href="#">WhatsApp Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2026 Perceptive Labs Private Limited. All rights reserved.</p>
+                <p class="footer__made">Made in India 🇮🇳</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Invoice Demo Animation
