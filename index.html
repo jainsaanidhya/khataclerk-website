@@ -720,6 +720,187 @@
             }
         }
 
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--emerald), transparent);
+            opacity: 0.3;
+        }
+
+        .problem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-600);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pain-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 2px solid var(--gray-100);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .pain-card:nth-child(1) { animation-delay: 0.1s; }
+        .pain-card:nth-child(2) { animation-delay: 0.2s; }
+        .pain-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .pain-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--emerald);
+        }
+
+        .pain-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .pain-icon svg {
+            width: 36px;
+            height: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pain-icon.time {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.2));
+            color: var(--orange);
+        }
+
+        .pain-icon.money {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.2));
+            color: #dc2626;
+        }
+
+        .pain-icon.stress {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.2));
+            color: #f59e0b;
+        }
+
+        .pain-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .pain-content p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .pain-stat {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--emerald-dark);
+            background: rgba(4, 120, 87, 0.05);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--emerald);
+        }
+
+        .problem-reality {
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .reality-box {
+            background: linear-gradient(135deg, var(--orange), #ea580c);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(249, 115, 22, 0.25);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reality-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .reality-header svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .reality-box p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero {
@@ -760,6 +941,31 @@
 
             .invoice-logo {
                 font-size: 1.4rem;
+            }
+
+            /* Problem Section Mobile */
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .pain-points {
+                grid-template-columns: 1fr;
+            }
+
+            .pain-card {
+                padding: 2rem;
+            }
+
+            .reality-box {
+                padding: 2rem;
+            }
+
+            .reality-box p {
+                font-size: 1.05rem;
             }
         }
     </style>
@@ -1039,6 +1245,74 @@
         </div>
     </section>
 
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="problem-container">
+            <div class="section-header">
+                <div class="section-eyebrow">The Reality</div>
+                <h2>Still Entering Bills Manually?</h2>
+                <p class="section-subtitle">Manual invoice entry isn't just slow—it's costing you money, time, and peace of mind every single day.</p>
+            </div>
+
+            <div class="pain-points">
+                <div class="pain-card">
+                    <div class="pain-icon time">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="pain-content">
+                        <h3>20+ Hours Wasted Every Week</h3>
+                        <p>Your team spends entire days typing invoices instead of growing your business. That's over 1,000 hours a year lost to data entry.</p>
+                        <div class="pain-stat">1,040 hours/year = ₹5 lakhs+ in productivity loss</div>
+                    </div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon money">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="pain-content">
+                        <h3>₹50,000+ Lost Annually</h3>
+                        <p>Manual errors lead to duplicate payments, missed discounts, incorrect GST filings, and penalties. Small mistakes compound fast.</p>
+                        <div class="pain-stat">Average business loses 3-5% revenue to data errors</div>
+                    </div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon stress">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a9 9 0 0 1 9 9v4a9 9 0 0 1-9 9"></path>
+                            <path d="M3 11a9 9 0 0 1 9-9"></path>
+                            <circle cx="12" cy="12" r="1"></circle>
+                        </svg>
+                    </div>
+                    <div class="pain-content">
+                        <h3>Month-End Chaos</h3>
+                        <p>Always behind on books. GST filing panic. Auditor questions. Delayed reports. The stress never ends when you're manually entering invoices.</p>
+                        <div class="pain-stat">Books are 2-3 weeks behind = No real-time decisions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-reality">
+                <div class="reality-box">
+                    <div class="reality-header">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        <span>The Hidden Cost</span>
+                    </div>
+                    <p>When your accountant is typing invoices, they're NOT analyzing cash flow, catching tax savings, or planning growth. You're paying professional rates for clerical work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Animation Sequence
         let animationStep = 0;
@@ -1058,7 +1332,7 @@
             extractedData.classList.remove('show');
             tallyEntry.classList.remove('show');
             stateIndicator.classList.remove('show', 'scanning', 'extracting', 'posting');
-            
+
             // Remove all highlights
             document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
 
@@ -1073,7 +1347,7 @@
                         stateIndicator.classList.add('show', 'scanning');
                         stateText.textContent = 'Scanning invoice...';
                         invoiceCard.classList.add('processing');
-                        
+
                         // Highlight fields sequentially
                         const fields = ['invoice-no', 'date', 'vendor', 'gstin'];
                         fields.forEach((field, idx) => {
@@ -1121,5 +1395,16 @@
             runAnimation();
         });
     </script>
-</body>
-</html>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="problem-container">
+            <div class="section-header">
+                <h2>Still Entering Bills Manually?</h2>
+                <p class="section-subtitle">Every day you wait costs you time, money, and peace of mind.</p>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card time">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
