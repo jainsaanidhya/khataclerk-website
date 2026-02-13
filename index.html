@@ -6,7 +6,8 @@
     <title>KhataClerk - Intelligence That Just Works For You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          rel="stylesheet">
     <style>
         :root {
             --emerald: #047857;
@@ -517,10 +518,21 @@
             animation: fadeInMapping 0.4s ease forwards;
         }
 
-        .mapping-row:nth-child(1) { animation-delay: 0.1s; }
-        .mapping-row:nth-child(2) { animation-delay: 0.2s; }
-        .mapping-row:nth-child(3) { animation-delay: 0.3s; }
-        .mapping-row:nth-child(4) { animation-delay: 0.4s; }
+        .mapping-row:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .mapping-row:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .mapping-row:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .mapping-row:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         @keyframes fadeInMapping {
             to {
@@ -795,9 +807,17 @@
             animation: fadeInUp 0.8s ease backwards;
         }
 
-        .pain-card:nth-child(1) { animation-delay: 0.1s; }
-        .pain-card:nth-child(2) { animation-delay: 0.2s; }
-        .pain-card:nth-child(3) { animation-delay: 0.3s; }
+        .pain-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .pain-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .pain-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
 
         .pain-card:hover {
             transform: translateY(-8px);
@@ -813,14 +833,11 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            position: relative;
         }
 
         .pain-icon svg {
             width: 36px;
             height: 36px;
-            position: relative;
-            z-index: 1;
         }
 
         .pain-icon.time {
@@ -901,6 +918,503 @@
             opacity: 0.95;
         }
 
+        /* Solution Section */
+        .solution-section {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .solution-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow.emerald {
+            color: var(--emerald);
+        }
+
+        .how-it-works {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .step-card {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .step-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .step-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .step-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .step-card.reverse .step-visual {
+            order: 3;
+        }
+
+        .step-card.reverse .step-content {
+            order: 2;
+        }
+
+        .step-number {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .step-visual {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.03), rgba(16, 185, 129, 0.03));
+        }
+
+        .upload-illustration, .extract-illustration, .review-illustration, .post-illustration {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .upload-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .upload-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .upload-files {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .file-item {
+            background: white;
+            border: 2px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.6s ease backwards;
+        }
+
+        .file-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .file-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .file-item svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .file-item.pdf svg {
+            color: #dc2626;
+        }
+
+        .file-item.image svg {
+            color: var(--emerald);
+        }
+
+        .file-item span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .invoice-preview {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .invoice-line {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .invoice-line.short {
+            width: 60%;
+        }
+
+        .invoice-line.medium {
+            width: 80%;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .extraction-animation {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .extract-field {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            animation: slideInLeft 0.6s ease backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .field-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .field-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .review-dashboard {
+            background: white;
+            border: 2px solid var(--emerald);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 24px rgba(4, 120, 87, 0.15);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.1), rgba(16, 185, 129, 0.1));
+            color: var(--emerald-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--emerald);
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            margin-bottom: 0.6rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            animation: fadeIn 0.6s ease backwards;
+        }
+
+        .data-row:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .data-row:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .data-row:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .data-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        .data-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+
+        .edit-btn {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .edit-btn:hover {
+            opacity: 1;
+        }
+
+        .approve-action {
+            margin-top: 1rem;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            font-weight: 700;
+            animation: fadeIn 0.6s ease 0.8s backwards;
+        }
+
+        .approve-action svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .software-logos {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .logo-item {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounceIn 0.6s ease backwards;
+        }
+
+        .logo-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .logo-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .logo-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes bounceIn {
+            from {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .logo-item.tally {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+        }
+
+        .logo-item.zoho {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+        }
+
+        .logo-item.qb {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+        }
+
+        .sync-arrow {
+            animation: slideDown 1s ease infinite;
+        }
+
+        @keyframes slideDown {
+            0%, 100% {
+                transform: translateY(-5px);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(5px);
+                opacity: 1;
+            }
+        }
+
+        .sync-arrow svg {
+            width: 40px;
+            height: 40px;
+            color: var(--emerald);
+        }
+
+        .success-checkmark {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
+        }
+
+        .success-checkmark svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .step-content h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .step-content p {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            background: rgba(4, 120, 87, 0.08);
+            color: var(--emerald-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(4, 120, 87, 0.15);
+        }
+
+        .step-note {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--emerald-dark);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .solution-cta {
+            margin-top: 5rem;
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--cream), #ffffff);
+            border-radius: 20px;
+            border: 2px solid var(--emerald);
+        }
+
+        .solution-cta h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .solution-cta p {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons.centered {
+            justify-content: center;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero {
@@ -943,7 +1457,7 @@
                 font-size: 1.4rem;
             }
 
-            /* Problem Section Mobile */
+            /* Add these at the end of the existing @media (max-width: 640px) block */
             h2 {
                 font-size: 2.5rem;
             }
@@ -967,444 +1481,707 @@
             .reality-box p {
                 font-size: 1.05rem;
             }
+
+            .step-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step-card.reverse .step-visual {
+                order: 1;
+            }
+
+            .step-card.reverse .step-content {
+                order: 2;
+            }
+
+            .step-number {
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            .step-visual {
+                min-height: 250px;
+                padding: 2rem;
+            }
+
+            .step-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .step-content p {
+                font-size: 1.05rem;
+            }
+
+            .solution-cta h3 {
+                font-size: 2rem;
+            }
+
+            .solution-cta p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">KhataClerk</div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#integrations">Integrations</a>
-                <a href="#faq">FAQ</a>
-                <a href="#" class="nav-cta">Start Free Trial</a>
-            </div>
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">KhataClerk</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#integrations">Integrations</a>
+            <a href="#faq">FAQ</a>
+            <a href="#" class="nav-cta">Start Free Trial</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-eyebrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            95% Accurate
+        </div>
+
+        <h1>
+            <span class="highlight">Intelligence</span><br>
+            That Just Works<br>
+            For You
+        </h1>
+
+        <p class="hero-subtitle">
+            KhataClerk transforms bills into accounting entries automatically. <strong>95% accurate from day
+            one.</strong> No training. No mapping. No hassle.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">
+                Start Free Trial
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+            <a href="#" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Watch Demo
+            </a>
+        </div>
+
+        <div class="trust-badges">
+            <div class="badge-item">
+                <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                95% Accurate
+                <span><strong>95%</strong> accuracy from day one</span>
+            </div>
+            <div class="badge-item">
+                <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>SOC 2</strong> certified security</span>
+            </div>
+            <div class="badge-item badge-india">
+                <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Made in India</strong> 🇮🇳</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animation Visual -->
+    <div class="hero-visual">
+        <div class="state-indicator" id="stateIndicator">
+            <div class="spinner"></div>
+            <span id="stateText">Scanning invoice...</span>
+        </div>
+
+        <div class="animation-container">
+            <!-- Original Invoice -->
+            <div class="invoice-card" id="invoiceCard">
+                <div class="invoice-header">
+                    <div>
+                        <div class="invoice-logo">KhataClerk</div>
+                        <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.3rem;">by Perceptive Labs</div>
+                    </div>
+                    <div class="invoice-type">Tax Invoice</div>
+                </div>
+
+                <div class="company-info">
+                    <div class="company-name">Perceptive Labs Private Limited</div>
+                    <div>Opp. Pushpak Society, Pushpak Park</div>
+                    <div>Ahmedabad, Gujarat 380058</div>
+                    <div style="margin-top: 0.6rem;">GSTIN: <span
+                            style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">24AABCP1234E1Z5</span>
+                    </div>
+                </div>
+
+                <div class="invoice-details">
+                    <div class="detail-item" data-field="invoice-no">
+                        <div class="detail-label">Invoice No.</div>
+                        <div class="detail-value">INV-2024-0342</div>
+                    </div>
+                    <div class="detail-item" data-field="date">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">13-Feb-2026</div>
+                    </div>
+                    <div class="detail-item" data-field="vendor">
+                        <div class="detail-label">Billed To</div>
+                        <div class="detail-value">Gujarat Traders Ltd</div>
+                    </div>
+                    <div class="detail-item" data-field="gstin">
+                        <div class="detail-label">Customer GSTIN</div>
+                        <div class="detail-value">24AADCG7890M1ZX</div>
+                    </div>
+                </div>
+
+                <div class="items-table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>HSN</th>
+                            <th>Qty</th>
+                            <th style="text-align: right;">Rate</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-item="1">
+                            <td>KhataClerk Professional License</td>
+                            <td>998314</td>
+                            <td>12</td>
+                            <td style="text-align: right;">₹2,500</td>
+                            <td style="text-align: right; font-weight: 700;">₹30,000</td>
+                        </tr>
+                        <tr data-item="2">
+                            <td>Implementation & Training</td>
+                            <td>998316</td>
+                            <td>1</td>
+                            <td style="text-align: right;">₹15,000</td>
+                            <td style="text-align: right; font-weight: 700;">₹15,000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="invoice-totals">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹45,000</span>
+                    </div>
+                    <div class="total-row">
+                        <span>CGST @ 9%:</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
+                    </div>
+                    <div class="total-row">
+                        <span>SGST @ 9%:</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Grand Total:</span>
+                        <span style="font-family: 'JetBrains Mono', monospace;">₹53,100</span>
+                    </div>
+                </div>
             </div>
 
-            <h1>
-                <span class="highlight">Intelligence</span><br>
-                That Just Works<br>
-                For You
-            </h1>
+            <!-- Extracted Data Card -->
+            <div class="extracted-data" id="extractedData">
+                <div class="extracted-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <h3>Fields Mapped Automatically</h3>
+                </div>
 
-            <p class="hero-subtitle">
-                KhataClerk transforms bills into accounting entries automatically. <strong>95% accurate from day one.</strong> No training. No mapping. No hassle.
-            </p>
+                <div class="field-mapping">
+                    <div class="mapping-row">
+                        <div class="field-source">
+                            <div class="field-label">From Invoice</div>
+                            <div class="field-value">INV-2024-0342</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="field-target">
+                            <div class="field-label">Tally Field</div>
+                            <div class="field-value">Voucher No.</div>
+                        </div>
+                    </div>
 
-            <div class="cta-buttons">
+                    <div class="mapping-row">
+                        <div class="field-source">
+                            <div class="field-label">From Invoice</div>
+                            <div class="field-value">Gujarat Traders</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="field-target">
+                            <div class="field-label">Tally Field</div>
+                            <div class="field-value">Party Ledger</div>
+                        </div>
+                    </div>
+
+                    <div class="mapping-row">
+                        <div class="field-source">
+                            <div class="field-label">From Invoice</div>
+                            <div class="field-value">₹53,100</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="field-target">
+                            <div class="field-label">Tally Field</div>
+                            <div class="field-value">Total Amount</div>
+                        </div>
+                    </div>
+
+                    <div class="mapping-row">
+                        <div class="field-source">
+                            <div class="field-label">From Invoice</div>
+                            <div class="field-value">CGST: ₹4,050</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="field-target">
+                            <div class="field-label">Tally Field</div>
+                            <div class="field-value">CGST Ledger</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="approve-button" id="approveBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Approve & Post to Tally
+                </button>
+            </div>
+
+            <!-- Tally Entry Success -->
+            <div class="tally-entry" id="tallyEntry">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+
+                <h3>Posted Successfully!</h3>
+
+                <div class="entry-details">
+                    <div class="entry-row">
+                        <span class="entry-label">Voucher Type:</span>
+                        <span class="entry-value">Sales Invoice</span>
+                    </div>
+                    <div class="entry-row">
+                        <span class="entry-label">Voucher No:</span>
+                        <span class="entry-value">INV-2024-0342</span>
+                    </div>
+                    <div class="entry-row">
+                        <span class="entry-label">Party:</span>
+                        <span class="entry-value">Gujarat Traders</span>
+                    </div>
+                    <div class="entry-row">
+                        <span class="entry-label">Date:</span>
+                        <span class="entry-value">13-02-2026</span>
+                    </div>
+                    <div class="entry-row">
+                        <span class="entry-label">Amount:</span>
+                        <span class="entry-value">₹53,100.00</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; opacity: 0.95; font-size: 1rem; margin-top: 1.2rem; font-weight: 500;">
+                    ✓ Ledgers updated • Books balanced • Ready for reconciliation
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="problem-section">
+    <div class="problem-container">
+        <div class="section-header">
+            <div class="section-eyebrow">The Reality</div>
+            <h2>Still Entering Bills Manually?</h2>
+            <p class="section-subtitle">Manual invoice entry isn't just slow—it's costing you money, time, and peace of
+                mind every single day.</p>
+        </div>
+
+        <div class="pain-points">
+            <div class="pain-card">
+                <div class="pain-icon time">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="pain-content">
+                    <h3>20+ Hours Wasted Every Week</h3>
+                    <p>Your team spends entire days typing invoices instead of growing your business. That's over 1,000
+                        hours a year lost to data entry.</p>
+                    <div class="pain-stat">1,040 hours/year = ₹5 lakhs+ in productivity loss</div>
+                </div>
+            </div>
+
+            <div class="pain-card">
+                <div class="pain-icon money">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div class="pain-content">
+                    <h3>₹50,000+ Lost Annually</h3>
+                    <p>Manual errors lead to duplicate payments, missed discounts, incorrect GST filings, and penalties.
+                        Small mistakes compound fast.</p>
+                    <div class="pain-stat">Average business loses 3-5% revenue to data errors</div>
+                </div>
+            </div>
+
+            <div class="pain-card">
+                <div class="pain-icon stress">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a9 9 0 0 1 9 9v4a9 9 0 0 1-9 9"></path>
+                        <path d="M3 11a9 9 0 0 1 9-9"></path>
+                        <circle cx="12" cy="12" r="1"></circle>
+                    </svg>
+                </div>
+                <div class="pain-content">
+                    <h3>Month-End Chaos</h3>
+                    <p>Always behind on books. GST filing panic. Auditor questions. Delayed reports. The stress never
+                        ends when you're manually entering invoices.</p>
+                    <div class="pain-stat">Books are 2-3 weeks behind = No real-time decisions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="problem-reality">
+            <div class="reality-box">
+                <div class="reality-header">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <span>The Hidden Cost</span>
+                </div>
+                <p>When your accountant is typing invoices, they're NOT analyzing cash flow, catching tax savings, or
+                    planning growth. You're paying professional rates for clerical work.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section -->
+<section class="solution-section">
+    <div class="solution-container">
+        <div class="section-header">
+            <div class="section-eyebrow emerald">The Solution</div>
+            <h2>KhataClerk Does It All For You</h2>
+            <p class="section-subtitle">From invoice upload to Tally posting—completely automated. <strong>Zero manual
+                data entry.</strong></p>
+        </div>
+
+        <div class="how-it-works">
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-visual upload">
+                    <div class="upload-illustration">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <div class="upload-files">
+                            <div class="file-item pdf">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="white"
+                                              stroke-width="2"></polyline>
+                                </svg>
+                                <span>invoice.pdf</span>
+                            </div>
+                            <div class="file-item image">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5" fill="white"></circle>
+                                    <polyline points="21 15 16 10 5 21" fill="none" stroke="white"
+                                              stroke-width="2"></polyline>
+                                </svg>
+                                <span>bill.jpg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <h3>Upload Anywhere</h3>
+                    <p>Drag & drop on desktop, scan with your phone, email directly to KhataClerk, or forward from
+                        WhatsApp. We handle everything.</p>
+                    <div class="step-features">
+                        <div class="feature-tag">📱 Phone scan</div>
+                        <div class="feature-tag">📧 Email forward</div>
+                        <div class="feature-tag">💻 Desktop upload</div>
+                        <div class="feature-tag">💬 WhatsApp</div>
+                    </div>
+                    <div class="step-note">Supports PDF, images, even handwritten bills</div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card reverse">
+                <div class="step-number">02</div>
+                <div class="step-visual extract">
+                    <div class="extract-illustration">
+                        <div class="invoice-preview">
+                            <div class="invoice-line"></div>
+                            <div class="invoice-line short"></div>
+                            <div class="invoice-line"></div>
+                            <div class="invoice-line medium"></div>
+                        </div>
+                        <div class="extraction-animation">
+                            <div class="extract-field" style="animation-delay: 0s;">
+                                <span class="field-label">Vendor</span>
+                                <span class="field-value">Gujarat Traders</span>
+                            </div>
+                            <div class="extract-field" style="animation-delay: 0.2s;">
+                                <span class="field-label">Amount</span>
+                                <span class="field-value">₹53,100</span>
+                            </div>
+                            <div class="extract-field" style="animation-delay: 0.4s;">
+                                <span class="field-label">GSTIN</span>
+                                <span class="field-value">24AADCG7890M1ZX</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <h3>We Extract Everything</h3>
+                    <p>Invoice details, GST breakdown, vendor info, line items, HSN codes—all extracted automatically
+                        with 95% accuracy.</p>
+                    <div class="step-features">
+                        <div class="feature-tag">✓ Vendor & GSTIN</div>
+                        <div class="feature-tag">✓ Invoice number & date</div>
+                        <div class="feature-tag">✓ Line items with HSN</div>
+                        <div class="feature-tag">✓ CGST/SGST/IGST</div>
+                    </div>
+                    <div class="step-note">95% accurate from your first invoice</div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-visual review">
+                    <div class="review-illustration">
+                        <div class="review-dashboard">
+                            <div class="dashboard-header">
+                                <div class="status-badge">Ready for Review</div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Party:</span>
+                                <span class="data-value">Gujarat Traders</span>
+                                <div class="edit-btn">✏️</div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Amount:</span>
+                                <span class="data-value">₹53,100</span>
+                                <div class="edit-btn">✏️</div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">CGST:</span>
+                                <span class="data-value">₹4,050</span>
+                                <div class="edit-btn">✏️</div>
+                            </div>
+                            <div class="approve-action">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Approve</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <h3>You Review & Approve</h3>
+                    <p>Clean dashboard shows all extracted data. Edit anything with one click. Set auto-approval rules
+                        for trusted vendors. You're always in control.</p>
+                    <div class="step-features">
+                        <div class="feature-tag">👁️ Visual review</div>
+                        <div class="feature-tag">✏️ One-click edits</div>
+                        <div class="feature-tag">⚡ Bulk approval</div>
+                        <div class="feature-tag">🎯 Auto-rules</div>
+                    </div>
+                    <div class="step-note">You have final say, always</div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card reverse">
+                <div class="step-number">04</div>
+                <div class="step-visual post">
+                    <div class="post-illustration">
+                        <div class="software-logos">
+                            <div class="logo-item tally">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 3h18v18H3z"></path>
+                                    <text x="12" y="15" text-anchor="middle" fill="white" font-size="10"
+                                          font-weight="bold">T
+                                    </text>
+                                </svg>
+                            </div>
+                            <div class="logo-item zoho">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <text x="12" y="15" text-anchor="middle" fill="white" font-size="9"
+                                          font-weight="bold">Z
+                                    </text>
+                                </svg>
+                            </div>
+                            <div class="logo-item qb">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                    <text x="12" y="15" text-anchor="middle" fill="white" font-size="8"
+                                          font-weight="bold">QB
+                                    </text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="sync-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="success-checkmark">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Posted!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <h3>Auto-Posts to Your Software</h3>
+                    <p>Direct integration with Tally, Zoho Books, QuickBooks. Voucher created, ledgers updated, books
+                        balanced—automatically. No exports, no imports.</p>
+                    <div class="step-features">
+                        <div class="feature-tag">🔗 Direct Tally sync</div>
+                        <div class="feature-tag">📊 Real-time posting</div>
+                        <div class="feature-tag">👥 Multi-user support</div>
+                        <div class="feature-tag">✓ Zero manual work</div>
+                    </div>
+                    <div class="step-note">Multi-user? All sync to one master Tally</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="solution-cta">
+            <h3>Ready to Stop Typing?</h3>
+            <p>Start your free trial. No credit card required. See results in 5 minutes.</p>
+            <div class="cta-buttons centered">
                 <a href="#" class="btn btn-primary">
                     Start Free Trial
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2.5">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
                 <a href="#" class="btn btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
                     Watch Demo
                 </a>
             </div>
-
-            <div class="trust-badges">
-                <div class="badge-item">
-                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span><strong>95%</strong> accuracy from day one</span>
-                </div>
-                <div class="badge-item">
-                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span><strong>SOC 2</strong> certified security</span>
-                </div>
-                <div class="badge-item badge-india">
-                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span><strong>Made in India</strong> 🇮🇳</span>
-                </div>
-            </div>
         </div>
+    </div>
+</section>
 
-        <!-- Animation Visual -->
-        <div class="hero-visual">
-            <div class="state-indicator" id="stateIndicator">
-                <div class="spinner"></div>
-                <span id="stateText">Scanning invoice...</span>
-            </div>
+<script>
+    // Animation Sequence
+    let animationStep = 0;
+    const totalSteps = 4;
 
-            <div class="animation-container">
-                <!-- Original Invoice -->
-                <div class="invoice-card" id="invoiceCard">
-                    <div class="invoice-header">
-                        <div>
-                            <div class="invoice-logo">KhataClerk</div>
-                            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.3rem;">by Perceptive Labs</div>
-                        </div>
-                        <div class="invoice-type">Tax Invoice</div>
-                    </div>
+    function runAnimation() {
+        const invoiceCard = document.getElementById('invoiceCard');
+        const extractedData = document.getElementById('extractedData');
+        const tallyEntry = document.getElementById('tallyEntry');
+        const stateIndicator = document.getElementById('stateIndicator');
+        const stateText = document.getElementById('stateText');
 
-                    <div class="company-info">
-                        <div class="company-name">Perceptive Labs Private Limited</div>
-                        <div>Opp. Pushpak Society, Pushpak Park</div>
-                        <div>Ahmedabad, Gujarat 380058</div>
-                        <div style="margin-top: 0.6rem;">GSTIN: <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">24AABCP1234E1Z5</span></div>
-                    </div>
+        animationStep = (animationStep + 1) % totalSteps;
 
-                    <div class="invoice-details">
-                        <div class="detail-item" data-field="invoice-no">
-                            <div class="detail-label">Invoice No.</div>
-                            <div class="detail-value">INV-2024-0342</div>
-                        </div>
-                        <div class="detail-item" data-field="date">
-                            <div class="detail-label">Date</div>
-                            <div class="detail-value">13-Feb-2026</div>
-                        </div>
-                        <div class="detail-item" data-field="vendor">
-                            <div class="detail-label">Billed To</div>
-                            <div class="detail-value">Gujarat Traders Ltd</div>
-                        </div>
-                        <div class="detail-item" data-field="gstin">
-                            <div class="detail-label">Customer GSTIN</div>
-                            <div class="detail-value">24AADCG7890M1ZX</div>
-                        </div>
-                    </div>
+        // Reset
+        invoiceCard.classList.remove('processing');
+        extractedData.classList.remove('show');
+        tallyEntry.classList.remove('show');
+        stateIndicator.classList.remove('show', 'scanning', 'extracting', 'posting');
 
-                    <div class="items-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>HSN</th>
-                                    <th>Qty</th>
-                                    <th style="text-align: right;">Rate</th>
-                                    <th style="text-align: right;">Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-item="1">
-                                    <td>KhataClerk Professional License</td>
-                                    <td>998314</td>
-                                    <td>12</td>
-                                    <td style="text-align: right;">₹2,500</td>
-                                    <td style="text-align: right; font-weight: 700;">₹30,000</td>
-                                </tr>
-                                <tr data-item="2">
-                                    <td>Implementation & Training</td>
-                                    <td>998316</td>
-                                    <td>1</td>
-                                    <td style="text-align: right;">₹15,000</td>
-                                    <td style="text-align: right; font-weight: 700;">₹15,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        // Remove all highlights
+        document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
 
-                    <div class="invoice-totals">
-                        <div class="total-row">
-                            <span>Subtotal:</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹45,000</span>
-                        </div>
-                        <div class="total-row">
-                            <span>CGST @ 9%:</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
-                        </div>
-                        <div class="total-row">
-                            <span>SGST @ 9%:</span>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
-                        </div>
-                        <div class="total-row grand-total">
-                            <span>Grand Total:</span>
-                            <span style="font-family: 'JetBrains Mono', monospace;">₹53,100</span>
-                        </div>
-                    </div>
-                </div>
+        setTimeout(() => {
+            switch (animationStep) {
+                case 0:
+                    // Show original invoice
+                    break;
 
-                <!-- Extracted Data Card -->
-                <div class="extracted-data" id="extractedData">
-                    <div class="extracted-header">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <h3>Fields Mapped Automatically</h3>
-                    </div>
+                case 1:
+                    // Scanning & highlighting fields
+                    stateIndicator.classList.add('show', 'scanning');
+                    stateText.textContent = 'Scanning invoice...';
+                    invoiceCard.classList.add('processing');
 
-                    <div class="field-mapping">
-                        <div class="mapping-row">
-                            <div class="field-source">
-                                <div class="field-label">From Invoice</div>
-                                <div class="field-value">INV-2024-0342</div>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="field-target">
-                                <div class="field-label">Tally Field</div>
-                                <div class="field-value">Voucher No.</div>
-                            </div>
-                        </div>
-
-                        <div class="mapping-row">
-                            <div class="field-source">
-                                <div class="field-label">From Invoice</div>
-                                <div class="field-value">Gujarat Traders</div>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="field-target">
-                                <div class="field-label">Tally Field</div>
-                                <div class="field-value">Party Ledger</div>
-                            </div>
-                        </div>
-
-                        <div class="mapping-row">
-                            <div class="field-source">
-                                <div class="field-label">From Invoice</div>
-                                <div class="field-value">₹53,100</div>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="field-target">
-                                <div class="field-label">Tally Field</div>
-                                <div class="field-value">Total Amount</div>
-                            </div>
-                        </div>
-
-                        <div class="mapping-row">
-                            <div class="field-source">
-                                <div class="field-label">From Invoice</div>
-                                <div class="field-value">CGST: ₹4,050</div>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="field-target">
-                                <div class="field-label">Tally Field</div>
-                                <div class="field-value">CGST Ledger</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="approve-button" id="approveBtn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        Approve & Post to Tally
-                    </button>
-                </div>
-
-                <!-- Tally Entry Success -->
-                <div class="tally-entry" id="tallyEntry">
-                    <div class="success-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-
-                    <h3>Posted Successfully!</h3>
-
-                    <div class="entry-details">
-                        <div class="entry-row">
-                            <span class="entry-label">Voucher Type:</span>
-                            <span class="entry-value">Sales Invoice</span>
-                        </div>
-                        <div class="entry-row">
-                            <span class="entry-label">Voucher No:</span>
-                            <span class="entry-value">INV-2024-0342</span>
-                        </div>
-                        <div class="entry-row">
-                            <span class="entry-label">Party:</span>
-                            <span class="entry-value">Gujarat Traders</span>
-                        </div>
-                        <div class="entry-row">
-                            <span class="entry-label">Date:</span>
-                            <span class="entry-value">13-02-2026</span>
-                        </div>
-                        <div class="entry-row">
-                            <span class="entry-label">Amount:</span>
-                            <span class="entry-value">₹53,100.00</span>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; opacity: 0.95; font-size: 1rem; margin-top: 1.2rem; font-weight: 500;">
-                        ✓ Ledgers updated • Books balanced • Ready for reconciliation
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="problem-container">
-            <div class="section-header">
-                <div class="section-eyebrow">The Reality</div>
-                <h2>Still Entering Bills Manually?</h2>
-                <p class="section-subtitle">Manual invoice entry isn't just slow—it's costing you money, time, and peace of mind every single day.</p>
-            </div>
-
-            <div class="pain-points">
-                <div class="pain-card">
-                    <div class="pain-icon time">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <div class="pain-content">
-                        <h3>20+ Hours Wasted Every Week</h3>
-                        <p>Your team spends entire days typing invoices instead of growing your business. That's over 1,000 hours a year lost to data entry.</p>
-                        <div class="pain-stat">1,040 hours/year = ₹5 lakhs+ in productivity loss</div>
-                    </div>
-                </div>
-
-                <div class="pain-card">
-                    <div class="pain-icon money">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <div class="pain-content">
-                        <h3>₹50,000+ Lost Annually</h3>
-                        <p>Manual errors lead to duplicate payments, missed discounts, incorrect GST filings, and penalties. Small mistakes compound fast.</p>
-                        <div class="pain-stat">Average business loses 3-5% revenue to data errors</div>
-                    </div>
-                </div>
-
-                <div class="pain-card">
-                    <div class="pain-icon stress">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2a9 9 0 0 1 9 9v4a9 9 0 0 1-9 9"></path>
-                            <path d="M3 11a9 9 0 0 1 9-9"></path>
-                            <circle cx="12" cy="12" r="1"></circle>
-                        </svg>
-                    </div>
-                    <div class="pain-content">
-                        <h3>Month-End Chaos</h3>
-                        <p>Always behind on books. GST filing panic. Auditor questions. Delayed reports. The stress never ends when you're manually entering invoices.</p>
-                        <div class="pain-stat">Books are 2-3 weeks behind = No real-time decisions</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="problem-reality">
-                <div class="reality-box">
-                    <div class="reality-header">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                        </svg>
-                        <span>The Hidden Cost</span>
-                    </div>
-                    <p>When your accountant is typing invoices, they're NOT analyzing cash flow, catching tax savings, or planning growth. You're paying professional rates for clerical work.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Animation Sequence
-        let animationStep = 0;
-        const totalSteps = 4;
-
-        function runAnimation() {
-            const invoiceCard = document.getElementById('invoiceCard');
-            const extractedData = document.getElementById('extractedData');
-            const tallyEntry = document.getElementById('tallyEntry');
-            const stateIndicator = document.getElementById('stateIndicator');
-            const stateText = document.getElementById('stateText');
-
-            animationStep = (animationStep + 1) % totalSteps;
-
-            // Reset
-            invoiceCard.classList.remove('processing');
-            extractedData.classList.remove('show');
-            tallyEntry.classList.remove('show');
-            stateIndicator.classList.remove('show', 'scanning', 'extracting', 'posting');
-
-            // Remove all highlights
-            document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
-
-            setTimeout(() => {
-                switch(animationStep) {
-                    case 0:
-                        // Show original invoice
-                        break;
-
-                    case 1:
-                        // Scanning & highlighting fields
-                        stateIndicator.classList.add('show', 'scanning');
-                        stateText.textContent = 'Scanning invoice...';
-                        invoiceCard.classList.add('processing');
-
-                        // Highlight fields sequentially
-                        const fields = ['invoice-no', 'date', 'vendor', 'gstin'];
-                        fields.forEach((field, idx) => {
-                            setTimeout(() => {
-                                const el = document.querySelector(`[data-field="${field}"]`);
-                                if (el) el.classList.add('highlight');
-                            }, idx * 300);
-                        });
-
-                        // Highlight items
+                    // Highlight fields sequentially
+                    const fields = ['invoice-no', 'date', 'vendor', 'gstin'];
+                    fields.forEach((field, idx) => {
                         setTimeout(() => {
-                            const item1 = document.querySelector('[data-item="1"]');
-                            if (item1) item1.classList.add('highlight');
-                        }, 1200);
-                        setTimeout(() => {
-                            const item2 = document.querySelector('[data-item="2"]');
-                            if (item2) item2.classList.add('highlight');
-                        }, 1500);
-                        break;
+                            const el = document.querySelector(`[data-field="${field}"]`);
+                            if (el) el.classList.add('highlight');
+                        }, idx * 300);
+                    });
 
-                    case 2:
-                        // Show extracted data
-                        stateIndicator.classList.add('show', 'extracting');
-                        stateText.textContent = 'Fields mapped automatically...';
-                        extractedData.classList.add('show');
-                        break;
+                    // Highlight items
+                    setTimeout(() => {
+                        const item1 = document.querySelector('[data-item="1"]');
+                        if (item1) item1.classList.add('highlight');
+                    }, 1200);
+                    setTimeout(() => {
+                        const item2 = document.querySelector('[data-item="2"]');
+                        if (item2) item2.classList.add('highlight');
+                    }, 1500);
+                    break;
 
-                    case 3:
-                        // Show Tally entry
-                        stateIndicator.classList.add('show', 'posting');
-                        stateText.textContent = 'Posted to Tally!';
-                        tallyEntry.classList.add('show');
-                        break;
-                }
-            }, 100);
-        }
+                case 2:
+                    // Show extracted data
+                    stateIndicator.classList.add('show', 'extracting');
+                    stateText.textContent = 'Fields mapped automatically...';
+                    extractedData.classList.add('show');
+                    break;
 
-        // Auto-run animation
-        setInterval(runAnimation, 4500);
-        setTimeout(() => runAnimation(), 1000);
+                case 3:
+                    // Show Tally entry
+                    stateIndicator.classList.add('show', 'posting');
+                    stateText.textContent = 'Posted to Tally!';
+                    tallyEntry.classList.add('show');
+                    break;
+            }
+        }, 100);
+    }
 
-        // Manual approve button
-        document.getElementById('approveBtn').addEventListener('click', () => {
-            animationStep = 2;
-            runAnimation();
-        });
-    </script>
+    // Auto-run animation
+    setInterval(runAnimation, 4500);
+    setTimeout(() => runAnimation(), 1000);
 
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="problem-container">
-            <div class="section-header">
-                <h2>Still Entering Bills Manually?</h2>
-                <p class="section-subtitle">Every day you wait costs you time, money, and peace of mind.</p>
-            </div>
-
-            <div class="problems-grid">
-                <div class="problem-card time">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
+    // Manual approve button
+    document.getElementById('approveBtn').addEventListener('click', () => {
+        animationStep = 2;
+        runAnimation();
+    });
+</script>
+</body>
+</html>
