@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhataClerk - Intelligence That Just Works For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #047857;
+            --emerald-dark: #065f46;
+            --emerald-light: #10b981;
+            --orange: #f97316;
+            --gold: #fbbf24;
+            --cream: #fefce8;
+            --navy: #0f172a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffffff 100%);
+            color: var(--gray-900);
+            overflow-x: hidden;
+        }
+
+        /* Header/Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(4, 120, 87, 0.1);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--emerald);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--emerald);
+        }
+
+        .nav-cta {
+            background: var(--emerald);
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--emerald-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            min-height: 95vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.1), rgba(251, 191, 36, 0.1));
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--emerald-dark);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(4, 120, 87, 0.2);
+        }
+
+        .hero-eyebrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-subtitle strong {
+            color: var(--emerald-dark);
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 1.1rem 2.2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+            color: white;
+            box-shadow: 0 4px 16px rgba(4, 120, 87, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(4, 120, 87, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--emerald-dark);
+            border: 2px solid var(--emerald);
+        }
+
+        .btn-secondary:hover {
+            background: var(--emerald);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: start;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(4, 120, 87, 0.15);
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .badge-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--emerald);
+            flex-shrink: 0;
+        }
+
+        .badge-item .check-circle {
+            background: var(--emerald);
+            color: white;
+            border-radius: 50%;
+            padding: 4px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .badge-item strong {
+            color: var(--emerald-dark);
+            font-weight: 700;
+        }
+
+        .badge-india {
+            font-size: 1.1rem;
+        }
+
+        /* Hero Visual - Invoice Animation */
+        .hero-visual {
+            position: relative;
+            height: 650px;
+            animation: fadeInRight 1s ease 0.4s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animation-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Invoice Card */
+        .invoice-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--gray-100);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+        }
+
+        .invoice-card.processing {
+            border-color: var(--emerald);
+            box-shadow: 0 20px 60px rgba(4, 120, 87, 0.25);
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .invoice-logo {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--emerald);
+        }
+
+        .invoice-type {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .company-info {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+
+        .company-name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .invoice-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-size: 0.88rem;
+        }
+
+        .detail-item {
+            position: relative;
+            padding: 0.4rem 0;
+        }
+
+        .detail-label {
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.82rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .detail-value {
+            color: var(--navy);
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Field Highlight Animation */
+        .detail-item.highlight {
+            animation: fieldHighlight 0.6s ease;
+        }
+
+        @keyframes fieldHighlight {
+            0%, 100% {
+                background: transparent;
+            }
+            50% {
+                background: rgba(4, 120, 87, 0.15);
+                border-radius: 6px;
+            }
+        }
+
+        .items-table {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .items-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .items-table th {
+            background: var(--gray-50);
+            padding: 0.7rem 0.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--gray-600);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .items-table td {
+            padding: 0.8rem 0.5rem;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .items-table tr.highlight {
+            animation: rowHighlight 0.6s ease;
+        }
+
+        @keyframes rowHighlight {
+            0%, 100% {
+                background: transparent;
+            }
+            50% {
+                background: rgba(4, 120, 87, 0.1);
+            }
+        }
+
+        .invoice-totals {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--gray-100);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .total-row.grand-total {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--emerald-dark);
+            padding-top: 0.8rem;
+            margin-top: 0.5rem;
+            border-top: 2px solid var(--emerald);
+        }
+
+        /* Extracted Data Card */
+        .extracted-data {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 30px 80px rgba(4, 120, 87, 0.3);
+            border: 3px solid var(--emerald);
+            width: 95%;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        .extracted-data.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .extracted-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .extracted-header svg {
+            width: 32px;
+            height: 32px;
+            color: var(--emerald);
+        }
+
+        .extracted-header h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            font-weight: 800;
+        }
+
+        .field-mapping {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .mapping-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 10px;
+            opacity: 0;
+            animation: fadeInMapping 0.4s ease forwards;
+        }
+
+        .mapping-row:nth-child(1) { animation-delay: 0.1s; }
+        .mapping-row:nth-child(2) { animation-delay: 0.2s; }
+        .mapping-row:nth-child(3) { animation-delay: 0.3s; }
+        .mapping-row:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInMapping {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .field-source, .field-target {
+            font-size: 0.9rem;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: var(--gray-600);
+            font-size: 0.78rem;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .field-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .arrow {
+            color: var(--emerald);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .approve-button {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .approve-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(4, 120, 87, 0.4);
+        }
+
+        /* Tally Entry Card */
+        .tally-entry {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 30px 80px rgba(4, 120, 87, 0.4);
+            color: white;
+            width: 95%;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 20;
+        }
+
+        .tally-entry.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes successPop {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--emerald);
+        }
+
+        .tally-entry h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1.8rem;
+            font-weight: 800;
+        }
+
+        .entry-details {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .entry-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .entry-row:last-child {
+            border-bottom: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .entry-label {
+            opacity: 0.9;
+        }
+
+        .entry-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* Animation States */
+        .state-indicator {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 1rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .state-indicator.show {
+            opacity: 1;
+        }
+
+        .state-indicator.scanning {
+            color: var(--orange);
+        }
+
+        .state-indicator.extracting {
+            color: var(--emerald);
+        }
+
+        .state-indicator.posting {
+            color: var(--emerald-dark);
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 6rem;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-visual {
+                height: 550px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .invoice-card {
+                padding: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .invoice-logo {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KhataClerk</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#integrations">Integrations</a>
+                <a href="#faq">FAQ</a>
+                <a href="#" class="nav-cta">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                95% Accurate
+            </div>
+
+            <h1>
+                <span class="highlight">Intelligence</span><br>
+                That Just Works<br>
+                For You
+            </h1>
+
+            <p class="hero-subtitle">
+                KhataClerk transforms bills into accounting entries automatically. <strong>95% accurate from day one.</strong> No training. No mapping. No hassle.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    Start Free Trial
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Watch Demo
+                </a>
+            </div>
+
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>95%</strong> accuracy from day one</span>
+                </div>
+                <div class="badge-item">
+                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>SOC 2</strong> certified security</span>
+                </div>
+                <div class="badge-item badge-india">
+                    <svg class="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>Made in India</strong> 🇮🇳</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animation Visual -->
+        <div class="hero-visual">
+            <div class="state-indicator" id="stateIndicator">
+                <div class="spinner"></div>
+                <span id="stateText">Scanning invoice...</span>
+            </div>
+
+            <div class="animation-container">
+                <!-- Original Invoice -->
+                <div class="invoice-card" id="invoiceCard">
+                    <div class="invoice-header">
+                        <div>
+                            <div class="invoice-logo">KhataClerk</div>
+                            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.3rem;">by Perceptive Labs</div>
+                        </div>
+                        <div class="invoice-type">Tax Invoice</div>
+                    </div>
+
+                    <div class="company-info">
+                        <div class="company-name">Perceptive Labs Private Limited</div>
+                        <div>Opp. Pushpak Society, Pushpak Park</div>
+                        <div>Ahmedabad, Gujarat 380058</div>
+                        <div style="margin-top: 0.6rem;">GSTIN: <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">24AABCP1234E1Z5</span></div>
+                    </div>
+
+                    <div class="invoice-details">
+                        <div class="detail-item" data-field="invoice-no">
+                            <div class="detail-label">Invoice No.</div>
+                            <div class="detail-value">INV-2024-0342</div>
+                        </div>
+                        <div class="detail-item" data-field="date">
+                            <div class="detail-label">Date</div>
+                            <div class="detail-value">13-Feb-2026</div>
+                        </div>
+                        <div class="detail-item" data-field="vendor">
+                            <div class="detail-label">Billed To</div>
+                            <div class="detail-value">Gujarat Traders Ltd</div>
+                        </div>
+                        <div class="detail-item" data-field="gstin">
+                            <div class="detail-label">Customer GSTIN</div>
+                            <div class="detail-value">24AADCG7890M1ZX</div>
+                        </div>
+                    </div>
+
+                    <div class="items-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>HSN</th>
+                                    <th>Qty</th>
+                                    <th style="text-align: right;">Rate</th>
+                                    <th style="text-align: right;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-item="1">
+                                    <td>KhataClerk Professional License</td>
+                                    <td>998314</td>
+                                    <td>12</td>
+                                    <td style="text-align: right;">₹2,500</td>
+                                    <td style="text-align: right; font-weight: 700;">₹30,000</td>
+                                </tr>
+                                <tr data-item="2">
+                                    <td>Implementation & Training</td>
+                                    <td>998316</td>
+                                    <td>1</td>
+                                    <td style="text-align: right;">₹15,000</td>
+                                    <td style="text-align: right; font-weight: 700;">₹15,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="invoice-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹45,000</span>
+                        </div>
+                        <div class="total-row">
+                            <span>CGST @ 9%:</span>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
+                        </div>
+                        <div class="total-row">
+                            <span>SGST @ 9%:</span>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">₹4,050</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Grand Total:</span>
+                            <span style="font-family: 'JetBrains Mono', monospace;">₹53,100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extracted Data Card -->
+                <div class="extracted-data" id="extractedData">
+                    <div class="extracted-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <h3>Fields Mapped Automatically</h3>
+                    </div>
+
+                    <div class="field-mapping">
+                        <div class="mapping-row">
+                            <div class="field-source">
+                                <div class="field-label">From Invoice</div>
+                                <div class="field-value">INV-2024-0342</div>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="field-target">
+                                <div class="field-label">Tally Field</div>
+                                <div class="field-value">Voucher No.</div>
+                            </div>
+                        </div>
+
+                        <div class="mapping-row">
+                            <div class="field-source">
+                                <div class="field-label">From Invoice</div>
+                                <div class="field-value">Gujarat Traders</div>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="field-target">
+                                <div class="field-label">Tally Field</div>
+                                <div class="field-value">Party Ledger</div>
+                            </div>
+                        </div>
+
+                        <div class="mapping-row">
+                            <div class="field-source">
+                                <div class="field-label">From Invoice</div>
+                                <div class="field-value">₹53,100</div>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="field-target">
+                                <div class="field-label">Tally Field</div>
+                                <div class="field-value">Total Amount</div>
+                            </div>
+                        </div>
+
+                        <div class="mapping-row">
+                            <div class="field-source">
+                                <div class="field-label">From Invoice</div>
+                                <div class="field-value">CGST: ₹4,050</div>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="field-target">
+                                <div class="field-label">Tally Field</div>
+                                <div class="field-value">CGST Ledger</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="approve-button" id="approveBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Approve & Post to Tally
+                    </button>
+                </div>
+
+                <!-- Tally Entry Success -->
+                <div class="tally-entry" id="tallyEntry">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+
+                    <h3>Posted Successfully!</h3>
+
+                    <div class="entry-details">
+                        <div class="entry-row">
+                            <span class="entry-label">Voucher Type:</span>
+                            <span class="entry-value">Sales Invoice</span>
+                        </div>
+                        <div class="entry-row">
+                            <span class="entry-label">Voucher No:</span>
+                            <span class="entry-value">INV-2024-0342</span>
+                        </div>
+                        <div class="entry-row">
+                            <span class="entry-label">Party:</span>
+                            <span class="entry-value">Gujarat Traders</span>
+                        </div>
+                        <div class="entry-row">
+                            <span class="entry-label">Date:</span>
+                            <span class="entry-value">13-02-2026</span>
+                        </div>
+                        <div class="entry-row">
+                            <span class="entry-label">Amount:</span>
+                            <span class="entry-value">₹53,100.00</span>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; opacity: 0.95; font-size: 1rem; margin-top: 1.2rem; font-weight: 500;">
+                        ✓ Ledgers updated • Books balanced • Ready for reconciliation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation Sequence
+        let animationStep = 0;
+        const totalSteps = 4;
+
+        function runAnimation() {
+            const invoiceCard = document.getElementById('invoiceCard');
+            const extractedData = document.getElementById('extractedData');
+            const tallyEntry = document.getElementById('tallyEntry');
+            const stateIndicator = document.getElementById('stateIndicator');
+            const stateText = document.getElementById('stateText');
+
+            animationStep = (animationStep + 1) % totalSteps;
+
+            // Reset
+            invoiceCard.classList.remove('processing');
+            extractedData.classList.remove('show');
+            tallyEntry.classList.remove('show');
+            stateIndicator.classList.remove('show', 'scanning', 'extracting', 'posting');
+            
+            // Remove all highlights
+            document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
+
+            setTimeout(() => {
+                switch(animationStep) {
+                    case 0:
+                        // Show original invoice
+                        break;
+
+                    case 1:
+                        // Scanning & highlighting fields
+                        stateIndicator.classList.add('show', 'scanning');
+                        stateText.textContent = 'Scanning invoice...';
+                        invoiceCard.classList.add('processing');
+                        
+                        // Highlight fields sequentially
+                        const fields = ['invoice-no', 'date', 'vendor', 'gstin'];
+                        fields.forEach((field, idx) => {
+                            setTimeout(() => {
+                                const el = document.querySelector(`[data-field="${field}"]`);
+                                if (el) el.classList.add('highlight');
+                            }, idx * 300);
+                        });
+
+                        // Highlight items
+                        setTimeout(() => {
+                            const item1 = document.querySelector('[data-item="1"]');
+                            if (item1) item1.classList.add('highlight');
+                        }, 1200);
+                        setTimeout(() => {
+                            const item2 = document.querySelector('[data-item="2"]');
+                            if (item2) item2.classList.add('highlight');
+                        }, 1500);
+                        break;
+
+                    case 2:
+                        // Show extracted data
+                        stateIndicator.classList.add('show', 'extracting');
+                        stateText.textContent = 'Fields mapped automatically...';
+                        extractedData.classList.add('show');
+                        break;
+
+                    case 3:
+                        // Show Tally entry
+                        stateIndicator.classList.add('show', 'posting');
+                        stateText.textContent = 'Posted to Tally!';
+                        tallyEntry.classList.add('show');
+                        break;
+                }
+            }, 100);
+        }
+
+        // Auto-run animation
+        setInterval(runAnimation, 4500);
+        setTimeout(() => runAnimation(), 1000);
+
+        // Manual approve button
+        document.getElementById('approveBtn').addEventListener('click', () => {
+            animationStep = 2;
+            runAnimation();
+        });
+    </script>
+</body>
+</html>
