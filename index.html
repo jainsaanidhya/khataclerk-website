@@ -4,8 +4,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
     <meta name="description"
-          content="KhataClerk - Intelligent invoice automation for Indian businesses. 95% accurate from day one."/>
-    <title>KhataClerk - Intelligence That Just Works For You</title>
+          content="KhataClerk - Intelligent invoice automation for Indian businesses. >95% accurate from day one."/>
+    <title>KhataClerk - Invoice Intelligence for every business</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -378,6 +378,19 @@
             flex-wrap: wrap;
             gap: var(--s-2);
             margin-bottom: var(--s-4);
+        }
+
+        @media (max-width: 520px) {
+            .hero__ctas {
+                flex-wrap: nowrap;
+            }
+
+            .hero__ctas .btn {
+                flex: 1;
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+                font-size: 0.9rem;
+            }
         }
 
         .hero__trust {
@@ -917,6 +930,41 @@
             border-left: 3px solid var(--emerald);
         }
 
+        /* Reality cards: icon + h3 in one line (same pattern as feature-card) */
+        .pain-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+    "icon title"
+    "text text"
+    "stat stat";
+            column-gap: 1rem;
+            align-items: center;
+        }
+
+        /* remove the "icon on top" spacing */
+        .pain-card__icon {
+            grid-area: icon;
+            margin-bottom: 0 !important;
+        }
+
+        /* keep title aligned with icon */
+        .pain-card__title {
+            grid-area: title;
+            margin-bottom: 0 !important;
+            align-self: center;
+        }
+
+        /* content stays below */
+        .pain-card__text {
+            grid-area: text;
+            margin-top: 0.6rem;
+        }
+
+        .pain-card__stat {
+            grid-area: stat;
+        }
+
         /* Solution Section */
         .solution {
             padding: var(--s-6) 0;
@@ -1073,10 +1121,10 @@
         }
 
         @media (max-width: 520px) {
-            .upload-demo {
-                flex-direction: column;
-                align-items: center;
+            .upload-demo__icon {
+                order: 0;
             }
+
 
             .file-badge {
                 width: 100%;
@@ -1084,9 +1132,9 @@
             }
 
             .upload-demo__files {
-                width: 100%;
-                align-items: center;
+                order: 1;
             }
+
         }
 
         .extract-demo {
@@ -1342,13 +1390,14 @@
         .feature-card__text {
             grid-area: text;
         }
-        .feature-card__title{
-    margin-bottom: 0;
-}
 
-.feature-card__text{
-    margin-top: 0.6rem;
-}
+        .feature-card__title {
+            margin-bottom: 0;
+        }
+
+        .feature-card__text {
+            margin-top: 0.6rem;
+        }
 
         .feature-card__title {
             font-family: var(--font-display);
@@ -1892,6 +1941,20 @@
             }
         }
 
+        @media (max-width: 767px) {
+            .step__number {
+                order: 0;
+            }
+
+            .step__content {
+                order: 1;
+            }
+
+            .step__visual {
+                order: 2;
+            }
+        }
+
         /* ===== SCANNING EFFECT ===== */
         .scan-overlay {
             position: absolute;
@@ -1981,17 +2044,18 @@
                 <svg class="hero__badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span>95% Accurate</span>
+                <span>>95% Accurate</span>
             </div>
 
             <h1 class="hero__title">
-                <span class="hero__title-highlight">Intelligence</span> That Just Works For You
+                <span class="hero__title-highlight">Invoice Intelligence</span> for every business
             </h1>
 
             <p class="hero__subtitle">
-                KhataClerk transforms bills into accounting entries automatically. <strong>95% accurate from day
+                KhataClerk transforms bills into accounting entries automatically. <strong>Greater than 95% accurate
+                from day
                 one.</strong>
-                No training. No mapping. No hassle.
+                No required training, Custom Mapping or Hassle.
             </p>
 
             <div class="hero__ctas">
@@ -2016,14 +2080,28 @@
                          stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span><strong>95%</strong> accuracy from day one</span>
+                    <span><strong>Totally Customizable</strong></span>
                 </div>
                 <div class="trust-item">
                     <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                          stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span><strong>SOC 2</strong> certified security</span>
+                    <span><strong>Fast & Reliable</strong></span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>SOC 2</strong> security</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>Live Support</strong></span>
                 </div>
             </div>
         </div>
@@ -2211,7 +2289,7 @@
             <div class="section-header__badge section-header__badge--warning">The Reality</div>
             <h2 class="section-header__title">Still Entering Bills Manually?</h2>
             <p class="section-header__subtitle">
-                Manual invoice entry isn't just slow—it's costing you money, time, and peace of mind every single day.
+                Manual invoice entry isn't just slow, it's costing you money, time, and peace of mind
             </p>
         </div>
 
@@ -2238,7 +2316,7 @@
                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                     </svg>
                 </div>
-                <h3 class="pain-card__title">₹50,000+ Lost Annually</h3>
+                <h3 class="pain-card__title">Compounding errors</h3>
                 <p class="pain-card__text">
                     Manual errors lead to duplicate payments, missed discounts, incorrect GST filings, and penalties.
                     Small mistakes compound fast.
@@ -2272,7 +2350,7 @@
             <div class="section-header__badge section-header__badge--primary">The Solution</div>
             <h2 class="section-header__title">KhataClerk Does It All For You</h2>
             <p class="section-header__subtitle">
-                From invoice upload to posting—completely automated. <strong>Zero manual data entry.</strong>
+                From invoice upload to posting completely automated. <strong>Zero manual data entry.</strong>
             </p>
         </div>
 
@@ -2344,7 +2422,7 @@
                 <div class="step__content">
                     <h3 class="step__title">We Extract Everything</h3>
                     <p class="step__text">
-                        Invoice details, GST breakdown, vendor info, line items, HSN codes—all extracted automatically
+                        Invoice details, GST breakdown, vendor info, line items, HSN codes, all extracted automatically
                         with 95% accuracy.
                     </p>
                     <div class="step__tags">
@@ -2352,7 +2430,7 @@
                         <span class="tag">✓ Line items</span>
                         <span class="tag">✓ GST breakdown</span>
                     </div>
-                    <div class="step__note">95% accurate from first invoice</div>
+                    <div class="step__note">>95% accurate from first invoice</div>
                 </div>
             </div>
 
@@ -2421,7 +2499,7 @@
                     <h3 class="step__title">Auto-Posts to Software</h3>
                     <p class="step__text">
                         Direct integration with Tally, Zoho Books, QuickBooks. Voucher created, ledgers updated, books
-                        balanced—automatically.
+                        balanced automatically.
                     </p>
                     <div class="step__tags">
                         <span class="tag">🔗 Direct Tally sync</span>
@@ -2455,7 +2533,7 @@
                     </svg>
                 </div>
                 <h3 class="feature-card__title">Any Format</h3>
-                <p class="feature-card__text">PDF, images, scans, photos, emails—even handwritten invoices and
+                <p class="feature-card__text">PDF, images, scans, photos, emails. Even handwritten invoices and
                     low-quality bills.</p>
             </div>
 
@@ -2505,8 +2583,7 @@
                     </svg>
                 </div>
                 <h3 class="feature-card__title">Unlimited Users</h3>
-                <p class="feature-card__text">All plans include unlimited users. Everyone posts to one master Tally
-                    server.</p>
+                <p class="feature-card__text">All plans include unlimited users. Your team grows and you post from anywhere</p>
             </div>
 
             <div class="feature-card">
@@ -2731,7 +2808,6 @@
                     <div class="price-card__price">
                         <span class="price-card__currency">₹</span>
                         <span class="price-card__amount">0</span>
-                        <span class="price-card__period">/month</span>
                     </div>
                 </div>
                 <ul class="price-card__features">
@@ -2978,7 +3054,7 @@
             <details class="faq-item">
                 <summary class="faq-item__question">Can I customize field extraction?</summary>
                 <div class="faq-item__answer">Yes! Just tell us what fields you need extracted. We configure
-                    everything—you don't touch any settings.
+                    everything so you don't touch any settings.
                 </div>
             </details>
 
@@ -3074,7 +3150,7 @@
         <div class="footer__main">
             <div class="footer__col footer__col--brand">
                 <div class="footer__logo">KhataClerk</div>
-                <p class="footer__tagline">Intelligence that just works for you.</p>
+                <p class="footer__tagline">Invoice Intelligence for every business.</p>
                 <p class="footer__company">A product by Perceptive Labs Private Limited</p>
             </div>
 
