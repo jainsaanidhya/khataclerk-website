@@ -2027,8 +2027,8 @@
         <div class="nav__links">
             <a href="#reality" class="nav__link">Reality</a>
             <a href="#solution" class="nav__link">Solution</a>
-            <a href="#difference" class="nav__link">Difference</a>
             <a href="#features" class="nav__link">Features</a>
+            <a href="#difference" class="nav__link">Difference</a>
             <a href="#pricing" class="nav__link">Pricing</a>
             <a href="#faq" class="nav__link">FAQ</a>
             <a href="#" class="nav__cta btn btn--small btn--primary">Start Free Trial</a>
@@ -3367,6 +3367,27 @@
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(syncNavHeight);
     }
+</script>
+
+<script>
+  // Smooth-scroll to sections WITHOUT leaving #hash in the URL
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+
+    const id = a.getAttribute("href");
+    if (!id || id === "#") return;
+
+    const el = document.querySelector(id);
+    if (!el) return;
+
+    e.preventDefault();
+
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // remove the hash from the URL (no reload)
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
 </script>
 </body>
 </html>
