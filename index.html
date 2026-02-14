@@ -1318,6 +1318,38 @@
             background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
         }
 
+        .feature-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+        "icon title"
+        "text text";
+            column-gap: 1rem;
+            align-items: center;
+        }
+
+        .feature-card__icon {
+            grid-area: icon;
+            margin-bottom: 0 !important;
+        }
+
+        .feature-card__title {
+            grid-area: title;
+            margin-bottom: 0 !important;
+            align-self: center;
+        }
+
+        .feature-card__text {
+            grid-area: text;
+        }
+        .feature-card__title{
+    margin-bottom: 0;
+}
+
+.feature-card__text{
+    margin-top: 0.6rem;
+}
+
         .feature-card__title {
             font-family: var(--font-display);
             font-size: clamp(1.1rem, 2.2vw, 1.3rem);
@@ -1936,7 +1968,7 @@
             <a href="#features" class="nav__link">Features</a>
             <a href="#pricing" class="nav__link">Pricing</a>
             <a href="#faq" class="nav__link">FAQ</a>
-            <a href="#" class="nav__cta btn btn--small">Start Free Trial</a>
+            <a href="#" class="nav__cta btn btn--small btn--primary">Start Free Trial</a>
         </div>
     </div>
 </nav>
@@ -2484,7 +2516,7 @@
                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                     </svg>
                 </div>
-                <h3 class="feature-card__title">Direct Integration</h3>
+                <h3 class="feature-card__title">Local Integration</h3>
                 <p class="feature-card__text">Tally, Zoho Books, QuickBooks. Real-time posting. No exports, no imports,
                     no CSV hell.</p>
             </div>
@@ -2907,65 +2939,76 @@
         </div>
 
         <div class="faq__grid">
-            <div class="faq-item">
-                <h3 class="faq-item__question">How accurate is KhataClerk?</h3>
-                <p class="faq-item__answer">We guarantee 95% accuracy from day one. Our system improves as it learns
-                    your vendors, approaching 99% accuracy over time.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">How accurate is KhataClerk?</summary>
+                <div class="faq-item__answer">We guarantee 95% accuracy from day one. Our system improves as it learns
+                    your vendors, approaching 99% accuracy over time.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Which accounting software do you support?</h3>
-                <p class="faq-item__answer">Direct integration with Tally (ERP 9, Prime, Cloud), Zoho Books, QuickBooks
-                    Online, and Busy. Plus REST API for custom integrations.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">What accounting software are supported?</summary>
+                <div class="faq-item__answer">Direct integration with Tally (ERP 9, Prime, Cloud), Zoho Books,
+                    QuickBooks
+                    Online, and Busy. Plus REST API for custom integrations.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Can multiple users post to one Tally?</h3>
-                <p class="faq-item__answer">Yes! Unlimited users can scan and process invoices from anywhere. All
-                    entries sync to your central Tally server in real-time.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">Can multiple users post to one Tally?</summary>
+                <div class="faq-item__answer">Yes! Unlimited users can scan and process invoices from anywhere. All
+                    entries sync to your central Tally server in real-time.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Is my data secure?</h3>
-                <p class="faq-item__answer">Absolutely. We use 256-bit encryption, store data in Indian data centers,
-                    and are SOC 2 Type II certified. Your data never leaves India.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">Is my data secure?</summary>
+                <div class="faq-item__answer">Absolutely. We use 256-bit encryption, store data in Indian data centers,
+                    and are SOC 2 Type II certified. Your data never leaves India.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">What file formats work?</h3>
-                <p class="faq-item__answer">PDF, JPG, PNG, TIFF, multi-page scans. Even handwritten invoices and
-                    low-quality photos work perfectly.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">What file formats work?</summary>
+                <div class="faq-item__answer">PDF, JPG, PNG, TIFF, multi-page scans. Even handwritten invoices and
+                    low-quality photos work perfectly.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Can I customize field extraction?</h3>
-                <p class="faq-item__answer">Yes! Just tell us what fields you need extracted. We configure
-                    everything—you don't touch any settings.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">Can I customize field extraction?</summary>
+                <div class="faq-item__answer">Yes! Just tell us what fields you need extracted. We configure
+                    everything—you don't touch any settings.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">What if the AI makes a mistake?</h3>
-                <p class="faq-item__answer">You review everything before posting. Edit any field with one click. The
-                    system learns from your corrections.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">What if the AI makes a mistake?</summary>
+                <div class="faq-item__answer">You review everything before posting. Edit any field with one click. The
+                    system learns from your corrections.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Is there a contract?</h3>
-                <p class="faq-item__answer">No lock-in. Monthly billing. Cancel anytime. We earn your business every
-                    month.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">Is there a contract?</summary>
+                <div class="faq-item__answer">No lock-in. Monthly billing. Cancel anytime. We earn your business every
+                    month.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">How fast is setup?</h3>
-                <p class="faq-item__answer">Sign up → Upload test invoice → See results. Takes 5 minutes. Full
-                    integration setup in 30 minutes with our team.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">How fast is setup?</summary>
+                <div class="faq-item__answer">Sign up → Upload test invoice → See results. Takes 5 minutes. Full
+                    integration setup in 30 minutes with our team.
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h3 class="faq-item__question">Do you support regional languages?</h3>
-                <p class="faq-item__answer">Yes! Our system handles invoices in English, Hindi, and major regional
-                    languages commonly used in Indian business documents.</p>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-item__question">Do you support regional languages?</summary>
+                <div class="faq-item__answer">Yes! Our system handles invoices in English, Hindi, and major regional
+                    languages commonly used in Indian business documents.
+                </div>
+            </details>
         </div>
     </div>
 </section>
