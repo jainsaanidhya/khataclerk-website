@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
     <meta name="description"
-          content="KhataClerk - Intelligent invoice automation for Indian businesses. 95% accurate from day one.">
+          content="KhataClerk - Intelligent invoice automation for Indian businesses. 95% accurate from day one."/>
     <title>KhataClerk - Intelligence That Just Works For You</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
+            rel="stylesheet"
+    />
 
     <style>
         /* ==========================================================================
-           PRODUCTION CSS - KhataClerk
-           BEM Methodology | Mobile-First | Component Isolation
+           PRODUCTION CSS - KhataClerk (Updated for scaling + consistency + perf)
+           - No design overhaul. Same look. More consistent rhythm & responsive behavior.
+           - Adds system tokens, section/card primitives, safer widths, and reduced layout jank.
            ========================================================================== */
 
         /* CSS Variables */
@@ -48,14 +51,29 @@
             --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        :root {
-            --nav-h: 72px; /* fallback; JS will overwrite with the real height */
+            /* ====== System scaling tokens (for consistent rhythm) ====== */
+            --s-1: clamp(0.5rem, 1vw, 0.75rem);
+            --s-2: clamp(0.75rem, 1.5vw, 1rem);
+            --s-3: clamp(1rem, 2vw, 1.5rem);
+            --s-4: clamp(1.5rem, 3vw, 2.5rem);
+            --s-5: clamp(2rem, 4vw, 4rem);
+            --s-6: clamp(3rem, 6vw, 6rem);
+
+            --h1: clamp(2.5rem, 6.5vw, 4.5rem);
+            --h2: clamp(2.2rem, 5.5vw, 3.5rem);
+            --lead: clamp(1.05rem, 2.2vw, 1.3rem);
+            --body: 16px;
+
+            /* Navbar offset */
+            --nav-h: 72px; /* fallback; JS will overwrite */
             --nav-gap: 12px; /* breathing room below navbar */
         }
 
         html {
+            font-size: var(--body);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             scroll-padding-top: calc(var(--nav-h) + var(--nav-gap));
         }
 
@@ -72,24 +90,23 @@
             padding: 0;
         }
 
-        html {
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         body {
             font-family: var(--font-body);
             color: var(--gray-900);
             line-height: 1.6;
             background: #ffffff;
-            overflow-x: hidden;
+            /* Removed overflow-x hidden: helps you catch real overflow issues during dev.
+               If you truly need it, add it back AFTER confirming nothing overflows. */
         }
 
         img, svg, video {
             max-width: 100%;
             height: auto;
             display: block;
+        }
+
+        a {
+            color: inherit;
         }
 
         /* Container */
@@ -101,6 +118,39 @@
             padding-right: var(--container-padding);
         }
 
+        /* ====== Section primitive (consistent rhythm) ====== */
+        .section {
+            padding: var(--s-6) 0;
+        }
+
+        .section--soft {
+            background: var(--gray-50);
+        }
+
+        .section--grad-soft {
+            background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+        }
+
+        .section--grad-invert {
+            background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+        }
+
+        /* ====== Card primitive (shared look) ====== */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--s-4);
+            border: 2px solid var(--gray-100);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card--soft {
+            background: var(--gray-50);
+            border-color: transparent;
+            box-shadow: none;
+        }
+
         /* Navigation */
         .nav {
             position: fixed;
@@ -109,9 +159,14 @@
             right: 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(4, 120, 87, 0.1);
             padding: clamp(0.8rem, 2vw, 1.2rem) 0;
+        }
+
+        @supports (backdrop-filter: blur(10px)) {
+            .nav {
+                backdrop-filter: blur(10px);
+            }
         }
 
         .nav__container {
@@ -155,23 +210,6 @@
             }
         }
 
-        @media (max-width: 520px) {
-            .upload-demo {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .file-badge {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .upload-demo__files {
-                width: 100%;
-                align-items: center;
-            }
-        }
-
         /* Buttons */
         .btn {
             display: inline-flex;
@@ -187,6 +225,7 @@
             cursor: pointer;
             transition: var(--transition);
             white-space: nowrap;
+            will-change: transform;
         }
 
         .btn--small {
@@ -225,7 +264,7 @@
         /* Section Headers */
         .section-header {
             text-align: center;
-            margin-bottom: clamp(3rem, 6vw, 4rem);
+            margin-bottom: var(--s-5);
         }
 
         .section-header__badge {
@@ -234,7 +273,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: var(--s-2);
         }
 
         .section-header__badge--warning {
@@ -247,16 +286,16 @@
 
         .section-header__title {
             font-family: var(--font-display);
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-size: var(--h2);
             font-weight: 800;
             color: var(--navy);
             line-height: 1.1;
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: var(--s-2);
             letter-spacing: -0.02em;
         }
 
         .section-header__subtitle {
-            font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+            font-size: var(--lead);
             color: var(--gray-600);
             max-width: 800px;
             margin: 0 auto;
@@ -265,21 +304,23 @@
 
         /* Hero Section */
         .hero {
-            padding: clamp(6rem, 12vw, 8rem) 0 clamp(3rem, 6vw, 4rem);
+            /* Keep your original hero vibe but use consistent tokens */
+            padding: calc(var(--s-6) + 2rem) 0 var(--s-5);
             background: linear-gradient(135deg, #fefdf8 0%, #ffffff 100%);
         }
 
         .hero__container {
             display: grid;
-            grid-template-columns: 1fr; /* Default to one column for mobile */
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: var(--s-5);
             align-items: start;
         }
 
+        /* Make hero switch only once (more stable scaling) */
         @media (min-width: 1024px) {
             .hero__container {
-                grid-template-columns: 1.2fr 1fr; /* Two columns for laptop */
-                gap: 4rem;
+                grid-template-columns: 1.2fr 1fr;
+                gap: var(--s-6);
             }
         }
 
@@ -293,7 +334,7 @@
             font-size: clamp(0.85rem, 1.5vw, 0.9rem);
             font-weight: 600;
             color: var(--emerald-dark);
-            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--s-3);
             border: 1px solid rgba(4, 120, 87, 0.2);
         }
 
@@ -305,11 +346,11 @@
 
         .hero__title {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: var(--h1);
             font-weight: 800;
             line-height: 1.05;
             letter-spacing: -0.03em;
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: var(--s-2);
             color: var(--navy);
         }
 
@@ -324,7 +365,7 @@
             font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             line-height: 1.7;
             color: var(--gray-600);
-            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--s-4);
         }
 
         .hero__subtitle strong {
@@ -335,15 +376,15 @@
         .hero__ctas {
             display: flex;
             flex-wrap: wrap;
-            gap: clamp(0.8rem, 2vw, 1.2rem);
-            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            gap: var(--s-2);
+            margin-bottom: var(--s-4);
         }
 
         .hero__trust {
             display: flex;
             flex-direction: column;
-            gap: clamp(0.8rem, 2vw, 1.2rem);
-            padding-top: clamp(1.5rem, 3vw, 2rem);
+            gap: var(--s-2);
+            padding-top: var(--s-3);
             border-top: 1px solid rgba(4, 120, 87, 0.15);
         }
 
@@ -377,13 +418,14 @@
             display: grid;
             grid-template-columns: 1fr;
             align-items: start;
-            /* Remove fixed min-height; let the content decide */
-            margin-top: 2rem;
+            margin-top: var(--s-3);
+            contain: layout paint; /* reduces repaint scope */
         }
 
         .invoice-demo {
+            position: relative;
             display: grid;
-            grid-template-areas: "stack"; /* Create a single 'slot' */
+            grid-template-areas: "stack";
             width: 100%;
         }
 
@@ -405,7 +447,7 @@
             transition: opacity 0.3s;
             z-index: 20;
             white-space: nowrap;
-
+            pointer-events: none;
         }
 
         .invoice-demo__indicator.active {
@@ -428,23 +470,29 @@
         }
 
         .invoice-demo__stage {
-            grid-area: stack; /* Every stage sits in the same slot */
+            grid-area: stack;
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(18px) scale(0.985);
+            filter: blur(2px);
             pointer-events: none;
 
-            /* Crucial: It's no longer 'absolute' in the traditional sense,
-               but being in a grid-stack keeps them layered. */
-            visibility: hidden;
+            transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform, filter;
         }
+
 
         .invoice-demo__stage--active {
             opacity: 1;
             transform: translateY(0) scale(1);
+            filter: blur(0);
             pointer-events: auto;
-            visibility: visible;
-            z-index: 10;
+            z-index: 2;
+        }
+
+        .invoice-demo__stage--leaving {
+            z-index: 1;
         }
 
         /* Invoice Card */
@@ -454,6 +502,8 @@
             padding: clamp(1.5rem, 3vw, 2.5rem);
             box-shadow: var(--shadow-lg);
             border: 2px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
         }
 
         .invoice-card__header {
@@ -668,6 +718,7 @@
             justify-content: center;
             gap: 0.8rem;
             transition: var(--transition);
+            will-change: transform;
         }
 
         .mapping-card__btn:hover {
@@ -782,7 +833,7 @@
 
         /* Problem Section */
         .problem {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
         }
 
@@ -800,6 +851,7 @@
             box-shadow: var(--shadow-md);
             border: 2px solid var(--gray-100);
             transition: var(--transition);
+            will-change: transform;
         }
 
         .pain-card:hover {
@@ -865,45 +917,9 @@
             border-left: 3px solid var(--emerald);
         }
 
-        .problem__reality {
-            margin-top: clamp(2rem, 4vw, 3rem);
-        }
-
-        .reality-alert {
-            background: linear-gradient(135deg, var(--orange), #ea580c);
-            color: white;
-            padding: clamp(1.8rem, 3vw, 2.5rem);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 8px 32px rgba(249, 115, 22, 0.25);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .reality-alert__header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
-            font-family: var(--font-display);
-            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-            font-weight: 800;
-        }
-
-        .reality-alert__header svg {
-            width: clamp(20px, 4vw, 28px);
-            height: clamp(20px, 4vw, 28px);
-            flex-shrink: 0;
-        }
-
-        .reality-alert p {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-
         /* Solution Section */
         .solution {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: white;
         }
 
@@ -987,14 +1003,10 @@
         .upload-demo {
             width: 100%;
             display: flex;
-            flex-direction: row; /* changed */
-            align-items: center; /* vertical center */
-            justify-content: space-between; /* icon right */
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
             gap: clamp(1rem, 2vw, 1.5rem);
-        }
-
-        .upload-demo__files {
-            align-items: flex-start;
         }
 
         .upload-demo__icon {
@@ -1006,7 +1018,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            order: 2; /* push icon to the right */
+            order: 2;
         }
 
         .upload-demo__icon svg {
@@ -1031,8 +1043,8 @@
             padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1rem, 2vw, 1.5rem);
             align-items: center;
             gap: clamp(0.8rem, 1.5vw, 1rem);
-            width: 250px;
-            display: inline-flex; /* change from flex to inline-flex */
+            width: min(100%, 320px); /* UPDATED: was fixed 250px */
+            display: inline-flex;
         }
 
         .file-badge svg {
@@ -1057,8 +1069,24 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 220px; /* tweak if you want */
+            max-width: 100%; /* UPDATED: was fixed 220px */
+        }
 
+        @media (max-width: 520px) {
+            .upload-demo {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .file-badge {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .upload-demo__files {
+                width: 100%;
+                align-items: center;
+            }
         }
 
         .extract-demo {
@@ -1247,7 +1275,7 @@
 
         /* Key Features Section */
         .features {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: white;
         }
 
@@ -1262,6 +1290,7 @@
             border-radius: var(--radius-lg);
             padding: clamp(1.5rem, 3vw, 2rem);
             transition: var(--transition);
+            will-change: transform;
         }
 
         .feature-card:hover {
@@ -1305,7 +1334,7 @@
 
         /* Competitors Section */
         .competitors {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: var(--gray-50);
         }
 
@@ -1394,7 +1423,7 @@
 
         /* Audience Section */
         .audience {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: white;
         }
 
@@ -1410,6 +1439,7 @@
             padding: clamp(1.5rem, 3vw, 2rem);
             text-align: center;
             transition: var(--transition);
+            will-change: transform;
         }
 
         .audience-card:hover {
@@ -1439,7 +1469,7 @@
 
         /* Pricing Section */
         .pricing {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
         }
 
@@ -1460,6 +1490,7 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            will-change: transform;
         }
 
         .price-card:hover {
@@ -1614,7 +1645,7 @@
 
         /* FAQ Section */
         .faq {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: white;
         }
 
@@ -1649,7 +1680,7 @@
 
         /* Guarantee Section */
         .guarantee {
-            padding: clamp(4rem, 8vw, 6rem) 0;
+            padding: var(--s-6) 0;
             background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
         }
 
@@ -1799,10 +1830,6 @@
 
         /* Tablet & Desktop */
         @media (min-width: 768px) {
-            .hero__container {
-                grid-template-columns: 1fr 1fr;
-            }
-
             .step {
                 grid-template-columns: 80px 1fr 1fr;
             }
@@ -1834,12 +1861,6 @@
         }
 
         /* ===== SCANNING EFFECT ===== */
-
-        .invoice-card {
-            position: relative;
-            overflow: hidden;
-        }
-
         .scan-overlay {
             position: absolute;
             inset: 0;
@@ -1870,10 +1891,6 @@
             }
         }
 
-        /* highlight boxes */
-
-        /* highlight boxes: move top -> bottom with slight staggering */
-
         /* Highlight box that snaps to real fields (positioned by JS) */
         .scan-highlight {
             position: absolute;
@@ -1891,39 +1908,22 @@
             transform: scale(1);
         }
 
-        .scan-highlight--1 {
-            animation-delay: 0s;
-        }
+        /* ===== Accessibility / perf: respect reduced motion ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
 
-        .scan-highlight--2 {
-            animation-delay: 0.25s;
-        }
-
-        .scan-highlight--3 {
-            animation-delay: 0.5s;
-        }
-
-        @keyframes scanBoxMove {
-            0% {
-                top: 10%;
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.7;
-            }
-            40% {
-                opacity: 0.4;
-            }
-            70% {
-                opacity: 0.2;
-            }
-            100% {
-                top: 85%;
-                opacity: 0;
+            .invoice-demo__stage {
+                transition: none !important;
             }
         }
     </style>
 </head>
+
 <body>
 <!-- Navigation -->
 <nav class="nav">
@@ -1958,7 +1958,8 @@
 
             <p class="hero__subtitle">
                 KhataClerk transforms bills into accounting entries automatically. <strong>95% accurate from day
-                one.</strong> No training. No mapping. No hassle.
+                one.</strong>
+                No training. No mapping. No hassle.
             </p>
 
             <div class="hero__ctas">
@@ -1997,13 +1998,14 @@
 
         <div class="hero__visual">
             <div class="invoice-demo" id="invoiceDemo">
-
-                <div class="invoice-demo__stage invoice-demo__stage--active" id="stageInvoice">
+                <div class="invoice-demo__stage invoice-demo__stage--active"
+                     id="stageInvoice">
                     <div class="invoice-card">
                         <div class="scan-overlay" id="scanOverlay">
                             <div class="scan-line"></div>
                             <div class="scan-highlight" id="scanHighlight"></div>
                         </div>
+
                         <div class="invoice-card__header">
                             <div>
                                 <div class="invoice-card__logo">KhataClerk</div>
@@ -2014,7 +2016,7 @@
 
                         <div class="invoice-card__company">
                             <div class="invoice-card__company-name">Perceptive Labs Pvt Ltd</div>
-                            <div>Ahmedabad, Gujarat 380058</div>
+                            <div>Ahmedabad, Gujarat 380015</div>
                             <div class="invoice-card__gstin">GSTIN: 24AABCP1234E1Z5</div>
                         </div>
 
@@ -2035,28 +2037,19 @@
                                 <div class="invoice-field__label">Customer GSTIN</div>
                                 <div class="invoice-field__value">24AADCG7890M1ZX</div>
                             </div>
-
                         </div>
+
                         <div class="invoice-items" data-scan="items">
                             <div class="invoice-items__header">
-                                <span>Description</span>
-                                <span>Qty</span>
-                                <span>Rate</span>
-                                <span>Amount</span>
+                                <span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span>
                             </div>
 
                             <div class="invoice-items__row">
-                                <span>Accounting Software Subscription</span>
-                                <span>1</span>
-                                <span>₹45,000</span>
-                                <span>₹45,000</span>
+                                <span>Accounting Software Subscription</span><span>1</span><span>₹45,000</span><span>₹45,000</span>
                             </div>
 
                             <div class="invoice-items__row">
-                                <span>GST (18%)</span>
-                                <span>-</span>
-                                <span>-</span>
-                                <span>₹8,100</span>
+                                <span>GST (18%)</span><span>-</span><span>-</span><span>₹8,100</span>
                             </div>
                         </div>
 
@@ -2075,6 +2068,7 @@
                             </svg>
                             <h3>Auto-Mapped</h3>
                         </div>
+
                         <div class="mapping-card__rows">
                             <div class="mapping-row">
                                 <div class="mapping-row__from">
@@ -2087,6 +2081,7 @@
                                     <div class="mapping-row__value">Voucher No.</div>
                                 </div>
                             </div>
+
                             <div class="mapping-row">
                                 <div class="mapping-row__from">
                                     <div class="mapping-row__label">From Invoice</div>
@@ -2098,6 +2093,7 @@
                                     <div class="mapping-row__value">Party Ledger</div>
                                 </div>
                             </div>
+
                             <div class="mapping-row">
                                 <div class="mapping-row__from">
                                     <div class="mapping-row__label">From Invoice</div>
@@ -2109,26 +2105,18 @@
                                     <div class="mapping-row__value">Total Amount</div>
                                 </div>
                             </div>
+
                             <div class="invoice-items">
                                 <div class="invoice-items__header">
-                                    <span>Description</span>
-                                    <span>Qty</span>
-                                    <span>Rate</span>
-                                    <span>Amount</span>
+                                    <span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span>
                                 </div>
 
                                 <div class="invoice-items__row">
-                                    <span>Accounting Software Subscription</span>
-                                    <span>1</span>
-                                    <span>₹45,000</span>
-                                    <span>₹45,000</span>
+                                    <span>Accounting Software Subscription</span><span>1</span><span>₹45,000</span><span>₹45,000</span>
                                 </div>
 
                                 <div class="invoice-items__row">
-                                    <span>GST (18%)</span>
-                                    <span>-</span>
-                                    <span>-</span>
-                                    <span>₹8,100</span>
+                                    <span>GST (18%)</span><span>-</span><span>-</span><span>₹8,100</span>
                                 </div>
                             </div>
                         </div>
@@ -2149,48 +2137,35 @@
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </div>
+
                         <h3 class="success-card__title">Posted Successfully!</h3>
+
                         <div class="success-card__details">
                             <div class="success-card__row">
-                                <span>Voucher No:</span>
-                                <span>INV-2024-0342</span>
+                                <span>Voucher No:</span><span>INV-2024-0342</span>
                             </div>
                             <div class="success-card__row">
-                                <span>Party:</span>
-                                <span>Gujarat Traders</span>
+                                <span>Party:</span><span>Gujarat Traders</span>
                             </div>
                             <div class="success-card__row success-card__row--total">
-                                <span>Amount:</span>
-                                <span>₹53,100.00</span>
+                                <span>Amount:</span><span>₹53,100.00</span>
                             </div>
+
                             <div class="invoice-items">
                                 <div class="invoice-items__header">
-                                    <span>Description</span>
-                                    <span>Qty</span>
-                                    <span>Rate</span>
-                                    <span>Amount</span>
+                                    <span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span>
                                 </div>
 
                                 <div class="invoice-items__row">
-                                    <span>Accounting Software Subscription</span>
-                                    <span>1</span>
-                                    <span>₹45,000</span>
-                                    <span>₹45,000</span>
+                                    <span>Accounting Software Subscription</span><span>1</span><span>₹45,000</span><span>₹45,000</span>
                                 </div>
 
                                 <div class="invoice-items__row">
-                                    <span>GST (18%)</span>
-                                    <span>-</span>
-                                    <span>-</span>
-                                    <span>₹8,100</span>
+                                    <span>GST (18%)</span><span>-</span><span>-</span><span>₹8,100</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="invoice-demo__indicator" id="demoIndicator">
-                    <div class="spinner"></div>
-                    <span id="demoText">Processing...</span>
                 </div>
             </div>
         </div>
@@ -2203,8 +2178,9 @@
         <div class="section-header">
             <div class="section-header__badge section-header__badge--warning">The Reality</div>
             <h2 class="section-header__title">Still Entering Bills Manually?</h2>
-            <p class="section-header__subtitle">Manual invoice entry isn't just slow—it's costing you money, time, and
-                peace of mind every single day.</p>
+            <p class="section-header__subtitle">
+                Manual invoice entry isn't just slow—it's costing you money, time, and peace of mind every single day.
+            </p>
         </div>
 
         <div class="problem__grid">
@@ -2216,8 +2192,10 @@
                     </svg>
                 </div>
                 <h3 class="pain-card__title">20+ Hours Wasted</h3>
-                <p class="pain-card__text">Teams spend days typing invoices instead of growing your
-                    business. That's over 1,000 hours a year lost to data entry.</p>
+                <p class="pain-card__text">
+                    Teams spend days typing invoices instead of growing your business. That's over 1,000 hours a year
+                    lost to data entry.
+                </p>
                 <div class="pain-card__stat">1,040 hours/year = ₹5 lakhs+ lost</div>
             </div>
 
@@ -2229,8 +2207,10 @@
                     </svg>
                 </div>
                 <h3 class="pain-card__title">₹50,000+ Lost Annually</h3>
-                <p class="pain-card__text">Manual errors lead to duplicate payments, missed discounts, incorrect GST
-                    filings, and penalties. Small mistakes compound fast.</p>
+                <p class="pain-card__text">
+                    Manual errors lead to duplicate payments, missed discounts, incorrect GST filings, and penalties.
+                    Small mistakes compound fast.
+                </p>
                 <div class="pain-card__stat">3-5% revenue lost to data errors</div>
             </div>
 
@@ -2243,8 +2223,10 @@
                     </svg>
                 </div>
                 <h3 class="pain-card__title">Month-End Chaos</h3>
-                <p class="pain-card__text">Delayed books & reports. GST filing panic. Auditor questions.
-                    The stress never ends when you're manually entering invoices.</p>
+                <p class="pain-card__text">
+                    Delayed books & reports. GST filing panic. Auditor questions. The stress never ends when you're
+                    manually entering invoices.
+                </p>
                 <div class="pain-card__stat">Books 2-3 weeks behind always</div>
             </div>
         </div>
@@ -2257,8 +2239,9 @@
         <div class="section-header">
             <div class="section-header__badge section-header__badge--primary">The Solution</div>
             <h2 class="section-header__title">KhataClerk Does It All For You</h2>
-            <p class="section-header__subtitle">From invoice upload to posting—completely automated. <strong>Zero
-                manual data entry.</strong></p>
+            <p class="section-header__subtitle">
+                From invoice upload to posting—completely automated. <strong>Zero manual data entry.</strong>
+            </p>
         </div>
 
         <div class="solution__steps">
@@ -2273,6 +2256,7 @@
                                 <line x1="12" y1="3" x2="12" y2="15"></line>
                             </svg>
                         </div>
+
                         <div class="upload-demo__files">
                             <div class="file-badge file-badge--pdf">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2280,6 +2264,7 @@
                                 </svg>
                                 <span>invoice.pdf</span>
                             </div>
+
                             <div class="file-badge file-badge--img">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -2289,10 +2274,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="step__content">
                     <h3 class="step__title">Upload Anywhere</h3>
-                    <p class="step__text">Drag & drop on desktop, scan with your phone, email directly, or forward from
-                        WhatsApp. We handle everything.</p>
+                    <p class="step__text">
+                        Drag & drop on desktop, scan with your phone, email directly, or forward from WhatsApp. We
+                        handle everything.
+                    </p>
                     <div class="step__tags">
                         <span class="tag">📱 Phone scan</span>
                         <span class="tag">💻 Desktop</span>
@@ -2320,10 +2308,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="step__content">
                     <h3 class="step__title">We Extract Everything</h3>
-                    <p class="step__text">Invoice details, GST breakdown, vendor info, line items, HSN codes—all
-                        extracted automatically with 95% accuracy.</p>
+                    <p class="step__text">
+                        Invoice details, GST breakdown, vendor info, line items, HSN codes—all extracted automatically
+                        with 95% accuracy.
+                    </p>
                     <div class="step__tags">
                         <span class="tag">✓ Vendor & GSTIN</span>
                         <span class="tag">✓ Line items</span>
@@ -2338,11 +2329,13 @@
                 <div class="step__visual">
                     <div class="review-demo">
                         <div class="review-demo__badge">Ready for Review</div>
+
                         <div class="review-demo__row">
                             <span>Party:</span>
                             <span>Gujarat Traders</span>
                             <span class="review-demo__edit">✏️</span>
                         </div>
+
                         <div class="review-demo__row">
                             <span>Amount:</span>
                             <span>₹53,100</span>
@@ -2357,10 +2350,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="step__content">
                     <h3 class="step__title">You Review & Approve</h3>
-                    <p class="step__text">Clean dashboard shows all extracted data. Edit anything with one click. Set
-                        auto-approval rules for trusted vendors.</p>
+                    <p class="step__text">
+                        Clean dashboard shows all extracted data. Edit anything with one click. Set auto-approval rules
+                        for trusted vendors.
+                    </p>
                     <div class="step__tags">
                         <span class="tag">✏️ One-click edits</span>
                         <span class="tag">⚡ Bulk approval</span>
@@ -2380,6 +2376,7 @@
                             </svg>
                             <span>Posted!</span>
                         </div>
+
                         <div class="post-demo__logos">
                             <div class="software-badge software-badge--tally">T</div>
                             <div class="software-badge software-badge--zoho">Z</div>
@@ -2387,10 +2384,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="step__content">
                     <h3 class="step__title">Auto-Posts to Software</h3>
-                    <p class="step__text">Direct integration with Tally, Zoho Books, QuickBooks. Voucher created,
-                        ledgers updated, books balanced—automatically.</p>
+                    <p class="step__text">
+                        Direct integration with Tally, Zoho Books, QuickBooks. Voucher created, ledgers updated, books
+                        balanced—automatically.
+                    </p>
                     <div class="step__tags">
                         <span class="tag">🔗 Direct Tally sync</span>
                         <span class="tag">👥 Multi-user</span>
@@ -2512,7 +2512,6 @@
                 <p class="feature-card__text">Bank-grade encryption. Indian data centers. SOC 2 certified. Your data
                     never leaves India.</p>
             </div>
-
         </div>
     </div>
 </section>
@@ -2688,8 +2687,9 @@
         <div class="section-header">
             <div class="section-header__badge section-header__badge--primary">Simple Pricing</div>
             <h2 class="section-header__title">Choose Your Plan</h2>
-            <p class="section-header__subtitle">Transparent pricing. No hidden fees. <strong>30-day money-back
-                guarantee.</strong></p>
+            <p class="section-header__subtitle">
+                Transparent pricing. No hidden fees. <strong>30-day money-back guarantee.</strong>
+            </p>
         </div>
 
         <div class="pricing__grid">
@@ -2707,7 +2707,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span>5 invoices/month</span>
+                        <span>5 invoices</span>
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -2725,7 +2725,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span>Email support</span>
+                        <span>Free Demo</span>
                     </li>
                 </ul>
                 <a href="#" class="price-card__btn btn btn--secondary">Start Free</a>
@@ -2737,10 +2737,10 @@
                     <h3 class="price-card__name">Starter</h3>
                     <div class="price-card__price">
                         <span class="price-card__currency">₹</span>
-                        <span class="price-card__amount">1,200</span>
+                        <span class="price-card__amount">1,000</span>
                         <span class="price-card__period">/month</span>
                     </div>
-                    <div class="price-card__annual">or ₹10,000/year (save ₹4,400)</div>
+                    <div class="price-card__annual">or ₹10,000/year (save ₹2,000)</div>
                 </div>
                 <ul class="price-card__features">
                     <li>
@@ -2771,13 +2771,13 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span>WhatsApp support</span>
+                        <span>Free Demo</span>
                     </li>
                 </ul>
 
                 <div class="price-card__guarantee">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
                         <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"></polyline>
                     </svg>
                     <span>30-Day Money-Back Guarantee</span>
@@ -2811,6 +2811,12 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
+                        <span>All integrations</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         <span>Priority support</span>
                     </li>
                     <li>
@@ -2829,12 +2835,12 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span>API access</span>
+                        <span>Free Demo</span>
                     </li>
                 </ul>
                 <div class="price-card__guarantee">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
                         <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"></polyline>
                     </svg>
                     <span>30-Day Money-Back Guarantee</span>
@@ -2970,13 +2976,16 @@
         <div class="guarantee__card">
             <div class="guarantee__icon">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
                     <polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2.5"></polyline>
                 </svg>
             </div>
+
             <h2 class="guarantee__title">100% Risk-Free. Guaranteed.</h2>
-            <p class="guarantee__text">Try KhataClerk for 30 days. If it doesn't save you time and eliminate errors,
-                you get full refund. <strong> No questions asked.</strong></p>
+            <p class="guarantee__text">
+                Try KhataClerk for 30 days. If it doesn't save you time and eliminate errors, you get full refund.
+                <strong> No questions asked.</strong>
+            </p>
 
             <div class="guarantee__features">
                 <div class="guarantee__feature">
@@ -3037,16 +3046,22 @@
             <div class="footer__col">
                 <h4 class="footer__title">Resources</h4>
                 <ul class="footer__links">
-                    <li><a href="https://www.youtube.com/results?search_query=tally+gst+invoice+entry" target="_blank">Video
-                        Tutorials</a></li>
-                    <li><a href="https://tallysolutions.com/" target="_blank">Tally Tips</a></li>
+                    <li>
+                        <a href="https://www.youtube.com/results?search_query=tally+gst+invoice+entry" target="_blank"
+                           rel="noopener noreferrer">
+                            Video Tutorials
+                        </a>
+                    </li>
+                    <li><a href="https://tallysolutions.com/" target="_blank" rel="noopener noreferrer">Tally Tips</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="footer__col">
                 <h4 class="footer__title">Company</h4>
                 <ul class="footer__links">
-                    <li><a href="https://perceptivelabs.in" target="_blank">About Perceptive Labs</a></li>
+                    <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer">About Perceptive
+                        Labs</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
@@ -3067,114 +3082,169 @@
 </footer>
 
 <script>
-    const stages = ['stageInvoice', 'stageMapping', 'stageSuccess'];
-    const texts = ['Scanning invoice...', 'Auto-mapping fields...', 'Posted to Tally!'];
+    // -----------------------------
+    // KhataClerk demo animation FIX
+    // Copy-paste this whole script.
+    // -----------------------------
+
+    const stages = ["stageInvoice", "stageMapping", "stageSuccess"];
+
     let currentStage = 0;
+    let loopTimer = null;
+    let scanTimer = null;
 
-    const demoIndicator = document.getElementById('demoIndicator');
-    const demoText = document.getElementById('demoText');
-    const scanOverlay = document.getElementById('scanOverlay');
+    const invoiceDemo = document.getElementById("invoiceDemo");
+    const scanOverlay = document.getElementById("scanOverlay");
+    const scanHighlight = document.getElementById("scanHighlight");
+    const approveBtn = document.getElementById("approveBtn");
 
-    function setStage(index) {
-        currentStage = index;
-
-        // toggle stage visibility
-        for (let i = 0; i < stages.length; i++) {
-            const el = document.getElementById(stages[i]);
-            if (!el) continue;
-            el.classList.toggle('invoice-demo__stage--active', i === currentStage);
-        }
-
-        // indicator text
-        if (demoText) demoText.textContent = texts[currentStage] || 'Processing...';
-        if (demoIndicator) demoIndicator.classList.add('active');
-
-        // scanning overlay only in invoice stage
-        if (scanOverlay) scanOverlay.classList.toggle('active', currentStage === 0);
-
-        // run highlights when invoice stage becomes active
-        if (currentStage === 0) {
-            // wait one frame so layout is stable
-            requestAnimationFrame(() => runScanHighlights());
-        }
+    function syncNavHeight() {
+        const nav = document.querySelector(".nav");
+        if (!nav) return;
+        const h = Math.ceil(nav.getBoundingClientRect().height);
+        document.documentElement.style.setProperty("--nav-h", `${h}px`);
     }
 
-    function sleep(ms) {
-        return new Promise(res => setTimeout(res, ms));
+    function setStage(index) {
+        const prev = currentStage;
+        currentStage = index;
+
+        const prevEl = document.getElementById(stages[prev]);
+        const nextEl = document.getElementById(stages[currentStage]);
+        if (!nextEl) return;
+
+        // Mark previous as leaving (optional)
+        if (prevEl && prev !== currentStage) {
+            prevEl.classList.add("invoice-demo__stage--leaving");
+            prevEl.classList.remove("invoice-demo__stage--active");
+        }
+
+        // Activate next in next frame for clean transitions
+        requestAnimationFrame(() => {
+            nextEl.classList.add("invoice-demo__stage--active");
+            nextEl.classList.remove("invoice-demo__stage--leaving");
+        });
+
+        // scan overlay only on invoice stage
+        if (scanOverlay) scanOverlay.classList.toggle("active", currentStage === 0);
+        if (currentStage === 0) startScanHighlights();
+        else stopScanHighlights();
+    }
+
+    function stopLoop() {
+        if (loopTimer) clearTimeout(loopTimer);
+        loopTimer = null;
+    }
+
+    function stopScanHighlights() {
+        if (scanTimer) clearTimeout(scanTimer);
+        scanTimer = null;
+        if (scanHighlight) scanHighlight.classList.remove("active");
     }
 
     function positionHighlight(targetEl) {
-        const card = document.querySelector('#stageInvoice .invoice-card');
-        const box = document.getElementById('scanHighlight');
-        if (!card || !box || !targetEl) return;
+        if (!targetEl || !scanHighlight) return;
+
+        const card = document.querySelector("#stageInvoice .invoice-card");
+        if (!card) return;
 
         const cardRect = card.getBoundingClientRect();
         const r = targetEl.getBoundingClientRect();
-
         const pad = 6;
-        box.style.left = `${(r.left - cardRect.left) - pad}px`;
-        box.style.top = `${(r.top - cardRect.top) - pad}px`;
-        box.style.width = `${r.width + pad * 2}px`;
-        box.style.height = `${r.height + pad * 2}px`;
+
+        // highlight is inside the card, so we position relative to the card rect
+        scanHighlight.style.left = `${(r.left - cardRect.left) - pad}px`;
+        scanHighlight.style.top = `${(r.top - cardRect.top) - pad}px`;
+        scanHighlight.style.width = `${r.width + pad * 2}px`;
+        scanHighlight.style.height = `${r.height + pad * 2}px`;
     }
 
-    async function runScanHighlights() {
-        const box = document.getElementById('scanHighlight');
-        if (!box) return;
+    function startScanHighlights() {
+        if (!scanHighlight) return;
 
-        const order = ['invno', 'date', 'billedto', 'custgst', 'total'];
+        // stop any previous scan loop
+        stopScanHighlights();
+
+        const order = ["invno", "date", "billedto", "custgst", "items", "total"];
         const els = order
-            .map(k => document.querySelector(`#stageInvoice [data-scan="${k}"]`))
+            .map((k) => document.querySelector(`#stageInvoice [data-scan="${k}"]`))
             .filter(Boolean);
 
         if (!els.length) return;
 
-        box.classList.add('active');
+        scanHighlight.classList.add("active");
 
-        for (const el of els) {
-            // If stage changed mid-animation, stop
-            if (currentStage !== 0) break;
+        let i = 0;
+        const tick = () => {
+            // Only run scan if we're still on invoice stage
+            if (currentStage !== 0) return;
 
-            positionHighlight(el);
-            await sleep(450);
-        }
+            positionHighlight(els[i]);
+            i = (i + 1) % els.length;
 
-        box.classList.remove('active');
+            scanTimer = setTimeout(tick, 450);
+        };
+
+        // slight delay so layout is stable
+        scanTimer = setTimeout(tick, 250);
     }
 
-    async function startDemoLoop() {
-        while (true) {
+    function startLoop() {
+        stopLoop();
+
+        const prefersReducedMotion =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (prefersReducedMotion) {
+            // Still rotate stages, just slower + no scan highlight spam
             setStage(0);
-            await sleep(3000); // scan stage time (line keeps moving)
-
-            setStage(1);
-            await sleep(3000);
-
-            setStage(2);
-            await sleep(3000);
+            loopTimer = setTimeout(function advanceReduced() {
+                setStage((currentStage + 1) % stages.length);
+                loopTimer = setTimeout(advanceReduced, 2500);
+            }, 2500);
+            return;
         }
+
+        const advance = () => {
+            // cycle: 0 -> 1 -> 2 -> 0
+            const next = (currentStage + 1) % stages.length;
+            setStage(next);
+
+            // keep each stage visible for 3 seconds
+            loopTimer = setTimeout(advance, 3000);
+        };
+
+        // start from invoice stage, then loop
+        setStage(0);
+        loopTimer = setTimeout(advance, 3000);
     }
 
-    // start
-    setStage(0);
-    startDemoLoop();
+    // Make Approve button actually do something
+    if (approveBtn) {
+        approveBtn.addEventListener("click", () => {
+            stopLoop(); // stop auto loop temporarily
+            setStage(2); // success stage
 
-    // keep alignment correct if viewport changes
-    window.addEventListener('resize', () => {
-        if (currentStage === 0) requestAnimationFrame(() => runScanHighlights());
+            // resume loop after a moment
+            loopTimer = setTimeout(() => {
+                startLoop();
+            }, 2500);
+        });
+    }
+
+    window.addEventListener("resize", () => {
+        syncNavHeight();
+        // keep highlight aligned on resize
+        if (currentStage === 0) startScanHighlights();
     });
 
-    function syncNavHeight() {
-        const nav = document.querySelector('.nav');
-        if (!nav) return;
-        const h = Math.ceil(nav.getBoundingClientRect().height);
-        document.documentElement.style.setProperty('--nav-h', `${h}px`);
-    }
+    window.addEventListener("load", () => {
+        syncNavHeight();
+        startLoop();
+    });
 
-    window.addEventListener('load', syncNavHeight);
-    window.addEventListener('resize', syncNavHeight);
-
-    // If fonts load late and change nav height
+    // Fonts sometimes change nav height after load
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(syncNavHeight);
     }
