@@ -3301,11 +3301,11 @@
             positionHighlight(els[i]);
             i = (i + 1) % els.length;
 
-            scanTimer = setTimeout(tick, 450);
+            scanTimer = setTimeout(tick, 570);
         };
 
         // slight delay so layout is stable
-        scanTimer = setTimeout(tick, 250);
+        scanTimer = setTimeout(tick, 150);
     }
 
     function startLoop() {
@@ -3320,8 +3320,8 @@
             setStage(0);
             loopTimer = setTimeout(function advanceReduced() {
                 setStage((currentStage + 1) % stages.length);
-                loopTimer = setTimeout(advanceReduced, 2500);
-            }, 2500);
+                loopTimer = setTimeout(advanceReduced, 3500);
+            }, 3500);
             return;
         }
 
