@@ -8,13 +8,22 @@
           content="KhataClerk - Intelligent invoice automation for Indian businesses. >95% accurate from day one."/>
     <title>KhataClerk - Invoice Intelligence for every business</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
-            rel="stylesheet"
-    />
+    <!-- Fonts (non-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
+          media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+    </noscript>
 
     <style>
         /* ==========================================================================
@@ -24,6 +33,15 @@
            ========================================================================== */
 
         /* CSS Variables */
+        :root {
+            --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            --font-body: "DM Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+            /* Helps keep fallback sizing close (supported in modern Chromium) */
+            font-synthesis: none;
+        }
+
         :root {
             --emerald: #047857;
             --emerald-dark: #065f46;
@@ -2053,7 +2071,8 @@
             </h1>
 
             <p class="hero__subtitle">
-                KhataClerk transforms bills into accounting entries automatically. <strong> Greater than 95% accuracy from the
+                KhataClerk transforms bills into accounting entries automatically. <strong> Greater than 95% accuracy
+                from the
                 First Bill.</strong> No Required Training, Custom Mapping or Hassle.
             </p>
 
@@ -2582,7 +2601,8 @@
                     </svg>
                 </div>
                 <h3 class="feature-card__title">Unlimited Users</h3>
-                <p class="feature-card__text">All plans include unlimited users. Your team grows and you post from anywhere</p>
+                <p class="feature-card__text">All plans include unlimited users. Your team grows and you post from
+                    anywhere</p>
             </div>
 
             <div class="feature-card">
@@ -3369,24 +3389,24 @@
 </script>
 
 <script>
-  // Smooth-scroll to sections WITHOUT leaving #hash in the URL
-  document.addEventListener("click", (e) => {
-    const a = e.target.closest('a[href^="#"]');
-    if (!a) return;
+    // Smooth-scroll to sections WITHOUT leaving #hash in the URL
+    document.addEventListener("click", (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
 
-    const id = a.getAttribute("href");
-    if (!id || id === "#") return;
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
 
-    const el = document.querySelector(id);
-    if (!el) return;
+        const el = document.querySelector(id);
+        if (!el) return;
 
-    e.preventDefault();
+        e.preventDefault();
 
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+        el.scrollIntoView({behavior: "smooth", block: "start"});
 
-    // remove the hash from the URL (no reload)
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-  });
+        // remove the hash from the URL (no reload)
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+    });
 </script>
 </body>
 </html>
