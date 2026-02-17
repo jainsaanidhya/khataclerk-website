@@ -109,6 +109,105 @@
             padding: 0;
         }
 
+        /* ===== Mobile nav actions ===== */
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Desktop links visible only on desktop */
+        .nav__links--desktop {
+            display: none;
+        }
+
+        /* Burger button */
+        .nav__burger {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid rgba(4, 120, 87, 0.18);
+            background: rgba(255, 255, 255, 0.9);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex-direction: column;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        body::after {
+            content: "";
+            display: block;
+            height: calc(var(--nav-h) + 80px); /* extra space to allow full offset */
+        }
+
+        .nav__burger span {
+            width: 20px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 999px;
+            transition: var(--transition);
+        }
+
+        /* Mobile dropdown panel */
+        .nav__mobile {
+            display: none;
+            border-top: 1px solid rgba(4, 120, 87, 0.12);
+            background: rgba(255, 255, 255, 0.97);
+        }
+
+        @supports (backdrop-filter: blur(10px)) {
+            .nav__mobile {
+                backdrop-filter: blur(10px);
+            }
+        }
+
+        .nav__mobile-inner {
+            padding-top: 0.75rem;
+            padding-bottom: 1rem;
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .nav__mobile-link {
+            padding: 0.85rem 0.75rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--gray-900);
+            font-weight: 700;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+        }
+
+        .nav__mobile-link:active {
+            transform: scale(0.99);
+        }
+
+        /* Open state */
+        .nav__mobile.is-open {
+            display: block;
+        }
+
+        /* Desktop layout rules */
+        @media (min-width: 768px) {
+            .nav__links--desktop {
+                display: flex;
+                align-items: center;
+                gap: clamp(1.5rem, 3vw, 2.5rem);
+            }
+
+            .nav__burger {
+                display: none;
+            }
+
+            .nav__mobile {
+                display: none !important;
+            }
+        }
+
+
         body {
             font-family: var(--font-body);
             color: var(--gray-900);
@@ -2043,17 +2142,40 @@
 <nav class="nav">
     <div class="nav__container container">
         <div class="nav__logo">KhataClerk</div>
-        <div class="nav__links">
+
+        <!-- Desktop links (same as before) -->
+        <div class="nav__links nav__links--desktop">
             <a href="#reality" class="nav__link">Reality</a>
             <a href="#solution" class="nav__link">Solution</a>
             <a href="#features" class="nav__link">Features</a>
             <a href="#difference" class="nav__link">Difference</a>
             <a href="#pricing" class="nav__link">Pricing</a>
             <a href="#faq" class="nav__link">FAQ</a>
+        </div>
+
+        <!-- Right side: always show CTA + hamburger on mobile -->
+        <div class="nav__actions">
             <a href="#" class="nav__cta btn btn--small btn--primary">Start Free Trial</a>
+
+            <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="nav__mobile" id="navMobile" aria-hidden="true">
+        <div class="nav__mobile-inner container">
+            <a href="#reality" class="nav__mobile-link">Reality</a>
+            <a href="#solution" class="nav__mobile-link">Solution</a>
+            <a href="#features" class="nav__mobile-link">Features</a>
+            <a href="#difference" class="nav__mobile-link">Difference</a>
+            <a href="#pricing" class="nav__mobile-link">Pricing</a>
+            <a href="#faq" class="nav__mobile-link">FAQ</a>
         </div>
     </div>
 </nav>
+
 
 <!-- Hero Section -->
 <section class="hero">
@@ -3380,6 +3502,8 @@
     window.addEventListener("load", () => {
         syncNavHeight();
         startLoop();
+        setTimeout(syncNavHeight, 300);
+        setTimeout(syncNavHeight, 1200);
     });
 
     // Fonts sometimes change nav height after load
@@ -3389,24 +3513,71 @@
 </script>
 
 <script>
-    // Smooth-scroll to sections WITHOUT leaving #hash in the URL
+    // Smooth-scroll with correct fixed-navbar offset (desktop + mobile)
     document.addEventListener("click", (e) => {
         const a = e.target.closest('a[href^="#"]');
         if (!a) return;
 
-        const id = a.getAttribute("href");
-        if (!id || id === "#") return;
+        const href = a.getAttribute("href");
+        if (!href || href === "#") return;
 
-        const el = document.querySelector(id);
+        const el = document.querySelector(href);
         if (!el) return;
 
         e.preventDefault();
 
-        el.scrollIntoView({behavior: "smooth", block: "start"});
+        // Read nav height from CSS var (your syncNavHeight sets this)
+        const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 72;
+        const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nav-gap")) || 12;
 
-        // remove the hash from the URL (no reload)
+        const y = el.getBoundingClientRect().top + window.pageYOffset - (navH + gap);
+
+        window.scrollTo({top: y, behavior: "smooth"});
+
+        // OPTIONAL: keep URL clean (your old behavior)
         history.replaceState(null, "", window.location.pathname + window.location.search);
     });
 </script>
+
+
+<script>
+    (function () {
+        const burger = document.getElementById("navBurger");
+        const mobile = document.getElementById("navMobile");
+
+        if (!burger || !mobile) return;
+
+        function closeMenu() {
+            mobile.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+            mobile.setAttribute("aria-hidden", "true");
+        }
+
+        function toggleMenu() {
+            const open = mobile.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", open ? "true" : "false");
+            mobile.setAttribute("aria-hidden", open ? "false" : "true");
+        }
+
+        burger.addEventListener("click", toggleMenu);
+
+        // Close menu when you click a mobile link
+        mobile.addEventListener("click", (e) => {
+            const a = e.target.closest('a[href^="#"]');
+            if (a) closeMenu();
+        });
+
+        // Close on resize to desktop
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768) closeMenu();
+        });
+
+        // Close on ESC
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+        });
+    })();
+</script>
+
 </body>
 </html>
