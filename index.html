@@ -93,6 +93,169 @@
             --nav-gap: 12px; /* breathing room below navbar */
         }
 
+        /* ===== Savings Calculator ===== */
+        .calc {
+            border: 2px solid rgba(4, 120, 87, 0.18);
+        }
+
+        .calc__header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: var(--s-3);
+            margin-bottom: var(--s-4);
+        }
+
+        .calc__badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--emerald);
+            margin-bottom: 0.6rem;
+        }
+
+        .calc__title {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc__subtitle {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 60ch;
+        }
+
+        .calc__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--s-4);
+        }
+
+        @media (min-width: 900px) {
+            .calc__grid {
+                grid-template-columns: 1.1fr 0.9fr;
+                align-items: start;
+            }
+        }
+
+        .calc__inputs {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .calc__row {
+            display: grid;
+            gap: 0.5rem;
+            padding: 0.85rem;
+            border-radius: 14px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+        }
+
+        .calc__label {
+            font-weight: 800;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .calc__control {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .calc__input {
+            width: 100%;
+            max-width: 220px;
+            padding: 0.75rem 0.9rem;
+            border-radius: 12px;
+            border: 2px solid rgba(15, 23, 42, 0.12);
+            outline: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--navy);
+            background: white;
+        }
+
+        .calc__input:focus {
+            border-color: rgba(4, 120, 87, 0.55);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+        }
+
+        .calc__hint {
+            font-weight: 700;
+            color: var(--gray-600);
+        }
+
+        .calc__note {
+            margin-top: 0.5rem;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .calc__outputs {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .calc__kpi {
+            padding: 1.1rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calc__kpi--highlight {
+            border-color: rgba(4, 120, 87, 0.25);
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.06), rgba(16, 185, 129, 0.04));
+        }
+
+        .calc__kpi-label {
+            font-weight: 800;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .calc__kpi-value {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .calc__kpi-sub {
+            margin-top: 0.35rem;
+            color: var(--gray-600);
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+
+        .calc__cta {
+            margin-top: 0.25rem;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .calc__disclaimer {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+
         html {
             font-size: var(--body);
             -webkit-font-smoothing: antialiased;
@@ -2197,9 +2360,8 @@
             </h1>
 
             <p class="hero__subtitle">
-                KhataClerk transforms bills into accounting entries automatically. <strong> Greater than 95% accuracy
-                from the
-                First Bill.</strong> No Required Training, Custom Mapping or Hassle.
+                KhataClerk transforms bills into accounting entries automatically. <strong> Upload from any device
+                anywhere in the world.</strong> No Required Training, Custom Mapping or Hassle.
             </p>
 
             <div class="hero__ctas">
@@ -2224,7 +2386,7 @@
                          stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span><strong>Totally Customizable</strong></span>
+                    <span><strong>No-Cost Customization</strong></span>
                 </div>
                 <div class="trust-item">
                     <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2238,14 +2400,14 @@
                          stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span><strong>SOC 2</strong> security</span>
+                    <span><strong>Advance security</strong></span>
                 </div>
                 <div class="trust-item">
                     <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                          stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span><strong>Live Support</strong></span>
+                    <span><strong>Local Integration</strong></span>
                 </div>
             </div>
         </div>
@@ -2445,9 +2607,10 @@
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
                 </div>
-                <h3 class="pain-card__title">20+ Hours Wasted</h3>
+                <h3 class="pain-card__title">87 Hours a Month</h3>
                 <p class="pain-card__text">
-                    Teams spend days typing invoices instead of growing your business. That's over 1,000 hours a year
+                    Teams spend 87+ Hours/Month typing invoices instead of growing business. That's over 1,040
+                    hours/year
                     lost to data entry.
                 </p>
                 <div class="pain-card__stat">1,040 hours/year = ₹5 lakhs+ lost</div>
@@ -2483,7 +2646,74 @@
                 </p>
                 <div class="pain-card__stat">Books 2-3 weeks behind always</div>
             </div>
+
         </div>
+        <!-- Savings Calculator (inside Reality section) -->
+        <!-- Savings Calculator (inside Reality section) -->
+        <div class="calc card" id="savingsCalc" style="margin-top: var(--s-5);">
+            <div class="calc__header">
+                <div>
+                    <div class="calc__badge">Savings Calculator</div>
+                    <h3 class="calc__title">See what manual invoice entry costs you</h3>
+                </div>
+            </div>
+
+            <div class="calc__grid">
+                <!-- Inputs -->
+                <div class="calc__inputs">
+                    <div class="calc__row">
+                        <label class="calc__label" for="invPerMonth">Invoices per month</label>
+                        <div class="calc__control">
+                            <input class="calc__input" id="invPerMonth" type="number" min="0" value="500">
+                            <span class="calc__hint">/month</span>
+                        </div>
+                    </div>
+
+                    <div class="calc__row">
+                        <label class="calc__label" for="minsPerInvoice">Minutes per invoice</label>
+                        <div class="calc__control">
+                            <input class="calc__input" id="minsPerInvoice" type="number" min="0" step="1" value="15">
+                            <span class="calc__hint">mins</span>
+                        </div>
+                    </div>
+
+                    <div class="calc__row">
+                        <label class="calc__label" for="staffCount">No. of staff doing entry</label>
+                        <div class="calc__control">
+                            <input class="calc__input" id="staffCount" type="number" min="1" step="1" value="1">
+                            <span class="calc__hint">people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outputs -->
+                <div class="calc__outputs">
+                    <div class="calc__kpi calc__kpi--highlight">
+                        <div class="calc__kpi-label">Estimated cost of manual entry</div>
+                        <div class="calc__kpi-value">₹ <span id="outCostYear">0</span> / year</div>
+                        <div class="calc__kpi-sub">₹ <span id="outCostMonth">0</span> / month</div>
+                    </div>
+
+                    <div class="calc__cta">
+                        <a href="#pricing" class="btn btn--primary" style="width:100%; justify-content:center;">
+                            Look at our Pricing
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2.5">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <div class="calc__disclaimer">
+                            ₹20,000/month salary per staff • 22 working days/month • 8 hours/day.
+                        </div>
+                        <div class="calc__disclaimer">
+                            This is conservative cost (excludes errors, GST penalties, and missed discounts).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -3541,6 +3771,58 @@
         // OPTIONAL: keep URL clean (your old behavior)
         history.replaceState(null, "", window.location.pathname + window.location.search);
     });
+</script>
+<script>
+    (function () {
+        const el = (id) => document.getElementById(id);
+
+        const invPerMonth = el("invPerMonth");
+        const minsPerInvoice = el("minsPerInvoice");
+        const staffCount = el("staffCount");
+
+        const outCostMonth = el("outCostMonth");
+        const outCostYear = el("outCostYear");
+
+        // Fixed assumptions (hidden constants)
+        const WORK_DAYS_PER_MONTH = 22;
+        const WORK_HOURS_PER_DAY = 8;
+        const MONTHLY_SALARY_PER_STAFF = 20000;
+
+        function num(v, fallback = 0) {
+            const n = Number(v);
+            return Number.isFinite(n) ? n : fallback;
+        }
+
+        function formatINR(n) {
+            const x = Math.max(0, Math.round(n));
+            return x.toLocaleString("en-IN");
+        }
+
+        function recalc() {
+            const invoices = Math.max(0, num(invPerMonth.value));
+            const mins = Math.max(0, num(minsPerInvoice.value));
+            const staff = Math.max(1, num(staffCount.value, 1));
+
+            const manualHoursMonth = (invoices * mins) / 60;
+
+            const hourlyCost =
+                MONTHLY_SALARY_PER_STAFF / (WORK_DAYS_PER_MONTH * WORK_HOURS_PER_DAY);
+
+            const costMonth = manualHoursMonth * hourlyCost * staff;
+            const costYear = costMonth * 12;
+
+            outCostMonth.textContent = formatINR(costMonth);
+            outCostYear.textContent = formatINR(costYear);
+        }
+
+        [invPerMonth, minsPerInvoice, staffCount].forEach((inp) => {
+            if (!inp) return;
+            inp.addEventListener("input", recalc);
+            inp.addEventListener("change", recalc);
+        });
+
+        recalc();
+    })();
 </script>
 
 
