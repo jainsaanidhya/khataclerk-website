@@ -2232,17 +2232,6 @@ a {
         top: 100%;
     }
 }
-.nav__logo,
-.nav__logo:link,
-.nav__logo:visited,
-.nav__logo:hover,
-.nav__logo:active,
-.nav__logo:focus {
-  text-decoration: none !important;
-}
-html {
-  scroll-behavior: auto;
-}
 
 /* Highlight box that snaps to real fields (positioned by JS) */
 .scan-highlight {
