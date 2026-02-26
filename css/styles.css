@@ -2239,7 +2239,6 @@ a {
 .nav__logo:active,
 .nav__logo:focus {
   text-decoration: none !important;
-  color: inherit !important;
 }
 html {
   scroll-behavior: auto;
