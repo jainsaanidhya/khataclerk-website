@@ -2232,9 +2232,9 @@ a {
         top: 100%;
     }
 }
-
 .nav__logo {
     text-decoration: none;
+    color: inherit;
 }
 html {
   scroll-behavior: auto;
