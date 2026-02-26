@@ -2233,6 +2233,13 @@ a {
     }
 }
 
+.nav__logo {
+    text-decoration: none;
+}
+html {
+  scroll-behavior: auto;
+}
+
 /* Highlight box that snaps to real fields (positioned by JS) */
 .scan-highlight {
     position: absolute;
