@@ -279,3 +279,111 @@ document.addEventListener("click", (e) => {
         if (e.key === "Escape") closeMenu();
     });
 })();
+
+(function () {
+  const wrap = document.getElementById("solutionSteps");
+  if (!wrap) return;
+
+  // Only direct children .step (so we don't touch anything inside cards)
+  const steps = Array.from(wrap.children).filter(el => el.classList.contains("step"));
+  const dots = Array.from(wrap.querySelectorAll(".solution-dot"));
+
+  if (!steps.length || dots.length !== steps.length) {
+    // still try to run, but safe
+  }
+
+  let active = 0;
+
+  function render() {
+    steps.forEach((s, i) => s.classList.toggle("is-active", i === active));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === active));
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const i = Number(dot.dataset.step);
+      if (!Number.isFinite(i)) return;
+      active = Math.max(0, Math.min(steps.length - 1, i));
+      render();
+    });
+  });
+
+  // Initial state: show only first
+  active = 0;
+  render();
+})();
+
+(function solutionTabsCarousel(){
+  const stepsWrap = document.getElementById("solutionSteps");
+  const tabsWrap  = document.getElementById("solutionTabs");
+  if (!stepsWrap || !tabsWrap) return;
+
+  const steps = Array.from(stepsWrap.querySelectorAll(".step"));
+  const tabs  = Array.from(tabsWrap.querySelectorAll(".solution-tab"));
+
+  function setActive(i){
+    steps.forEach((el, idx) => el.classList.toggle("is-active", idx === i));
+    tabs.forEach((btn, idx) => {
+      btn.classList.toggle("is-active", idx === i);
+      btn.setAttribute("aria-selected", idx === i ? "true" : "false");
+      btn.setAttribute("tabindex", idx === i ? "0" : "-1");
+    });
+  }
+
+  // init
+  setActive(0);
+
+  // click
+  tabsWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".solution-tab");
+    if (!btn) return;
+    const i = Number(btn.dataset.step);
+    if (!Number.isFinite(i)) return;
+    setActive(i);
+  });
+
+  // keyboard (left/right)
+  tabsWrap.addEventListener("keydown", (e) => {
+    const current = tabs.findIndex(b => b.classList.contains("is-active"));
+    if (e.key === "ArrowRight") { e.preventDefault(); setActive((current + 1) % tabs.length); }
+    if (e.key === "ArrowLeft")  { e.preventDefault(); setActive((current - 1 + tabs.length) % tabs.length); }
+  });
+})();
+
+(() => {
+  const openBtn = document.getElementById("openDemo");
+  const modal = document.getElementById("demoModal");
+  const backdrop = document.getElementById("demoBackdrop");
+  const closeBtn = document.getElementById("closeDemo");
+  const frame = document.getElementById("demoFrame");
+
+  if (!openBtn || !modal || !backdrop || !closeBtn || !frame) return;
+
+  const VIDEO_ID = "unHxLa9nfc4";
+  const VIDEO_URL = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`;
+
+  const open = () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    frame.src = VIDEO_URL;
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  };
+
+  const close = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    frame.src = ""; // stops video
+    document.body.style.overflow = "";
+    openBtn.focus();
+  };
+
+  openBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+  });
+})();
