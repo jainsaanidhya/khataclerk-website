@@ -2332,10 +2332,17 @@ a {
   }
 }
 
-@media (min-width: 520px){
-  .solution-tabs{ gap: 14px; margin-bottom: 70px; }
+/* space between tabs and the steps/carousel below */
+.solution-tabs{
+  margin-bottom: 70px;
 }
 
+@media (max-width: 640px){
+  .solution-tabs{ gap: 10px; margin-bottom: 70px; }
+}
+@media (min-width: 1024px){
+  .solution-tabs{ gap: 14px; margin-bottom: 70px; }
+}
 .demo-modal {
   position: fixed;
   inset: 0;
