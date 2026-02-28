@@ -2332,6 +2332,10 @@ a {
   }
 }
 
+@media (min-width: 520px){
+  .solution-tabs{ gap: 14px; margin-bottom: 70px; }
+}
+
 .demo-modal {
   position: fixed;
   inset: 0;
