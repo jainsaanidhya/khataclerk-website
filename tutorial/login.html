@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>How to login | KhataClerk Tutorials</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <style>
+        .tutorial-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--s-5);
+            align-items: start;
+        }
+
+        .tutorial-sidebar {
+            position: relative;
+        }
+
+        .tutorial-sidebar ul a {
+            transition: color 0.2s;
+        }
+
+        .tutorial-sidebar ul a:hover {
+            color: var(--emerald) !important;
+        }
+
+        @media (min-width: 768px) {
+            .tutorial-layout {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .tutorial-sidebar {
+                position: sticky;
+                top: 100px;
+                height: max-content;
+                padding-right: var(--s-3);
+                border-right: 1px solid var(--gray-100);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav id="nav-placeholder" class="nav"></nav>
+
+
+    <main class="section bg-white" style="margin-top: 80px; padding-top: var(--s-5); min-height: 80vh;">
+        <div class="container tutorial-layout">
+            <!-- Sidebar Sidebar Sidebar Placeholder -->
+            <aside id="sidebar-placeholder" class="tutorial-sidebar"></aside>
+
+            <div class="tutorial-content" style="max-width: 850px;">
+                <div class="section-header" style="text-align: left; margin-bottom: var(--s-5);">
+                    <h1 class="section-header__title" style="font-size: var(--h2);">How to login</h1>
+                </div>
+
+                <div class="steps-container" style="display: flex; flex-direction: column; gap: var(--s-4);">
+                    <!-- Step 1 -->
+                    <div class="card card--soft"
+                        style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;">
+                            <span
+                                style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">1</span>
+                            <div>
+                                <h3
+                                    style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                    Navigate to Sign In</h3>
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                    Open the <a href="https://app.khataclerk.com/signin" target="_blank"
+                                        style="color: #047857; font-weight: 700; text-decoration: none;">Login
+                                        Portal</a> and ensure you are on the "Welcome back" screen.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- GIF Placeholder -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 1rem;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Opening Login Page ]</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="card card--soft"
+                        style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;">
+                            <span
+                                style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">2</span>
+                            <div>
+                                <h3
+                                    style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                    Enter Your Credentials</h3>
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                    Type in the <strong>Email</strong> and <strong>Password</strong> you used during
+                                    signup. You can also use the 'Forgot password?' link if you need to reset it.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- GIF Placeholder -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 1rem;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Entering Details and Clicking Sign In ]</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="card card--soft"
+                        style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;">
+                            <span
+                                style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">3</span>
+                            <div>
+                                <h3
+                                    style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                    Access Your Dashboard</h3>
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                    Once authenticated, you'll be redirected to your secure KhataClerk dashboard where
+                                    you can start uploading and automating your invoices.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- GIF Placeholder -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 1rem;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Dashboard Overview ]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--gray-100);">
+                    <a href="signup.html"
+                        style="color: #047857; font-weight: 700; text-decoration: none; font-size: 0.95rem; flex: 1; min-width: 200px;">←
+                        Previous: How to signup</a>
+                    <a href="organization.html"
+                        style="color: #047857; font-weight: 700; text-decoration: none; font-size: 0.95rem; flex: 1; min-width: 200px; text-align: right;">Next:
+                        Manage Organizations →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder" class="footer"></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+</body>
+
+</html>

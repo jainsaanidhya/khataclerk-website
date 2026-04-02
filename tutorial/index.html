@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Quick Start | KhataClerk Tutorials</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav id="nav-placeholder" class="nav"></nav>
+
+    <main class="section bg-white" style="margin-top: 80px; padding-top: var(--s-5); min-height: 80vh;">
+        <div class="container tutorial-layout">
+
+            <aside id="sidebar-placeholder" class="tutorial-sidebar"></aside>
+
+            <div class="tutorial-content" style="max-width: 850px;">
+
+                <!-- HEADER -->
+                <div class="section-header" style="text-align: left; margin-bottom: var(--s-5);">
+                    <div class="section-header__badge section-header__badge--primary">Quick Start</div>
+                    <h1 class="section-header__title">Complete Workflow</h1>
+                    <p class="section-header__subtitle" style="text-align:left;">
+                        Follow this step-by-step guide to go from signup → invoice upload → push to Tally.
+                    </p>
+                </div>
+
+                <!-- STEPS -->
+                <div class="step-container">
+
+                    <!-- STEP 1 -->
+                    <div class="step-item">
+                        <div class="step-dot">1</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Signup</h3>
+                            <p class="step-desc">Go to the <a href="https://app.khataclerk.com/signin" target="_blank"
+                                    style="color: var(--emerald); font-weight: 600; text-decoration: underline;">KhataClerk
+                                    Login</a> and create your account using Name,Email and
+                                Password.<span class="dots">...</span><span class="more-text"> Your password must have
+                                    at least 8 characters, one lowercase and uppercase letter, one number, and one
+                                    special character.</span> <button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/Singup St-1.mp4')">
+                            <img src="../assets/Singup St-1.gif" alt="Signup step demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="step-item">
+                        <div class="step-dot">2</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Verify Email</h3>
+                            <p class="step-desc">Check your inbox and verify your email before logging in.<span
+                                    class="more-text"> This ensures your account is secure.
+                                    If you don't receive the email within 2 minutes, check your spam
+                                    folder.</span><button class="read-more-btn" onclick="toggleReadMore(this)">Read
+                                    more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/setp2.mp4')">
+                            <img src="../assets/setp2.gif" alt="Verify email step demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="step-item">
+                        <div class="step-dot">3</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Login</h3>
+                            <p class="step-desc">Login using your credentials to access the dashboard.<span
+                                    class="more-text"> The KhataClerk dashboard is your
+                                    central hub for all financial operations, giving you an immediate overview of your
+                                    workspace</span><button class="read-more-btn" onclick="toggleReadMore(this)">Read
+                                    more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/Login-3.mp4')">
+                            <img src="../assets/Login-3.gif" alt="Login step demo" class="step-gif-img" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="step-item">
+                        <div class="step-dot">4</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Create Workspace</h3>
+                            <p class="step-desc">Create a workspace to start processing invoices.<span
+                                    class="more-text"> Workspaces keep your firm's data
+                                    securely isolated. You can invite team members to collaborate in a workspace
+                                    directly from the settings menu later.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/create-workspace-4.mp4')">
+                            <img src="../assets/create-workspace-4.gif" alt="Create workspace step demo"
+                                class="step-gif-img" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="step-item">
+                        <div class="step-dot">5</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Download Tally Bridge</h3>
+                            <p class="step-desc">Go to settings → Setup Tally Bridge download the Tally Bridge → unzip
+                                and run it.<span class="dots">...</span><span class="more-text"> The Tally Bridge
+                                    securely connects
+                                    your local Tally software with our cloud. Leave the bridge utility running in the
+                                    background while processing batches.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap is-playing">
+                            <video class="step-video-player" muted autoplay loop
+                                onclick="this.muted=false; this.controls=true; this.onclick=null;">
+                                <source src="../videos/st-5.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6 -->
+                    <div class="step-item">
+                        <div class="step-dot">6</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Verify Tally Bridge Connection</h3>
+                            <p class="step-desc">Verify that the Tally bridge connection is connected successfully.<span
+                                    class="more-text"> Check the connection status in your
+                                    dashboard settings or the bridge utility window to ensure data can flow between
+                                    KhataClerk and your local Tally setup.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/st6.mp4')">
+                            <img src="../assets/st6.gif" alt="Verify Tally Bridge connection demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <!-- STEP 7 -->
+                    <div class="step-item">
+                        <div class="step-dot">7</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Review Extraction settings</h3>
+                            <p class="step-desc">Go to settings → Extraction settings → Review and Change → Save.<span
+                                    class="more-text"> The KhataClerk AI processes
+                                    documents based on these critical configurations. Adjusting specific confidence
+                                    thresholds ensures only highly accurate data bypasses manual review.</span><button
+                                    class="read-more-btn" onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/st-7.mp4')">
+                            <img src="../assets/st-7.gif" alt="Review extraction settings demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 8 -->
+                    <div class="step-item">
+                        <div class="step-dot">8</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Upload Invoice</h3>
+                            <p class="step-desc">Select invoice type → choose files → upload.<span class="more-text">
+                                    You can select Multiple PDF or image
+                                    files in bulk formats to save time. The system will automatically detect the
+                                    document boundaries and queue them up.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap">
+                            <img src="../assets/st8.gif" alt="Upload invoice demo" class="step-gif-img" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 9 -->
+                    <div class="step-item">
+                        <div class="step-dot">9</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Start Processing</h3>
+                            <p class="step-desc">Click "Start Processing" to extract invoice data using AI.<span
+                                    class="more-text"> Our cutting-edge AI engine natively
+                                    parses complex line items, identifies vendor details, and calculates taxation grand
+                                    totals within seconds.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/st9.mp4')">
+                            <img src="../assets/st9.gif" alt="Start processing demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 10 -->
+                    <div class="step-item is-optional">
+                        <div class="step-dot">10</div>
+                        <div class="step-text-wrap">
+                            <span class="badge-optional">Optional</span>
+                            <h3 class="step-title">Document Review</h3>
+                            <p class="step-desc">Review extracted data → approve invoices.<span class="more-text"> While
+                                    our AI boasts a 99% accuracy
+                                    rate, taking a second look to spot-check extracted line items keeps your accounting
+                                    ledger perfectly balanced. This step can be fully bypassed for trusted
+                                    vendors.</span><button class="read-more-btn" onclick="toggleReadMore(this)">Read
+                                    more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/optional.mp4')">
+                            <img src="../assets/optional.gif" alt="Document review demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 11 -->
+                    <div class="step-item">
+                        <div class="step-dot">11</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Move to Tally Review</h3>
+                            <p class="step-desc">Approved invoices automatically move to Tally Review.<span
+                                    class="more-text"> Items pending final review are
+                                    securely locked to prevent any further structural edits while waiting for the
+                                    accounting head's approval.</span><button class="read-more-btn"
+                                    onclick="toggleReadMore(this)">Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/st11.mp4')">
+                            <img src="../assets/st11.gif" alt="Move to Tally review demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- STEP 12 -->
+                    <div class="step-item">
+                        <div class="step-dot">12</div>
+                        <div class="step-text-wrap">
+                            <h3 class="step-title">Push to Tally</h3>
+                            <p class="step-desc">Select invoices → click "Push to Tally" → done.<span class="more-text">
+                                    Clicking this synchronizes your
+                                    fully approved invoices seamlessly into your live Tally ERP software via our secure
+                                    integration bridge without any manual typing.</span><button class="read-more-btn"
+                                    onclick=toggleReadMore(this)>Read more</button></p>
+
+                        </div>
+                        <div class="step-media-wrap" onclick="loadVideo(this, '../videos/st12.mp4')">
+                            <img src="../assets/st12.gif" alt="Push to Tally step demo" class="step-gif-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS BANNER -->
+                    <div
+                        style="display: flex; flex-direction: row; align-items: center; gap: 1.5rem; background: linear-gradient(135deg, rgba(4, 120, 87, 0.08), rgba(4, 120, 87, 0.03)); border: 2px dashed rgba(4, 120, 87, 0.4); border-radius: 16px; padding: 1.5rem 2rem; margin-top: 1rem; position: relative;">
+                        <!-- Premium Award Badge SVG -->
+                        <div
+                            style="flex-shrink: 0; width: 64px; height: 64px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); box-shadow: 0 4px 12px rgba(4, 120, 87, 0.15); border: 3px solid rgba(4, 120, 87, 0.1);">
+                            <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3
+                                style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--emerald-dark); margin: 0 0 0.3rem 0; line-height: 1.2;">
+                                Hurray!</h3>
+                            <p
+                                style="font-family: var(--font-body); font-size: 1.05rem; color: var(--navy); font-weight: 500; margin: 0; line-height: 1.5;">
+                                You have successfully uploaded and pushed your first invoice from KhataClerk.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder" class="footer"></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+
+    <script>
+        function toggleReadMore(btn) {
+            const p = btn.parentElement;
+            const dots = p.querySelector('.dots');
+            const moreText = p.querySelector('.more-text');
+
+            if (moreText.style.display === "inline") {
+                moreText.style.display = "none";
+                if (dots) dots.style.display = "inline";
+                btn.innerText = "Read more";
+            } else {
+                moreText.style.display = "inline";
+                if (dots) dots.style.display = "none";
+                btn.innerText = "Read less";
+            }
+        }
+
+        function loadVideo(container, videoSrc) {
+            container.classList.add('is-playing');
+            const videoHtml = `
+                <video class="step-video-player" controls autoplay loop>
+                    <source src="${videoSrc}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+            container.innerHTML = videoHtml;
+            container.onclick = null;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Manage Organizations | KhataClerk Tutorials</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <style>
+        .tutorial-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--s-5);
+            align-items: start;
+        }
+
+        .tutorial-sidebar {
+            position: relative;
+        }
+
+        .tutorial-sidebar ul a {
+            transition: color 0.2s;
+        }
+
+        .tutorial-sidebar ul a:hover {
+            color: var(--emerald) !important;
+        }
+
+        @media (min-width: 768px) {
+            .tutorial-layout {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .tutorial-sidebar {
+                position: sticky;
+                top: 100px;
+                height: max-content;
+                padding-right: var(--s-3);
+                border-right: 1px solid var(--gray-100);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav id="nav-placeholder" class="nav"></nav>
+
+
+    <main class="section bg-white" style="margin-top: 80px; padding-top: var(--s-5); min-height: 80vh;">
+        <div class="container tutorial-layout">
+            <!-- Sidebar Sidebar Sidebar Placeholder -->
+            <aside id="sidebar-placeholder" class="tutorial-sidebar"></aside>
+
+            <div class="tutorial-content" style="max-width: 850px;">
+                <div class="section-header" style="text-align: left; margin-bottom: var(--s-5);">
+                    <h1 class="section-header__title" style="font-size: var(--h2);">Team & Account Management</h1>
+                    <p class="section-header__subtitle" style="margin: 0; text-align: left;">
+                        Manage your team, track your subscription usage, and keep your account secure through the
+                        Organization and Settings dashboards.
+                    </p>
+                </div>
+
+                <div class="steps-container" style="display: flex; flex-direction: column; gap: var(--s-4);">
+                    <!-- Step 1 -->
+                    <div class="card card--soft"
+                        style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <span
+                                style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">1</span>
+                            <div style="width: 100%;">
+                                <h3
+                                    style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                    Manage via Quick Actions</h3>
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin-bottom: 0;">
+                                    Access the <strong>"Manage Organization"</strong> card from your home dashboard and
+                                    select an action to process:
+                                </p>
+
+                                <!-- Interactive Tabs for Step 1 -->
+                                <div style="margin-top: 1.5rem;">
+                                    <input type="radio" name="quick-action-tabs" id="tab-add" style="display: none;"
+                                        checked>
+                                    <input type="radio" name="quick-action-tabs" id="tab-remove" style="display: none;">
+                                    <input type="radio" name="quick-action-tabs" id="tab-transfer"
+                                        style="display: none;">
+
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
+                                        <label for="tab-add" class="qa-tab-btn"
+                                            style="cursor: pointer; background: var(--gray-50); padding: 0.75rem; border-radius: 8px; border: 2px solid transparent; transition: all 0.2s; text-align: center;">
+                                            <h4
+                                                style="color: var(--navy); margin-bottom: 0.25rem; font-size: 0.95rem; font-weight: 700;">
+                                                Add Member</h4>
+                                            <p style="font-size: 0.75rem; color: var(--gray-600);">Invite team members.
+                                            </p>
+                                        </label>
+                                        <label for="tab-remove" class="qa-tab-btn"
+                                            style="cursor: pointer; background: var(--gray-50); padding: 0.75rem; border-radius: 8px; border: 2px solid transparent; transition: all 0.2s; text-align: center;">
+                                            <h4
+                                                style="color: var(--navy); margin-bottom: 0.25rem; font-size: 0.95rem; font-weight: 700;">
+                                                Remove</h4>
+                                            <p style="font-size: 0.75rem; color: var(--gray-600);">Revoke user access.
+                                            </p>
+                                        </label>
+                                        <label for="tab-transfer" class="qa-tab-btn"
+                                            style="cursor: pointer; background: var(--gray-50); padding: 0.75rem; border-radius: 8px; border: 2px solid transparent; transition: all 0.2s; text-align: center;">
+                                            <h4
+                                                style="color: var(--navy); margin-bottom: 0.25rem; font-size: 0.95rem; font-weight: 700;">
+                                                Transfer</h4>
+                                            <p style="font-size: 0.75rem; color: var(--gray-600);">Promote new Admin.
+                                            </p>
+                                        </label>
+                                    </div>
+
+                                    <!-- GIF Display Area -->
+                                    <div
+                                        style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                                        <div id="add-gif"
+                                            style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; text-align: center;">
+                                            <span
+                                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                                GIF: Inviting a Member ]</span>
+                                            <p
+                                                style="font-family: var(--font-body); color: var(--navy); font-size: 0.9rem; line-height: 1.5; margin: 0; background: #ecfdf5; padding: 0.75rem; border-radius: 8px; border: 1px solid #a7f3d0;">
+                                                <strong>Note:</strong> After entering the email ID, you will get an
+                                                invite code. You need to share that invite code with that member to
+                                                complete their invitation.
+                                            </p>
+                                        </div>
+                                        <div id="remove-gif"
+                                            style="display: none; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                            <span
+                                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                                GIF: Removing a Member ]</span>
+                                        </div>
+                                        <div id="transfer-gif"
+                                            style="display: none; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                            <span
+                                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                                GIF: Admin Transfer Flow ]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        #tab-add:checked~div label[for="tab-add"],
+                        #tab-remove:checked~div label[for="tab-remove"],
+                        #tab-transfer:checked~div label[for="tab-transfer"] {
+                            border-color: #047857 !important;
+                            background: white !important;
+                            box-shadow: var(--shadow-sm);
+                        }
+
+                        #tab-add:checked~div #add-gif {
+                            display: flex !important;
+                        }
+
+                        #tab-add:checked~div #remove-gif,
+                        #tab-add:checked~div #transfer-gif {
+                            display: none !important;
+                        }
+
+                        #tab-remove:checked~div #remove-gif {
+                            display: flex !important;
+                        }
+
+                        #tab-remove:checked~div #add-gif,
+                        #tab-remove:checked~div #transfer-gif {
+                            display: none !important;
+                        }
+
+                        #tab-transfer:checked~div #transfer-gif {
+                            display: flex !important;
+                        }
+
+                        #tab-transfer:checked~div #add-gif,
+                        #tab-transfer:checked~div #remove-gif {
+                            display: none !important;
+                        }
+                    </style>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="card card--soft"
+                    style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;">
+                        <span
+                            style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">2</span>
+                        <div style="width: 100%;">
+                            <h3
+                                style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                Joining an Organization</h3>
+                            <p
+                                style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                Access the <strong>"Join Organization"</strong> card from your home dashboard. Once you
+                                have the Join code, enter the code to join that organization. This will link your
+                                account with the existing team and roles instantly.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- GIF Display Area -->
+                    <div
+                        style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                        <span
+                            style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                            GIF: Joining an Organization ]</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="card card--soft"
+                    style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm); margin-top: var(--s-4);">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;">
+                        <span
+                            style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">3</span>
+                        <div style="width: 100%;">
+                            <h3
+                                style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                Understanding Settings</h3>
+                            <p
+                                style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                Click on your profile avatar in the top right and select <strong>"Settings"</strong>.
+                                Explore the two primary tabs:
+                            </p>
+
+                            <!-- Interactive Tabs -->
+                            <div style="margin-top: 1.5rem;">
+                                <input type="radio" name="settings-tabs" id="tab-plan" style="display: none;" checked>
+                                <input type="radio" name="settings-tabs" id="tab-user" style="display: none;">
+
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                                    <label for="tab-plan" class="settings-tab-btn"
+                                        style="cursor: pointer; background: var(--gray-50); padding: 1rem; border-radius: 8px; border: 2px solid transparent; transition: all 0.2s; display: block;">
+                                        <h4
+                                            style="color: var(--navy); margin-bottom: 0.50rem; font-size: 1rem; font-weight: 700;">
+                                            Plan Settings</h4>
+                                        <p style="font-size: 0.85rem; color: var(--gray-600); line-height: 1.4;">Monitor
+                                            your current plan, subscription status, and usage.</p>
+                                    </label>
+                                    <label for="tab-user" class="settings-tab-btn"
+                                        style="cursor: pointer; background: var(--gray-50); padding: 1rem; border-radius: 8px; border: 2px solid transparent; transition: all 0.2s; display: block;">
+                                        <h4
+                                            style="color: var(--navy); margin-bottom: 0.50rem; font-size: 1rem; font-weight: 700;">
+                                            User Settings</h4>
+                                        <p style="font-size: 0.85rem; color: var(--gray-600); line-height: 1.4;">Manage
+                                            your security preferences and update your password.</p>
+                                    </label>
+                                </div>
+
+                                <!-- GIF Display Area -->
+                                <div
+                                    style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                                    <div id="plan-gif"
+                                        style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                        <span
+                                            style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                            GIF: Navigating Plan Settings ]</span>
+                                    </div>
+                                    <div id="user-gif"
+                                        style="display: none; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                        <span
+                                            style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                            GIF: Navigating User Settings ]</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    #tab-plan:checked~div label[for="tab-plan"] {
+                        border-color: #047857 !important;
+                        background: white !important;
+                        box-shadow: var(--shadow-sm);
+                    }
+
+                    #tab-user:checked~div label[for="tab-user"] {
+                        border-color: #047857 !important;
+                        background: white !important;
+                        box-shadow: var(--shadow-sm);
+                    }
+                </style>
+
+                <div
+                    style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--gray-100);">
+                    <a href="login.html"
+                        style="color: #047857; font-weight: 700; text-decoration: none; font-size: 0.95rem; flex: 1; min-width: 200px;">←
+                        Previous: How to login</a>
+                    <a href="workspace.html"
+                        style="color: #047857; font-weight: 700; text-decoration: none; font-size: 0.95rem; flex: 1; min-width: 200px; text-align: right;">Next:
+                        How to create workspace →</a>
+                </div>
+            </div>
+    </main>
+
+    <footer id="footer-placeholder" class="footer"></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+</body>
+
+</html>

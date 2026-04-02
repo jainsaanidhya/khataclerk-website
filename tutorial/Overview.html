@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Getting Started | KhataClerk Tutorials</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <style>
+        .tutorial-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--s-5);
+            align-items: start;
+        }
+
+        .tutorial-sidebar {
+            position: relative;
+        }
+
+        .tutorial-sidebar ul a {
+            transition: color 0.2s;
+        }
+
+        .tutorial-sidebar ul a:hover {
+            color: var(--emerald) !important;
+        }
+
+        @media (min-width: 768px) {
+            .tutorial-layout {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .tutorial-sidebar {
+                position: sticky;
+                top: 100px;
+                height: max-content;
+                padding-right: var(--s-3);
+                border-right: 1px solid var(--gray-100);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav id="nav-placeholder" class="nav"></nav>
+
+
+    <main class="section bg-white" style="margin-top: 80px; padding-top: var(--s-5); min-height: 80vh;">
+        <div class="container tutorial-layout">
+            <!-- Sidebar Sidebar Sidebar Placeholder -->
+            <aside id="sidebar-placeholder" class="tutorial-sidebar"></aside>
+
+            <div class="tutorial-content" style="max-width: 850px;">
+                <div class="section-header" style="text-align: left; margin-bottom: var(--s-5);">
+                    <div class="section-header__badge section-header__badge--primary">Documentation</div>
+                    <h1 class="section-header__title" style="font-size: var(--h2);">Getting Started with KhataClerk</h1>
+                    <p class="section-header__subtitle" style="margin: 0; text-align: left;">
+                        Welcome to KhataClerk! This guide will help you set up your account, manage your organization,
+                        and configure your workspaces for seamless invoice automation.
+                    </p>
+                </div>
+
+                <div class="card card--soft"
+                    style="padding: var(--s-4); border: 2px solid var(--gray-100); border-radius: 16px; margin-bottom: var(--s-4); box-shadow: var(--shadow-sm);">
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--navy); line-height: 1.2;">
+                        What is KhataClerk?</h3>
+                    <p
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin-bottom: 1.2rem; font-size: 1.05rem;">
+                        KhataClerk is an intelligent invoice automation platform. We provide a structured way to manage
+                        your business through a dedicated Organization and flexible Workspaces, ensuring your accounting
+                        data is always organized and secure.
+                    </p>
+                    <ul
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 2; padding-left: 1.2rem; list-style-type: '✓ '; list-style-position: inside;">
+                        <li style="padding-left: 0.5rem;"><strong style="color: var(--navy);">Organization-Level
+                                Control:</strong> Manage team roles, admins, and invites.</li>
+                        <li style="padding-left: 0.5rem;"><strong style="color: var(--navy);">Account
+                                Transparency:</strong> Real-time tracking of page usage and plan limits.</li>
+                        <li style="padding-left: 0.5rem;"><strong style="color: var(--navy);">Workspace
+                                Isolation:</strong> Keep different departments or clients separated within your
+                            organization.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card card--soft"
+                    style="padding: var(--s-4); border: 2px solid var(--gray-100); border-radius: 16px; margin-bottom: var(--s-4); box-shadow: var(--shadow-sm);">
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--navy); line-height: 1.2;">
+                        The 3-Step Setup</h3>
+                    <ul
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.8; list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                            <span
+                                style="width: 24px; height: 24px; background: #047857; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0;">1</span>
+                            <span><strong>Getting Started:</strong> Create your account and verify your email.</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                            <span
+                                style="width: 24px; height: 24px; background: #047857; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0;">2</span>
+                            <span><strong>Organizations:</strong> Manage your team roles and monitor your plan
+                                usage.</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                            <span
+                                style="width: 24px; height: 24px; background: #047857; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0;">3</span>
+                            <span><strong>Workspaces:</strong> Create or join dedicated spaces for clients and
+                                departments
+                                to keep your bookkeeping organized.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--gray-100);">
+                    <div></div>
+                    <a href="signup.html"
+                        style="color: var(--emerald); text-decoration: underline; font-weight: 700; font-size: 0.95rem;">Next:
+                        How to signup →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder" class="footer"></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+</body>
+
+</html>

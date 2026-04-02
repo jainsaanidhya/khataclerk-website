@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Manage Workspace | KhataClerk Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <style>
+        /* ── Layout ─────────────────────────────────────────── */
+        .tutorial-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--s-5);
+            align-items: start;
+        }
+
+        .tutorial-sidebar {
+            position: relative;
+        }
+
+        .tutorial-sidebar ul a {
+            transition: color 0.2s;
+        }
+
+        .tutorial-sidebar ul a:hover {
+            color: var(--emerald) !important;
+        }
+
+        @media (min-width: 768px) {
+            .tutorial-layout {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .tutorial-sidebar {
+                position: sticky;
+                top: 100px;
+                height: max-content;
+                padding-right: var(--s-3);
+                border-right: 1px solid var(--gray-100);
+            }
+        }
+
+        /* ── Scroll anchor offset ───────────────────────────── */
+        .section-anchor {
+            scroll-margin-top: 110px;
+        }
+
+        /* ── Sub-section heading ────────────────────────────── */
+        .sub-section-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 0 0 0.4rem 0;
+            line-height: 1.2;
+        }
+
+        .sub-section-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            border-radius: 100px;
+            padding: 0.25rem 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Status chips ───────────────────────────────────── */
+        .status--ready {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        .status--review {
+            color: #d97706;
+            font-weight: 700;
+        }
+
+        .status--pushed {
+            color: var(--gray-500);
+            font-weight: 600;
+        }
+
+        /* ── Tip boxes ──────────────────────────────────────── */
+        .info-tip {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .warn-tip {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: #92400e;
+            line-height: 1.6;
+        }
+
+        /* ── Horizontal upload step tabs (CSS radio trick) ──── */
+        /* Hide radio inputs but keep them functional */
+        #ustep1,
+        #ustep2,
+        #ustep3,
+        #ustep4 {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .upload-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .upload-tabs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .upload-step-tab {
+            cursor: pointer;
+            background: var(--gray-50);
+            padding: 0.9rem 0.6rem;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+            user-select: none;
+        }
+
+        .upload-step-tab:hover {
+            border-color: #a7f3d0;
+            background: white;
+        }
+
+        .tab-num {
+            width: 30px;
+            height: 30px;
+            background: #cbd5e1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .tab-label {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            line-height: 1.3;
+            transition: color 0.2s;
+        }
+
+        /* Active tab state */
+        #ustep1:checked~.upload-tabs label[for="ustep1"],
+        #ustep2:checked~.upload-tabs label[for="ustep2"],
+        #ustep3:checked~.upload-tabs label[for="ustep3"],
+        #ustep4:checked~.upload-tabs label[for="ustep4"] {
+            border-color: #047857 !important;
+            background: white !important;
+            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.12);
+        }
+
+        #ustep1:checked~.upload-tabs label[for="ustep1"] .tab-num,
+        #ustep2:checked~.upload-tabs label[for="ustep2"] .tab-num,
+        #ustep3:checked~.upload-tabs label[for="ustep3"] .tab-num,
+        #ustep4:checked~.upload-tabs label[for="ustep4"] .tab-num {
+            background: #047857 !important;
+        }
+
+        #ustep1:checked~.upload-tabs label[for="ustep1"] .tab-label,
+        #ustep2:checked~.upload-tabs label[for="ustep2"] .tab-label,
+        #ustep3:checked~.upload-tabs label[for="ustep3"] .tab-label,
+        #ustep4:checked~.upload-tabs label[for="ustep4"] .tab-label {
+            color: #047857 !important;
+        }
+
+        /* Content switching */
+        .upload-content-item {
+            display: none;
+        }
+
+        #ustep1:checked~.upload-content #uc1 {
+            display: block;
+        }
+
+        #ustep2:checked~.upload-content #uc2 {
+            display: block;
+        }
+
+        #ustep3:checked~.upload-content #uc3 {
+            display: block;
+        }
+
+        #ustep4:checked~.upload-content #uc4 {
+            display: block;
+        }
+
+        /* ── Action buttons (Doc Review) ────────────────────── */
+        .btn-open {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.9rem;
+            border: 1.5px solid #047857;
+            color: #047857;
+            background: white;
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: background 0.15s;
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        .btn-open:hover {
+            background: #ecfdf5;
+        }
+
+        .btn-tally-review {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.9rem;
+            border: 1.5px solid transparent;
+            color: white;
+            background: #0f172a;
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: background 0.15s;
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        .btn-tally-review:hover {
+            background: #1e293b;
+        }
+
+        .btn-approve {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.9rem;
+            border: 1.5px solid #047857;
+            color: white;
+            background: #047857;
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        .btn-delete {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.9rem;
+            border: 1.5px solid #fca5a5;
+            color: #dc2626;
+            background: white;
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        /* ── Invoice example row ────────────────────────────── */
+        .invoice-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem 1rem;
+            background: white;
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .invoice-row-name {
+            flex: 1;
+            min-width: 120px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .invoice-row-status {
+            font-size: 0.78rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .invoice-row-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav-placeholder" class="nav"></nav>
+
+    <main class="section bg-white" style="margin-top: 80px; padding-top: var(--s-5); min-height: 80vh;">
+        <div class="container tutorial-layout">
+            <aside id="sidebar-placeholder" class="tutorial-sidebar"></aside>
+
+            <div class="tutorial-content" style="max-width: 850px;">
+
+                <!-- Page Header -->
+                <div class="section-header" style="text-align: left; margin-bottom: var(--s-5);">
+                    <div class="section-header__badge section-header__badge--primary">Manage Workspace</div>
+                    <h1 class="section-header__title" style="font-size: var(--h2);">Working Inside Your Workspace</h1>
+                    <p class="section-header__subtitle" style="margin: 0; text-align: left;">
+                        Once your workspace is set up, this is your day-to-day workflow — upload invoices, review the
+                        AI-extracted data, and push everything to Tally in a few clicks.
+                    </p>
+                </div>
+
+                <!-- ═══════════════════════════════════════════════ -->
+                <!-- SECTION 1 · YOUR FIRST UPLOAD                  -->
+                <!-- ═══════════════════════════════════════════════ -->
+                <div id="first-upload" class="section-anchor" style="margin-bottom: var(--s-5);">
+                    <span class="sub-section-badge">Step 1</span>
+                    <h2 class="sub-section-title">Your First Upload</h2>
+                    <p
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 var(--s-4) 0;">
+                        Upload your purchase or sales invoices to your workspace. KhataClerk will
+                        automatically extract all the key fields using AI.
+                    </p>
+
+                    <!-- CSS Radio Tab System — inputs must be first siblings -->
+                    <div style="position: relative;">
+                        <input type="radio" name="upload-steps" id="ustep1" checked>
+                        <input type="radio" name="upload-steps" id="ustep2">
+                        <input type="radio" name="upload-steps" id="ustep3">
+                        <input type="radio" name="upload-steps" id="ustep4">
+
+                        <!-- Tab buttons -->
+                        <div class="upload-tabs">
+                            <label for="ustep1" class="upload-step-tab">
+                                <span class="tab-num">1</span>
+                                <span class="tab-label">Choose Invoice Type</span>
+                            </label>
+                            <label for="ustep2" class="upload-step-tab">
+                                <span class="tab-num">2</span>
+                                <span class="tab-label">Choose Files</span>
+                            </label>
+                            <label for="ustep3" class="upload-step-tab">
+                                <span class="tab-num">3</span>
+                                <span class="tab-label">Upload &amp; Start Processing</span>
+                            </label>
+                            <label for="ustep4" class="upload-step-tab">
+                                <span class="tab-num">4</span>
+                                <span class="tab-label">Review Your Results</span>
+                            </label>
+                        </div>
+
+                        <!-- Changing text content -->
+                        <div class="upload-content"
+                            style="background: white; border: 2px solid var(--gray-100); border-radius: 0 0 12px 12px; border-top: none; padding: 1.25rem 1.5rem; min-height: 90px; margin-bottom: 1rem;">
+                            <div id="uc1" class="upload-content-item">
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.7; margin: 0;">
+                                    On the <strong>Upload</strong> page, select your invoice type —
+                                    <strong>Purchase</strong> or <strong>Sales</strong> — using the toggle at the top
+                                    of the upload panel.
+                                </p>
+                            </div>
+                            <div id="uc2" class="upload-content-item">
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.7; margin: 0;">
+                                    Click <strong>"Choose Files"</strong> and select your invoice(s) from your device.
+                                    You can select a <strong>single file or multiple files</strong> at the same time.
+                                    Supported formats: <strong>PDF, PNG, JPG, TIFF</strong>.
+                                </p>
+                            </div>
+                            <div id="uc3" class="upload-content-item">
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.7; margin: 0;">
+                                    Click <strong>"Upload"</strong> to send your files to the server. Once the upload
+                                    completes, click <strong>"Start Processing"</strong> to trigger the AI extraction
+                                    engine.
+                                </p>
+                            </div>
+                            <div id="uc4" class="upload-content-item">
+                                <p
+                                    style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.7; margin: 0;">
+                                    Once processing is complete, click the <strong>"Review"</strong> button next to any
+                                    file to open it directly, or navigate to <strong>Document Review</strong> to see
+                                    the full list of all your uploaded documents.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- GIF — always visible, never changes -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Upload Flow — Invoice Type → Files → Upload → Start Processing ]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: none; border-top: 2px solid var(--gray-100); margin: var(--s-5) 0;">
+
+                <!-- ═══════════════════════════════════════════════ -->
+                <!-- SECTION 2 · DOCUMENT REVIEW                    -->
+                <!-- ═══════════════════════════════════════════════ -->
+                <div id="document-review" class="section-anchor" style="margin-bottom: var(--s-5);">
+                    <span class="sub-section-badge">Step 2</span>
+                    <h2 class="sub-section-title">Document Review</h2>
+                    <p
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 var(--s-4) 0;">
+                        Here you will see all the invoices you have uploaded. Review the AI-extracted data, approve
+                        correct ones, and manage or delete any that need attention.
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: var(--s-3);">
+
+                        <!-- Step 1 — invoice list overview -->
+                        <div class="card card--soft"
+                            style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <span
+                                    style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">1</span>
+                                <div style="width: 100%;">
+                                    <h3
+                                        style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin: 0 0 0.4rem 0; line-height: 1.2;">
+                                        View Your Invoice List</h3>
+                                    <p
+                                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 0.85rem 0;">
+                                        Navigate to <strong>Document Review</strong>. You will see all uploaded
+                                        invoices with their AI extraction status.
+                                    </p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                                        <span class="status--ready"
+                                            style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem;">●
+                                            Ready for Tally review</span>
+                                        <span class="status--review"
+                                            style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem;">●
+                                            Review needed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 — actions per invoice -->
+                        <div class="card card--soft"
+                            style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <span
+                                    style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">2</span>
+                                <div style="width: 100%;">
+                                    <h3
+                                        style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                                        Actions Per Invoice</h3>
+                                    <p
+                                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 1rem 0;">
+                                        Each invoice in the list has the following action buttons:
+                                    </p>
+
+                                    <!-- Example invoice rows -->
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem;">
+                                        <!-- Row 1 — ready -->
+                                        <div class="invoice-row">
+                                            <div class="invoice-row-name">13203.pdf</div>
+                                            <div class="invoice-row-status status--ready">Ready for Tally review</div>
+                                            <div class="invoice-row-actions">
+                                                <span class="btn-open">Open</span>
+                                                <span class="btn-tally-review">Tally review</span>
+                                            </div>
+                                        </div>
+                                        <!-- Row 2 — needs review -->
+                                        <div class="invoice-row">
+                                            <div class="invoice-row-name">INV-1598.pdf</div>
+                                            <div class="invoice-row-status status--review">Review needed</div>
+                                            <div class="invoice-row-actions">
+                                                <span class="btn-open">Open</span>
+                                                <span class="btn-tally-review">Tally review</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action descriptions -->
+                                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                                            <span class="btn-open"
+                                                style="pointer-events:none; flex-shrink:0;">Open</span>
+                                            <p
+                                                style="font-family: var(--font-body); color: var(--gray-600); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                                Opens the invoice in detail view so you can see and edit the
+                                                AI-extracted data fields.</p>
+                                        </div>
+                                        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                                            <span class="btn-tally-review"
+                                                style="pointer-events:none; flex-shrink:0;">Tally review</span>
+                                            <p
+                                                style="font-family: var(--font-body); color: var(--gray-600); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                                Moves the invoice directly to the <strong>Tally Review</strong> tab for
+                                                final check and push.</p>
+                                        </div>
+                                        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                                            <span class="btn-approve"
+                                                style="pointer-events:none; flex-shrink:0;">Approve for Tally</span>
+                                            <p
+                                                style="font-family: var(--font-body); color: var(--gray-600); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                                If the invoice data is extracted correctly, this approves it and moves
+                                                it to Tally Review in one click.</p>
+                                        </div>
+                                        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                                            <span class="btn-delete"
+                                                style="pointer-events:none; flex-shrink:0;">Delete</span>
+                                            <p
+                                                style="font-family: var(--font-body); color: var(--gray-600); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                                Permanently removes the invoice from your workspace.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GIF -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Document Review — Open, Tally review, Approve &amp; Delete ]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: none; border-top: 2px solid var(--gray-100); margin: var(--s-5) 0;">
+
+                <!-- ═══════════════════════════════════════════════ -->
+                <!-- SECTION 3 · TALLY REVIEW                       -->
+                <!-- ═══════════════════════════════════════════════ -->
+                <div id="tally-review" class="section-anchor" style="margin-bottom: var(--s-5);">
+                    <span class="sub-section-badge">Step 3</span>
+                    <h2 class="sub-section-title">Tally Review</h2>
+                    <p
+                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 1rem 0;">
+                        All documents you approved from Document Review will appear here. This is your final checkpoint
+                        before posting to Tally.
+                    </p>
+                    <div class="warn-tip" style="margin-bottom: var(--s-4);">
+                        ⚠️ <strong>Before you begin:</strong> Make sure your <strong>Tally Bridge is active</strong>
+                        and <strong>Tally is open</strong> on your system.
+                        <a href="#" style="color: #047857; font-weight: 700; text-decoration: none;">
+                            → How to configure Tally &amp; Tally Bridge</a>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: var(--s-3);">
+
+                        <!-- T1 -->
+                        <div class="card card--soft"
+                            style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <span
+                                    style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">1</span>
+                                <div>
+                                    <h3
+                                        style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin: 0 0 0.4rem 0;">
+                                        View Your Approved Invoices</h3>
+                                    <p
+                                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 0.85rem 0;">
+                                        Navigate to <strong>Tally Review</strong>. Invoices come here after being
+                                        approved in Document Review, each with a status:
+                                    </p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                                        <span class="status--ready"
+                                            style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem;">●
+                                            Ready to push to Tally</span>
+                                        <span class="status--review"
+                                            style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem;">●
+                                            Review required</span>
+                                        <span class="status--pushed"
+                                            style="background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem;">●
+                                            Pushed to Tally</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- T2 -->
+                        <div class="card card--soft"
+                            style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <span
+                                    style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">2</span>
+                                <div>
+                                    <h3
+                                        style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin: 0 0 0.4rem 0;">
+                                        Fix "Review Required" Invoices</h3>
+                                    <p
+                                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0;">
+                                        For invoices showing <span class="status--review">Review required</span>, click
+                                        <span class="btn-open"
+                                            style="pointer-events:none; display:inline-flex; vertical-align:middle;">Open</span>
+                                        to view and correct any errors. Once saved, the status updates automatically to
+                                        <span class="status--ready">Ready to push to Tally</span>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- T3 -->
+                        <div class="card card--soft"
+                            style="padding: var(--s-3); border: 2px solid var(--gray-100); border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <span
+                                    style="background: #047857; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; flex-shrink: 0; font-family: var(--font-mono);">3</span>
+                                <div>
+                                    <h3
+                                        style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin: 0 0 0.4rem 0;">
+                                        Push to Tally</h3>
+                                    <p
+                                        style="font-family: var(--font-body); color: var(--gray-600); line-height: 1.6; margin: 0 0 0.85rem 0;">
+                                        Select all invoices marked <span class="status--ready">Ready to push to
+                                            Tally</span>
+                                        using the checkboxes, then click <strong>"Push to Tally"</strong>. All selected
+                                        invoices will be posted as individual vouchers in Tally — perfectly mapped and
+                                        ready for audit.
+                                    </p>
+                                    <div class="info-tip">
+                                        ✅ <strong>Tip:</strong> Use the <strong>Select All</strong> checkbox to quickly
+                                        select every "Ready to push" invoice and push them all in one batch.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GIF -->
+                        <div
+                            style="width: 100%; aspect-ratio: 16/9; background: var(--gray-50); border: 2px dashed var(--gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                            <span
+                                style="color: var(--gray-400); font-size: 0.9rem; font-weight: 500; font-family: var(--font-mono);">[
+                                GIF: Tally Review — Selecting invoices → Push to Tally ]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer nav -->
+                <div
+                    style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--gray-100);">
+                    <a href="workspace.html"
+                        style="color: #047857; font-weight: 700; text-decoration: none; font-size: 0.95rem; flex: 1; min-width: 200px;">←
+                        Previous: Create &amp; Join Workspaces</a>
+                    <div style="flex: 1;"></div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder" class="footer"></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/footer.js"></script>
+
+    <!-- Scroll spy: highlights active section in sidebar as user scrolls -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Short delay to let sidebar.js finish injecting HTML
+            setTimeout(() => {
+                const anchors = ['first-upload', 'document-review', 'tally-review'];
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const activeId = entry.target.id;
+                            document.querySelectorAll('.sidebar-sub-link').forEach(link => {
+                                const match = link.dataset.anchor === activeId;
+                                link.style.color = match ? '#047857' : 'var(--gray-500)';
+                                link.style.fontWeight = match ? '700' : '500';
+                            });
+                        }
+                    });
+                }, {
+                    // Fires when section crosses the top 30% of the viewport
+                    rootMargin: '-100px 0px -60% 0px',
+                    threshold: 0
+                });
+
+                anchors.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) observer.observe(el);
+                });
+            }, 120);
+        });
+    </script>
+</body>
+
+</html>
