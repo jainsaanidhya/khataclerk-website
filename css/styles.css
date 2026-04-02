@@ -2671,11 +2671,19 @@ a {
 .step-video-player {
     width: 100%;
     height: auto;
-    display: block;
+    display: none;
     border: none;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     border-radius: 0 13px 13px 0;
     background: #000;
+}
+
+.step-media-wrap.is-playing .step-video-player {
+    display: block;
+}
+
+.step-media-wrap.is-playing .step-gif-img {
+    display: none;
 }
 
 .step-item:nth-child(even) .step-video-player {
