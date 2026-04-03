@@ -56,7 +56,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/Singup St-1.gif" alt="Signup step demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/Singup St-1.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/setp2.gif" alt="Verify email step demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/setp2.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/Login-3.gif" alt="Login step demo" class="step-gif-img" loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/Login-3.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/create-workspace-4.gif" alt="Create workspace step demo"
                                 class="step-gif-img" loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/create-workspace-4.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -137,9 +137,10 @@
                                     onclick="toggleReadMore(this)">Read more</button></p>
 
                         </div>
-                        <div class="step-media-wrap is-playing">
-                            <video class="step-video-player" muted autoplay loop
-                                onclick="this.muted=false; this.controls=true; this.onclick=null;">
+                        <div class="step-media-wrap" onclick="loadVideo(this)">
+                            <img src="../assets/st-5.gif" alt="Download Tally Bridge demo" class="step-gif-img"
+                                loading="lazy">
+                            <video class="step-video-player" muted loop preload="none">
                                 <source src="../videos/st-5.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -161,7 +162,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/st6.gif" alt="Verify Tally Bridge connection demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/st6.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -181,8 +182,11 @@
                                     onclick="toggleReadMore(this)">Read more</button></p>
 
                         </div>
-                        <div class="step-media-wrap">
+                        <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/st8.gif" alt="Upload invoice demo" class="step-gif-img" loading="lazy">
+                            <video class="step-video-player" loop preload="none">
+                                <source src="../videos/st8.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
 
@@ -201,7 +205,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/st9.gif" alt="Start processing demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/st9.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -224,7 +228,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/optional.gif" alt="Document review demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/optional.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -245,7 +249,7 @@
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/st11.gif" alt="Move to Tally review demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/st11.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -262,11 +266,14 @@
                                     integration bridge without any manual typing.</span><button class="read-more-btn"
                                     onclick=toggleReadMore(this)>Read more</button></p>
 
+
+
+
                         </div>
                         <div class="step-media-wrap" onclick="loadVideo(this)">
                             <img src="../assets/st12.gif" alt="Push to Tally step demo" class="step-gif-img"
                                 loading="lazy">
-                            <video class="step-video-player" controls loop preload="auto">
+                            <video class="step-video-player" loop preload="none">
                                 <source src="../videos/st12.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -327,11 +334,91 @@
         function loadVideo(container) {
             const video = container.querySelector('video');
             if (video) {
+                // Ensure the video is unmuted and starts from the beginning if pre-warmed
+                video.muted = false;
+                video.currentTime = 0;
+                
                 container.classList.add('is-playing');
                 video.play();
                 container.onclick = null;
             }
         }
+
+        // --- SEQUENTIAL VIDEO LOADING (with Invisible Pre-Warming) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const startLoadTime = Date.now();
+            const videos = Array.from(document.querySelectorAll('.step-video-player'));
+            let currentIndex = 0;
+
+            function loadNextVideo() {
+                if (currentIndex >= videos.length) return;
+
+                const video = videos[currentIndex];
+                const container = video.closest('.step-media-wrap');
+
+                // FORCE BACKGROUND BUFFERING: 
+                // Modern browsers throttle "preload" but prioritize "playing" media.
+                // We mute the video and start playing it while it's still hidden.
+                video.muted = true;
+                video.preload = "auto";
+                video.play().catch(() => {
+                    // Fallback if autoplay is blocked even for muted (rare for manual loads)
+                    video.load(); 
+                });
+
+                function checkBuffering() {
+                    // Maximum strictness: "Fully Loaded" (100% buffered)
+                    // We use +0.1 to account for floating point precision in media durations
+                    if (video.duration > 0 && video.buffered.length > 0) {
+                        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+                        if (bufferedEnd + 0.1 >= video.duration) {
+                            finalizeReadyState();
+                        }
+                    }
+                }
+
+                function finalizeReadyState() {
+                    if (container.classList.contains('is-ready')) return;
+
+                    // Mandatory 10-second initial delay for the first video only
+                    if (currentIndex === 0) {
+                        const elapsed = Date.now() - startLoadTime;
+                        if (elapsed < 10000) {
+                            setTimeout(finalizeReadyState, 10000 - elapsed);
+                            return;
+                        }
+                    }
+
+                    // Pre-warming complete: Pause and reset to start
+                    video.pause();
+                    video.currentTime = 0;
+
+                    // Reveal controls and show the custom play button (via CSS)
+                    container.classList.add('is-ready');
+                    video.controls = true;
+
+                    // Special case for Steps that might not have images (Auto-playing items)
+                    if (!container.querySelector('img')) {
+                        container.classList.add('is-playing');
+                        video.muted = true;
+                        video.play();
+                    }
+
+                    // Move to the next video in the sequential chain
+                    currentIndex++;
+                    loadNextVideo();
+                    
+                    // Cleanup listeners
+                    video.removeEventListener('progress', checkBuffering);
+                    video.removeEventListener('canplaythrough', finalizeReadyState);
+                }
+
+                video.addEventListener('progress', checkBuffering);
+                video.addEventListener('canplaythrough', finalizeReadyState);
+            }
+
+            loadNextVideo();
+        });
     </script>
 </body>
 

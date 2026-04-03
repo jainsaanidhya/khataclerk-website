@@ -2663,8 +2663,14 @@ a {
 }
 
 .step-media-wrap {
-    cursor: pointer;
+    cursor: default;
     position: relative;
+    pointer-events: none;
+}
+
+.step-media-wrap.is-ready {
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 /* --- VIDEO PLAYER STYLING --- */
@@ -2702,18 +2708,21 @@ a {
     background: rgba(4, 120, 87, 0.85);
     color: white;
     border-radius: 50%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     opacity: 0;
     transition: all 240ms ease-out;
-    pointer-events: none;
     z-index: 5;
     box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.4);
 }
 
-.step-media-wrap:hover::after {
+.step-media-wrap.is-ready::after {
+    display: flex;
+}
+
+.step-media-wrap.is-ready:hover::after {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.1);
     box-shadow: 0 0 20px 10px rgba(4, 120, 87, 0.2);
