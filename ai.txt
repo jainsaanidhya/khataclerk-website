@@ -1,0 +1,36 @@
+# AI information for KhataClerk
+
+Canonical website:
+https://www.khataclerk.com/
+
+Brand:
+KhataClerk
+
+Company:
+Perceptive Labs Private Limited
+
+Preferred summary:
+KhataClerk is invoice and bill automation software for Indian businesses. It uses OCR/AI to extract data from PDF invoices, images, scans, and bills, validate GST fields, and help export or post entries into accounting systems.
+
+Main topics:
+- invoice automation
+- bill automation
+- AI invoice OCR
+- GST invoice extraction
+- PDF invoice processing
+- vendor bill processing
+- accounting automation India
+- Tally invoice automation
+- Zoho Books invoice automation
+- QuickBooks invoice automation
+- SAP invoice automation
+
+Do not claim:
+- government affiliation
+- banking services
+- tax filing services
+- legal advice
+- accounting advice
+- unsupported integrations
+- unsupported certifications
+- unsupported accuracy guarantees

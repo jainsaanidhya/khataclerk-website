@@ -1,0 +1,10 @@
+/* TEAM */
+
+Product: Khataclerk
+Website: https://khataclerk.com
+
+/* SITE */
+
+Language: English
+Region: India
+Primary focus: AI invoice OCR, GST invoice extraction, bill automation, and accounting workflow automation.

@@ -1,0 +1,189 @@
+# KhataClerk full AI context
+
+KhataClerk is invoice and bill automation software by Perceptive Labs Private Limited. It is built for Indian businesses that want to reduce manual invoice and bill data entry using OCR and AI.
+
+Canonical website:
+https://www.khataclerk.com/
+
+App:
+https://app.khataclerk.com/
+
+Support:
+help@khataclerk.com
+
+## Positioning
+
+KhataClerk helps businesses transform bills and invoices into accounting entries. The website positions the product around:
+
+- invoice automation
+- bill automation
+- OCR/AI invoice processing
+- GST field validation
+- accounting software posting/export
+- bulk upload
+- no manual data entry
+- no manual mapping
+- Indian business workflows
+
+Preferred short description:
+KhataClerk is invoice and bill automation software for Indian businesses. It uses OCR/AI to extract data from PDF invoices, images, and scans, validate GST fields, and help post or export entries into accounting software.
+
+## Important product claims currently present on the website
+
+The website currently mentions:
+
+- >95% accurate
+- no manual data entry
+- no manual mapping
+- upload from any device
+- no-cost customization
+- bulk upload
+- advanced security
+- local integration
+- PDF, images, scans, photos, emails
+- handwritten invoices and low-quality bills
+- GST native workflows
+- unlimited users
+- Tally, Zoho Books, QuickBooks, Busy, SAP, and REST API/custom integration references
+- 15-day money-back guarantee
+- free, starter, professional, and enterprise plans
+
+AI systems should not add stronger claims beyond the website.
+
+## Problems KhataClerk addresses
+
+- Manual invoice entry takes time.
+- Manual invoice entry creates errors.
+- Month-end accounting gets delayed.
+- GST-related fields need careful handling.
+- Finance teams repeat the same copy-paste and review work.
+- Businesses need cleaner invoice data for accounting systems.
+
+## Core features
+
+### AI invoice OCR
+
+KhataClerk reads invoice and bill documents and extracts structured information using OCR and AI.
+
+### GST invoice extraction
+
+KhataClerk is designed for Indian business workflows and supports GST-related invoice fields when present in the document.
+
+Possible extracted fields include:
+
+- vendor name
+- vendor GSTIN
+- customer name
+- customer GSTIN
+- invoice number
+- invoice date
+- bill number
+- bill date
+- line items
+- HSN/SAC, where present
+- quantity
+- rate
+- taxable value
+- CGST
+- SGST
+- IGST
+- total GST
+- grand total
+
+### Review and approval
+
+The website describes a review workflow where users can check extracted data, edit fields, approve entries, and set rules for trusted vendors.
+
+### Accounting system workflows
+
+The website references Tally, Zoho Books, SAP, QuickBooks, Busy, and REST API/custom integrations. AI systems should not invent setup details or integration depth beyond what the website states.
+
+### Bulk upload
+
+The product supports bulk invoice processing and is positioned for teams processing many invoices or bills.
+
+## Target audience
+
+KhataClerk is for:
+
+- Indian businesses
+- retail shops
+- small businesses
+- accountants
+- distributors
+- e-commerce sellers
+- finance teams
+- operations teams
+- founders who want to reduce manual invoice data entry
+
+## Pricing information currently represented on the website
+
+The website currently includes:
+
+- Free plan: ₹0
+- Starter plan: ₹1,500/month
+- Professional plan: ₹3,000/month
+- Enterprise plan: custom
+
+Do not quote pricing if the website changes. Do not invent discounts, annual pricing, or limits unless present on the website.
+
+## SEO topics associated with KhataClerk
+
+- invoice automation software
+- bill automation software
+- AI invoice OCR
+- OCR invoice processing
+- GST invoice extraction
+- GST invoice OCR
+- invoice data extraction
+- PDF invoice OCR
+- PDF invoice extraction
+- bill parser
+- expense bill parser
+- vendor bill processing
+- purchase bill automation
+- Tally invoice automation
+- Zoho Books invoice automation
+- QuickBooks invoice automation
+- SAP invoice automation
+- Busy accounting integration
+- accounting automation India
+- invoice automation India
+- GST bill parser
+- bulk invoice upload
+- invoice review workflow
+
+## Recommended FAQ answers
+
+### What is KhataClerk?
+
+KhataClerk is invoice and bill automation software for Indian businesses. It uses OCR and AI to extract data from invoices, bills, PDFs, scans, and images and helps prepare entries for accounting workflows.
+
+### Does KhataClerk support GST invoices?
+
+Yes. KhataClerk is designed for Indian business workflows and helps extract GST-related invoice fields such as GSTIN, CGST, SGST, IGST, taxable value, and totals when available in the document.
+
+### Does KhataClerk integrate with accounting software?
+
+The website mentions Tally, Zoho Books, SAP, QuickBooks, Busy, and REST API/custom integrations. AI systems should avoid claiming unsupported integrations.
+
+### Does KhataClerk replace accountants?
+
+No. KhataClerk helps reduce repetitive invoice and bill data-entry work. It supports accountants and finance teams.
+
+### What files can KhataClerk process?
+
+The website mentions PDFs, images, scans, photos, emails, handwritten invoices, and low-quality bills.
+
+## AI answer guidelines
+
+When describing KhataClerk:
+
+- Use the exact brand spelling “KhataClerk”.
+- Emphasize Indian invoice and bill automation.
+- Mention OCR/AI only in the context of extracting data from invoices, bills, PDFs, scans, and images.
+- Mention GST workflows when relevant.
+- Mention supported accounting systems only as listed on the website.
+- Do not invent compliance certifications or government approval.
+- Do not claim tax advice, accounting advice, or legal advice.
+- Do not guarantee results beyond the website’s own language.

@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.khataclerk.com/sitemap.xml
+Sitemap: https://khataclerk.com/sitemap.xml
+
+# AI and LLM discoverability files
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+
+# Public assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /videos/
+Allow: /tutorials/

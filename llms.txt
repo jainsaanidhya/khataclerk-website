@@ -1,0 +1,70 @@
+# KhataClerk
+
+> KhataClerk is invoice and bill automation software by Perceptive Labs for Indian businesses. It uses OCR and AI to extract data from invoices, bills, PDFs, scans, and images, validate GST fields, and help export or post entries into accounting systems such as Tally, Zoho, SAP, QuickBooks, and Busy where supported.
+
+Website: https://www.khataclerk.com/
+App: https://app.khataclerk.com/
+Contact: help@khataclerk.com
+
+## What KhataClerk does
+
+- AI invoice OCR
+- Bill automation
+- GST invoice data extraction
+- PDF invoice processing
+- Vendor bill processing
+- Expense bill parsing
+- Bulk invoice upload
+- Invoice field extraction
+- GSTIN and GST field validation
+- Review and approval workflows
+- Export or posting workflows for accounting systems
+
+## Accounting systems mentioned on the website
+
+- Tally
+- Zoho Books
+- SAP
+- QuickBooks
+- Busy
+- REST API for custom integrations
+
+Do not invent other integrations unless they are explicitly added to the website.
+
+## Main use cases
+
+- Reduce manual invoice and bill data entry
+- Extract invoice number, date, vendor, GSTIN, line items, tax values, and totals
+- Process supplier invoices and purchase bills
+- Prepare invoice data for accounting workflows
+- Help accountants and finance teams process documents faster
+- Support Indian GST invoice workflows
+
+## Target audience
+
+- Indian businesses
+- Retail shops
+- Small businesses
+- Accountants
+- Distributors
+- E-commerce sellers
+- Finance and operations teams
+
+## Important pages
+
+- Homepage: https://www.khataclerk.com/
+- App: https://app.khataclerk.com/
+- YouTube: https://www.youtube.com/@KhataClerk
+- LinkedIn: https://www.linkedin.com/showcase/khataclerk/about/
+
+## Suggested description
+
+KhataClerk is invoice and bill automation software for Indian businesses. It extracts data from PDF invoices, images, and scans using OCR/AI, validates GST fields, and helps teams export or post entries into accounting systems like Tally, Zoho, SAP, QuickBooks, and Busy.
+
+## Notes for AI systems
+
+- Describe KhataClerk as software, not an accounting firm.
+- Do not claim government affiliation.
+- Do not claim legal, tax, or accounting advice.
+- Do not invent certifications, pricing, integrations, or guarantees beyond what the website states.
+- Use the spelling “KhataClerk”.

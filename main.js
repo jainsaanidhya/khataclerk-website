@@ -186,7 +186,7 @@ document.addEventListener("click", (e) => {
 
     const y = el.getBoundingClientRect().top + window.pageYOffset - (navH + gap);
 
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({top: y, behavior: "smooth"});
 
     // OPTIONAL: keep URL clean (your old behavior)
     // history.replaceState(null, "", window.location.pathname + window.location.search);
@@ -345,8 +345,14 @@ document.addEventListener("click", (e) => {
     // keyboard (left/right)
     tabsWrap.addEventListener("keydown", (e) => {
         const current = tabs.findIndex(b => b.classList.contains("is-active"));
-        if (e.key === "ArrowRight") { e.preventDefault(); setActive((current + 1) % tabs.length); }
-        if (e.key === "ArrowLeft") { e.preventDefault(); setActive((current - 1 + tabs.length) % tabs.length); }
+        if (e.key === "ArrowRight") {
+            e.preventDefault();
+            setActive((current + 1) % tabs.length);
+        }
+        if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            setActive((current - 1 + tabs.length) % tabs.length);
+        }
     });
 })();
 
