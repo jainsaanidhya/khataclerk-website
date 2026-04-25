@@ -2839,3 +2839,17 @@ a {
         border-radius: 0 0 13px 13px !important;
     }
 }
+
+@media (max-width: 480px) {
+
+  .nav__actions {
+    gap: 0.2rem; /* reduce spacing */
+  }
+
+  .nav__actions .btn {
+    padding: 0.4rem 0.4rem;   /* reduce size */
+    font-size: 0.7rem;        /* smaller text */
+    white-space: nowrap;      /* keep single line */
+  }
+
+}
