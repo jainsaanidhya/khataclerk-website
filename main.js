@@ -374,14 +374,16 @@ document.addEventListener("click", (e) => {
 
         function moveGhost(e) {
             if (!ghost) return;
-            const x = (e.clientX || e.touches?.[0]?.clientX) ?? 0;
-            const y = (e.clientY || e.touches?.[0]?.clientY) ?? 0;
+            const touch = e.changedTouches ? e.changedTouches[0] : (e.touches ? e.touches[0] : null);
+            const x = e.clientX ?? touch?.clientX ?? 0;
+            const y = e.clientY ?? touch?.clientY ?? 0;
             ghost.style.transform = `translate(${x - ghost.offsetWidth / 2}px, ${y - ghost.offsetHeight / 2}px) scale(1.05)`;
         }
 
         function isOverTarget(e) {
-            const x = (e.clientX || e.touches?.[0]?.clientX) ?? 0;
-            const y = (e.clientY || e.touches?.[0]?.clientY) ?? 0;
+            const touch = e.changedTouches ? e.changedTouches[0] : (e.touches ? e.touches[0] : null);
+            const x = e.clientX ?? touch?.clientX ?? 0;
+            const y = e.clientY ?? touch?.clientY ?? 0;
             const rect = target.getBoundingClientRect();
             return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
         }
@@ -466,6 +468,11 @@ document.addEventListener("click", (e) => {
         dragImg.addEventListener("mousedown", onPointerDown);
         dragImg.addEventListener("touchstart", onPointerDown, { passive: false });
         dragImg.addEventListener("click", onFileClick);
+
+        target.addEventListener("click", () => {
+            if (uploadTriggered) return;
+            runUploadSequence("scanned_invoice.jpg");
+        });
 
         function runUploadSequence(filename = "invoice.pdf") {
             uploadTriggered = true;

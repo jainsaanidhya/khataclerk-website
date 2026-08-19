@@ -27,7 +27,7 @@ function initKhataNav() {
 
             <!-- Right side -->
             <div class="nav__actions">
-                <a href="${base}tutorial/index.html" class="nav__cta btn btn--small btn--primary">Tutorial</a>
+                <a href="${base}tutorial/index.html" class="nav__cta btn btn--small btn--secondary">Tutorial</a>
                 <a href="https://app.khataclerk.com/" class="nav__cta btn btn--small btn--primary">Login or Signup</a>
 
                 <button class="nav__burger" id="navBurger">
