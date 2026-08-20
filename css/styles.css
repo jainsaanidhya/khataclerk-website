@@ -1665,6 +1665,11 @@ a {
     animation-delay: 1.8s; /* Wait a moment after card slides in before showing success */
 }
 
+.hero-viz__panel--entry.is-exiting .hv-entry__success {
+    opacity: 1;
+    transform: scale(1);
+}
+
 @keyframes success-pop {
     0% { opacity: 0; transform: scale(0.9); }
     100% { opacity: 1; transform: scale(1); pointer-events: auto; }
@@ -1831,6 +1836,11 @@ a {
 .hero-viz__panel--integrations.is-active .hv-int__success {
     animation: success-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     animation-delay: 2.2s; /* Wait for logos to pop in, then show success */
+}
+
+.hero-viz__panel--integrations.is-exiting .hv-int__success {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Animations */
