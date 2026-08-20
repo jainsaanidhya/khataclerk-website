@@ -483,7 +483,7 @@ document.addEventListener("click", (e) => {
             // Fade out file list and arrow
             files.style.transition = "opacity 0.3s ease";
             files.style.opacity = "0";
-            
+
             const arrow = document.querySelector(".drag-hint-arrow");
             if (arrow) {
                 arrow.style.transition = "opacity 0.3s ease";
@@ -521,7 +521,7 @@ document.addEventListener("click", (e) => {
             isDragInitialized = false;
             target.classList.remove("is-uploading", "is-success", "drag-hover");
             files.style.opacity = "1";
-            
+
             const arrow = document.querySelector(".drag-hint-arrow");
             if (arrow) arrow.style.opacity = "0.5";
 
@@ -733,7 +733,7 @@ document.addEventListener("click", (e) => {
                 // Reset state when not active
                 animationStarted = false;
                 mappings.forEach(m => {
-                    if(m.el) {
+                    if (m.el) {
                         m.el.classList.remove("is-mapped");
                         m.el.value = "Scanning...";
                     }
@@ -991,7 +991,7 @@ document.addEventListener("click", (e) => {
 
         // Start continuous loop
         setTimeout(() => {
-            setInterval(advanceCarousel, 6000);
+            setInterval(advanceCarousel, 3500);
         }, 500);
     }
 
@@ -1014,7 +1014,7 @@ document.addEventListener("click", (e) => {
                 hero.classList.add('kc-run');
             }
             isReversing = !isReversing;
-            
+
             // Reliably start the hero visualization after the intro animation starts
             setTimeout(initHeroViz, 1800);
         });
