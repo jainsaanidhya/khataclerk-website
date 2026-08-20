@@ -1369,11 +1369,6 @@ a {
   visibility:hidden;
 }
 
-@media (prefers-reduced-motion: reduce){
-  .kc-stage-a{ display:none; }
-  .kc-wipe{ transform:scaleX(1); animation:none !important; }
-  .kc-stage-b{ opacity:1; animation:none !important; }
-}
 
 /* ============================================================
    PRODUCT VISUALIZATION (HERO) - SINGLE CARD CAROUSEL
@@ -3867,7 +3862,6 @@ a {
     padding: 1.25rem 0;
     border-bottom: 2px solid rgba(15, 23, 42, 0.08);
     margin-bottom: 0.25rem;
-    min-width: 620px;
     align-items: center;
 }
 
@@ -3904,7 +3898,6 @@ a {
     padding: 1.15rem 0;
     border-bottom: 1px solid rgba(15, 23, 42, 0.06);
     align-items: center;
-    min-width: 620px;
 }
 
 .comparison__row:last-child {
@@ -4633,7 +4626,7 @@ a {
 
 /* ===== Accessibility / perf: respect reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *:not(.kc-hero):not(.kc-hero *) {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;

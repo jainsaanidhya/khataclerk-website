@@ -995,13 +995,7 @@ document.addEventListener("click", (e) => {
         }, 500);
     }
 
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (prefersReduced) {
-        hero.classList.add('kc-done');
-        initHeroViz();
-        return;
-    }
 
     var played = false;
     var isReversing = false;
