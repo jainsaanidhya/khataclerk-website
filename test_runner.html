@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Sweep Test</title>
+</head>
+<body style="margin: 0; padding: 20px; font-family: monospace;">
+    <h2>Responsive Sweep Test (320px - 2560px)</h2>
+    <div style="display: flex; gap: 20px;">
+        <div style="flex-shrink: 0; border: 2px solid #ccc; background: #eee;">
+            <iframe id="target" style="width: 320px; height: 1080px; border: none;"></iframe>
+        </div>
+        <div style="flex-grow: 1;">
+            <pre id="log" style="white-space: pre-wrap; font-size: 14px; background: #1e1e1e; color: #fff; padding: 10px; border-radius: 4px;"></pre>
+        </div>
+    </div>
+
+<script>
+    const iframe = document.getElementById('target');
+    iframe.src = '/index.html?cb=' + Date.now();
+    const log = document.getElementById('log');
+    const minWidth = 320;
+    const maxWidth = 2560;
+    const step = 20;
+    
+    let currentWidth = minWidth;
+    let errors = [];
+
+    function logMsg(msg) {
+        log.innerText += msg + "\n";
+        log.scrollTop = log.scrollHeight;
+    }
+
+    function checkWidth() {
+        if (currentWidth > maxWidth) {
+            logMsg("\nTest Complete.");
+            logMsg("Total Viewports Tested: " + Math.floor((maxWidth - minWidth) / step + 1));
+            logMsg("Total Errors: " + errors.length);
+            if (errors.length > 0) {
+                logMsg("\n--- Errors ---");
+                errors.forEach(e => logMsg(e));
+            } else {
+                logMsg("SUCCESS: No horizontal overflow detected!");
+            }
+            window.testComplete = true;
+            window.testResult = log.innerText;
+            return;
+        }
+
+        iframe.style.width = currentWidth + 'px';
+        
+        // Wait for reflow and animations
+        setTimeout(() => {
+            try {
+                const doc = iframe.contentDocument || iframe.contentWindow.document;
+                const scrollW = doc.documentElement.scrollWidth;
+                const clientW = doc.documentElement.clientWidth;
+                
+                if (scrollW > clientW + 2) {
+                    const allEls = Array.from(doc.body.querySelectorAll('*'));
+                    const overflowing = allEls.filter(el => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.width === 0 || rect.height === 0 || rect.right <= clientW) return false;
+                        const style = window.getComputedStyle(el);
+                        if (style.display === 'none' || style.visibility === 'hidden') return false;
+                        
+                        // Check if it's safely clipped by a parent
+                        let parent = el.parentElement;
+                        while (parent && parent !== doc.body) {
+                            const pStyle = window.getComputedStyle(parent);
+                            const pOverflow = pStyle.overflowX || pStyle.overflow;
+                            if (['hidden', 'auto', 'scroll', 'clip'].includes(pOverflow)) {
+                                const pRect = parent.getBoundingClientRect();
+                                if (pRect.right <= clientW) return false; // safely clipped!
+                            }
+                            parent = parent.parentElement;
+                        }
+                        return true;
+                    });
+                    
+                    const topOffender = overflowing.sort((a,b) => b.getBoundingClientRect().right - a.getBoundingClientRect().right)[0];
+                    let offenderInfo = 'Unknown';
+                    if (topOffender) {
+                        offenderInfo = `<${topOffender.tagName.toLowerCase()} class="${topOffender.className}" id="${topOffender.id}"> (Right: ${Math.round(topOffender.getBoundingClientRect().right)}px)`;
+                    }
+
+                    errors.push(`Width ${currentWidth}px: Failed. scrollWidth=${scrollW}, clientWidth=${clientW}. Offender: ${offenderInfo}`);
+                }
+            } catch (e) {
+                errors.push(`Width ${currentWidth}px: Error accessing iframe - ${e.message}`);
+            }
+            
+            if (currentWidth % 100 === 0) logMsg(`Tested up to ${currentWidth}px...`);
+            
+            currentWidth += step;
+            checkWidth();
+        }, 50);
+    }
+
+    iframe.onload = () => {
+        logMsg("Iframe loaded. Starting width sweep...");
+        setTimeout(checkWidth, 500); // initial delay for rendering
+    };
+</script>
+</body>
+</html>

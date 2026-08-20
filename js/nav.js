@@ -36,24 +36,53 @@ function initKhataNav() {
             </div>
         </div>
 
-        <!-- Mobile dropdown -->
+        <!-- Mobile dropdown - Compact 2-column dynamic menu -->
         <div class="nav__mobile" id="navMobile">
             <div class="nav__mobile-inner container">
-                <a href="${base}index.html#reality" class="nav__mobile-link">Reality</a>
-                <a href="${base}index.html#solution" class="nav__mobile-link">Solution</a>
-                <a href="${base}index.html#features" class="nav__mobile-link">Features</a>
-                <a href="${base}index.html#difference" class="nav__mobile-link">Difference</a>
-                <a href="${base}index.html#pricing" class="nav__mobile-link">Pricing</a>
-                <a href="${base}index.html#faq" class="nav__mobile-link">FAQ</a>
+                <div class="nav__mobile-grid">
+                    <a href="${base}index.html#reality" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Reality</span>
+                    </a>
+                    <a href="${base}index.html#solution" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Solution</span>
+                    </a>
+                    <a href="${base}index.html#features" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Features</span>
+                    </a>
+                    <a href="${base}index.html#difference" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Difference</span>
+                    </a>
+                    <a href="${base}index.html#pricing" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Pricing</span>
+                    </a>
+                    <a href="${base}index.html#faq" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">FAQ</span>
+                    </a>
+                </div>
+                <div class="nav__mobile-actions">
+                    <a href="${base}tutorial/index.html" class="btn btn--small btn--secondary" style="flex: 1; justify-content: center; padding: 0.6rem 0.75rem; font-size: 0.88rem;">Tutorial</a>
+                    <a href="https://app.khataclerk.com/" class="btn btn--small btn--primary" style="flex: 1.3; justify-content: center; padding: 0.6rem 0.75rem; font-size: 0.88rem;">Login / Signup</a>
+                </div>
             </div>
         </div>
     `;
 
-    // Simple Burger Menu Toggle
+    // Dynamic Burger Menu Toggle & Interactions
     const burger = document.getElementById('navBurger');
     const menu = document.getElementById('navMobile');
     if (burger && menu) {
-        burger.onclick = () => menu.classList.toggle('active');
+        burger.onclick = () => {
+            const isOpen = menu.classList.toggle('active');
+            burger.classList.toggle('active', isOpen);
+        };
+
+        // Close menu when a link inside is clicked
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
     }
 }
 

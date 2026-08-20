@@ -981,7 +981,8 @@ document.addEventListener("click", (e) => {
                 hero.classList.add('kc-done');
 
                 // Trigger product visualization animation sequence loop
-                if (viz) {
+                if (viz && !viz.dataset.loopStarted) {
+                    viz.dataset.loopStarted = "true";
                     const panels = [
                         document.getElementById('vizDoc'),
                         document.getElementById('vizData'),
