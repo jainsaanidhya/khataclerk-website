@@ -989,13 +989,13 @@ document.addEventListener("click", (e) => {
             currentPanelIdx = nextIdx;
 
             // Wait for the panel's animation to finish + a consistent 1 second pause
-            const panelDelays = [4000, 2750, 3400, 3800];
+            const panelDelays = [3200, 2750, 3400, 3800];
             setTimeout(advanceCarousel, panelDelays[nextIdx]);
         }
 
         // Start continuous loop
         setTimeout(() => {
-            const initialDelays = [4000, 2750, 3400, 3800];
+            const initialDelays = [3200, 2750, 3400, 3800];
             setTimeout(advanceCarousel, initialDelays[0]);
         }, 500);
     }
