@@ -927,10 +927,79 @@ document.addEventListener("click", (e) => {
     var hero = document.getElementById('heroCarousel');
     if (!hero) return;
 
+    var viz = document.getElementById('heroViz');
+
+    function initHeroViz() {
+        if (!viz || viz.dataset.loopStarted) return;
+        hero.classList.add('kc-done');
+        viz.dataset.loopStarted = "true";
+
+        const panels = [
+            document.getElementById('vizDoc'),
+            document.getElementById('vizData'),
+            document.getElementById('vizEntry'),
+            document.getElementById('vizIntegrations')
+        ];
+        let currentPanelIdx = 0;
+
+        // Initialize first panel
+        panels.forEach(p => {
+            if (p) p.classList.remove('is-active', 'is-exiting');
+        });
+        if (panels[0]) panels[0].classList.add('is-active');
+
+        function advanceCarousel() {
+            const nextIdx = (currentPanelIdx + 1) % panels.length;
+            const currentPanel = panels[currentPanelIdx];
+            const nextPanel = panels[nextIdx];
+
+            if (!currentPanel || !nextPanel) return;
+
+            // Reset internal states if next is Data
+            if (nextIdx === 1) {
+                const fields = nextPanel.querySelectorAll('.hv-data__field');
+                fields.forEach(f => f.classList.remove('is-revealed'));
+
+                setTimeout(() => {
+                    fields.forEach((f, idx) => {
+                        setTimeout(() => {
+                            f.classList.add('is-revealed');
+                        }, idx * 250);
+                    });
+                }, 1000); // Start pop-in sequence AFTER panel finishes sliding in
+            }
+
+            // Slide out current to the left
+            currentPanel.classList.remove('is-active');
+            currentPanel.classList.add('is-exiting');
+
+            // Temporarily disable transition on nextPanel so it instantly snaps to the right
+            nextPanel.style.transition = 'none';
+            nextPanel.classList.remove('is-exiting');
+
+            // Wait for the exit animation to finish before starting the entrance
+            setTimeout(() => {
+                nextPanel.style.transition = '';
+                // Small delay to allow reflow
+                setTimeout(() => {
+                    nextPanel.classList.add('is-active');
+                }, 50);
+            }, 500);
+
+            currentPanelIdx = nextIdx;
+        }
+
+        // Start continuous loop
+        setTimeout(() => {
+            setInterval(advanceCarousel, 6000);
+        }, 500);
+    }
+
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReduced) {
         hero.classList.add('kc-done');
+        initHeroViz();
         return;
     }
 
@@ -951,6 +1020,9 @@ document.addEventListener("click", (e) => {
                 hero.classList.add('kc-run');
             }
             isReversing = !isReversing;
+            
+            // Reliably start the hero visualization after the intro animation starts
+            setTimeout(initHeroViz, 1800);
         });
     }
 
@@ -970,81 +1042,6 @@ document.addEventListener("click", (e) => {
     } else {
         played = true;
         play();
-    }
-
-    var stageB = hero.querySelector('.kc-stage-b');
-    var viz = document.getElementById('heroViz');
-
-    if (stageB) {
-        stageB.addEventListener('animationend', function (e) {
-            if (e.animationName === 'kc-fade-in') {
-                hero.classList.add('kc-done');
-
-                // Trigger product visualization animation sequence loop
-                if (viz && !viz.dataset.loopStarted) {
-                    viz.dataset.loopStarted = "true";
-                    const panels = [
-                        document.getElementById('vizDoc'),
-                        document.getElementById('vizData'),
-                        document.getElementById('vizEntry'),
-                        document.getElementById('vizIntegrations')
-                    ];
-                    let currentPanelIdx = 0;
-
-                    // Initialize first panel
-                    panels.forEach(p => {
-                        if (p) p.classList.remove('is-active', 'is-exiting');
-                    });
-                    if (panels[0]) panels[0].classList.add('is-active');
-
-                    function advanceCarousel() {
-                        const nextIdx = (currentPanelIdx + 1) % panels.length;
-                        const currentPanel = panels[currentPanelIdx];
-                        const nextPanel = panels[nextIdx];
-
-                        if (!currentPanel || !nextPanel) return;
-
-                        // Reset internal states if next is Data
-                        if (nextIdx === 1) {
-                            const fields = nextPanel.querySelectorAll('.hv-data__field');
-                            fields.forEach(f => f.classList.remove('is-revealed'));
-
-                            setTimeout(() => {
-                                fields.forEach((f, idx) => {
-                                    setTimeout(() => {
-                                        f.classList.add('is-revealed');
-                                    }, idx * 250);
-                                });
-                            }, 1000); // Start pop-in sequence AFTER panel finishes sliding in
-                        }
-
-                        // Slide out current to the left
-                        currentPanel.classList.remove('is-active');
-                        currentPanel.classList.add('is-exiting');
-
-                        // Temporarily disable transition on nextPanel so it instantly snaps to the right
-                        nextPanel.style.transition = 'none';
-                        nextPanel.classList.remove('is-exiting');
-
-                        // Wait for the exit animation to finish before starting the entrance
-                        setTimeout(() => {
-                            nextPanel.style.transition = '';
-                            // Small delay to allow reflow
-                            setTimeout(() => {
-                                nextPanel.classList.add('is-active');
-                            }, 50);
-                        }, 500);
-
-                        currentPanelIdx = nextIdx;
-                    }
-
-                    // Start continuous loop
-                    setTimeout(() => {
-                        setInterval(advanceCarousel, 6000);
-                    }, 500);
-                }
-            }
-        });
     }
 })();
 
