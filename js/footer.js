@@ -22,8 +22,8 @@ function initKhataFooter() {
                 <div class="footer__col">
                     <h4 class="footer__title">Product</h4>
                     <ul class="footer__links">
-                        <li><a href="https://www.youtube.com/@KhataClerk" target="_blank"
-                                rel="noopener noreferrer nofollow">Youtube</a></li>
+                        <li><a href="https://www.youtube.com/c/KhataClerk" target="_blank"
+                                rel="noopener noreferrer nofollow">YouTube</a></li>
 
                         <li><a href="https://www.linkedin.com/showcase/khataclerk/about/" target="_blank"
                                 rel="noopener noreferrer nofollow">Linkedin</a></li>
@@ -35,12 +35,12 @@ function initKhataFooter() {
                     <h4 class="footer__title">Resources</h4>
                     <ul class="footer__links">
                         <li>
-                            <a href="https://www.youtube.com/results?search_query=tally+gst+invoice+entry"
+                            <a href="https://www.youtube.com/c/KhataClerk"
                                 target="_blank" rel="noopener noreferrer nofollow">
                                 Video Tutorials
                             </a>
                         </li>
-                        <li><a href="https://tallysolutions.com/" target="_blank"
+                        <li><a href="https://www.khataclerk.com/" target="_blank"
                                 rel="noopener noreferrer nofollow">Tally
                                 Tips</a>
                         </li>
@@ -50,7 +50,7 @@ function initKhataFooter() {
                 <div class="footer__col">
                     <h4 class="footer__title">Company</h4>
                     <ul class="footer__links">
-                        <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer nofollow">About
+                        <li><a href="https://www.khataclerk.com/" target="_blank" rel="noopener noreferrer nofollow">About
                                 Perceptive
                                 Labs</a></li>
                         <li><a href="mailto:help@khataclerk.com">Contact Us</a></li>
@@ -63,7 +63,7 @@ function initKhataFooter() {
                         <li><a href="mailto:help@khataclerk.com">help@khataclerk.com</a></li>
                     </ul>
                     <ul class="footer__links">
-                        <li><a href="mailto:team@perceptivelabs.in">team@perceptivelabs.in</a></li>
+                        <li><a href="mailto:team@khataclerk.com">team@khataclerk.com</a></li>
                     </ul>
                 </div>
             </div>
