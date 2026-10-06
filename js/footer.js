@@ -23,10 +23,10 @@ function initKhataFooter() {
                     <h4 class="footer__title">Product</h4>
                     <ul class="footer__links">
                         <li><a href="https://www.youtube.com/@KhataClerk" target="_blank"
-                                rel="noopener noreferrer nofollow">YouTube</a></li>
+                                rel="noopener noreferrer">YouTube</a></li>
 
                         <li><a href="https://www.linkedin.com/showcase/khataclerk/about/" target="_blank"
-                                rel="noopener noreferrer nofollow">Linkedin</a></li>
+                                rel="noopener noreferrer">Linkedin</a></li>
 
                     </ul>
                 </div>
@@ -36,7 +36,7 @@ function initKhataFooter() {
                     <ul class="footer__links">
                         <li>
                             <a href="https://www.youtube.com/@KhataClerk"
-                                target="_blank" rel="noopener noreferrer nofollow">
+                                target="_blank" rel="noopener noreferrer">
                                 Video Tutorials
                             </a>
                         </li>
@@ -46,7 +46,7 @@ function initKhataFooter() {
                 <div class="footer__col">
                     <h4 class="footer__title">Company</h4>
                     <ul class="footer__links">
-                        <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer nofollow">About
+                        <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer">About
                                 Perceptive
                                 Labs</a></li>
                         <li><a href="mailto:help@khataclerk.com">Contact Us</a></li>

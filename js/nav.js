@@ -7,8 +7,8 @@ function initKhataNav() {
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (!navPlaceholder) return;
 
-    // Direct check: are we in a subfolder (like /tutorial/)?
-    const isSubfolder = window.location.pathname.includes('/tutorial');
+    // Direct check: are we in the singular /tutorial/ subfolder?
+    const isSubfolder = /^\/tutorial(?:\/|$)/.test(window.location.pathname);
     const base = isSubfolder ? '../' : './';
 
     navPlaceholder.innerHTML = `

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en-IN">
 
 <head>
 
@@ -66,151 +66,78 @@
 
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-XXXX');
-    </script>
-
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "KhataClerk",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "description": "Invoice and bill automation software that extracts data from PDFs, images, scans using OCR and AI, validates GST fields, and exports or auto-posts to accounting systems like Tally, Zoho, SAP, and QuickBooks.",
-            "brand": {
-                "@type": "Brand",
-                "name": "KhataClerk"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Perceptive Labs"
-            },
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "INR"
-            },
-            "areaServed": {
-                "@type": "Country",
-                "name": "India"
-            },
-            "url": "https://www.khataclerk.com/"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
+            "@graph": [
                 {
-                    "@type": "Question",
-                    "name": "How accurate is KhataClerk?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We guarantee 95% accuracy from day one. Our system improves as it learns your vendors, approaching 99% accuracy over time."
+                    "@type": "Organization",
+                    "@id": "https://www.khataclerk.com/#organization",
+                    "name": "Perceptive Labs Private Limited",
+                    "url": "https://perceptivelabs.in/",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "KhataClerk"
+                    },
+                    "sameAs": [
+                        "https://www.youtube.com/@KhataClerk",
+                        "https://www.linkedin.com/showcase/khataclerk/about/"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://www.khataclerk.com/#website",
+                    "url": "https://www.khataclerk.com/",
+                    "name": "KhataClerk",
+                    "alternateName": "KhataClerk Invoice Automation",
+                    "publisher": {
+                        "@id": "https://www.khataclerk.com/#organization"
                     }
                 },
                 {
-                    "@type": "Question",
-                    "name": "What accounting software are supported?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Direct integration with Tally (ERP 9, Prime, Cloud), Zoho Books, QuickBooks Online, and Busy. Plus REST API for custom integrations."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Can multiple users post to one Tally?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Unlimited users can scan and process invoices from anywhere. All entries sync to your central Tally server in real-time."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Is my data secure?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We use 256-bit encryption, store data in Indian data centers, and are SOC 2 Type II certified. Your data never leaves India."
-                    }
+                    "@type": "SoftwareApplication",
+                    "@id": "https://www.khataclerk.com/#software",
+                    "name": "KhataClerk",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Web",
+                    "description": "Invoice and bill automation software that extracts data from PDFs, images, scans using OCR and AI, validates GST fields, and exports or auto-posts to accounting systems like Tally, Zoho, SAP, and QuickBooks.",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "KhataClerk"
+                    },
+                    "publisher": {
+                        "@id": "https://www.khataclerk.com/#organization"
+                    },
+                    "areaServed": {
+                        "@type": "Country",
+                        "name": "India"
+                    },
+                    "url": "https://www.khataclerk.com/",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "KhataClerk Free Plan",
+                            "price": "0",
+                            "priceCurrency": "INR",
+                            "availability": "https://schema.org/InStock"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "KhataClerk Starter Plan",
+                            "price": "1500",
+                            "priceCurrency": "INR",
+                            "availability": "https://schema.org/InStock"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "KhataClerk Professional Plan",
+                            "price": "3000",
+                            "priceCurrency": "INR",
+                            "availability": "https://schema.org/InStock"
+                        }
+                    ]
                 }
             ]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Perceptive Labs Private Limited",
-            "url": "https://www.khataclerk.com/",
-            "brand": {
-                "@type": "Brand",
-                "name": "KhataClerk"
-            },
-            "email": "help@khataclerk.com",
-            "sameAs": [
-                "help@khataclerk.com"
-            ]
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "KhataClerk",
-            "url": "https://www.khataclerk.com/"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "KhataClerk Starter Plan",
-            "brand": "KhataClerk",
-            "offers": {
-                "@type": "Offer",
-                "priceCurrency": "INR",
-                "price": "1500",
-                "availability": "https://schema.org/InStock"
-            }
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "KhataClerk Professional Plan",
-            "brand": "KhataClerk",
-            "offers": {
-                "@type": "Offer",
-                "priceCurrency": "INR",
-                "price": "3000",
-                "availability": "https://schema.org/InStock"
-            }
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "KhataClerk Free Plan",
-            "brand": "KhataClerk",
-            "offers": {
-                "@type": "Offer",
-                "priceCurrency": "INR",
-                "price": "0",
-                "availability": "https://schema.org/InStock"
-            }
         }
     </script>
 </head>
@@ -1322,7 +1249,7 @@
                                 <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round">
                                 </polyline>
                             </svg>
-                            <span>Invoices ₹2/Invoice</span>
+                            <span>Invoice ₹3/Invoice</span>
                         </li>
                     </ul>
                     <div class="price-card__guarantee">
@@ -1622,6 +1549,7 @@
                     </ul>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -1638,10 +1566,10 @@
                     <h4 class="footer__title">Product</h4>
                     <ul class="footer__links">
                         <li><a href="https://www.youtube.com/@KhataClerk" target="_blank"
-                                rel="noopener noreferrer nofollow">Youtube</a></li>
+                                rel="noopener noreferrer">Youtube</a></li>
 
                         <li><a href="https://www.linkedin.com/showcase/khataclerk/about/" target="_blank"
-                                rel="noopener noreferrer nofollow">Linkedin</a></li>
+                                rel="noopener noreferrer">Linkedin</a></li>
 
                     </ul>
                 </div>
@@ -1651,7 +1579,7 @@
                     <ul class="footer__links">
                         <li>
                             <a href="https://www.youtube.com/@KhataClerk"
-                                target="_blank" rel="noopener noreferrer nofollow">
+                                target="_blank" rel="noopener noreferrer">
                                 Video Tutorials
                             </a>
                         </li>
@@ -1661,7 +1589,7 @@
                 <div class="footer__col">
                     <h4 class="footer__title">Company</h4>
                     <ul class="footer__links">
-                        <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer nofollow">About
+                        <li><a href="https://perceptivelabs.in" target="_blank" rel="noopener noreferrer">About
                                 Perceptive
                                 Labs</a></li>
                         <li><a href="mailto:help@khataclerk.com">Contact Us</a></li>
