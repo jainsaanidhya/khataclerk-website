@@ -567,7 +567,7 @@ document.addEventListener("click", (e) => {
     function resetExtractionUI() {
         if (scanFill) scanFill.style.width = "0%";
         if (aiLabel) {
-            aiLabel.innerHTML = `<span class="extract-ai-dot"></span> Khataclerk Extracting...`;
+            aiLabel.innerHTML = `<span class="extract-ai-dot"></span> KhataClerk Extracting...`;
             aiLabel.style.opacity = "1";
         }
         if (actionDiv) actionDiv.classList.remove("is-visible");

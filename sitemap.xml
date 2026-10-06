@@ -6,46 +6,4 @@
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/login.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/manage_workspace.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/organization.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/Overview.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/signup.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-    <url>
-        <loc>https://www.khataclerk.com/tutorial/workspace.html</loc>
-        <lastmod>2026-10-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
 </urlset>

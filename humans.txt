@@ -1,6 +1,6 @@
 /* TEAM */
 
-Product: Khataclerk
+Product: KhataClerk
 Website: https://khataclerk.com
 
 /* SITE */

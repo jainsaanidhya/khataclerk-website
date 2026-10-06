@@ -27,7 +27,6 @@ function initKhataNav() {
 
             <!-- Right side -->
             <div class="nav__actions">
-                <a href="${base}tutorial/index.html" class="nav__cta btn btn--small btn--secondary">Tutorial</a>
                 <a href="https://app.khataclerk.com/" class="nav__cta btn btn--small btn--primary">Login or Signup</a>
 
                 <button class="nav__burger" id="navBurger">
@@ -60,7 +59,6 @@ function initKhataNav() {
                     </a>
                 </div>
                 <div class="nav__mobile-actions">
-                    <a href="${base}tutorial/index.html" class="btn btn--small btn--secondary" style="flex: 1; justify-content: center; padding: 0.6rem 0.75rem; font-size: 0.88rem;">Tutorial</a>
                     <a href="https://app.khataclerk.com/" class="btn btn--small btn--primary" style="flex: 1.3; justify-content: center; padding: 0.6rem 0.75rem; font-size: 0.88rem;">Login / Signup</a>
                 </div>
             </div>
