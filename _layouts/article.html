@@ -1,0 +1,35 @@
+---
+layout: default
+og_type: article
+---
+<main class="blog-shell">
+  <div class="blog-container">
+    <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.title | escape }}</span>
+    </nav>
+    <article class="blog-article" itemscope itemtype="https://schema.org/Article">
+      <header class="blog-article__header">
+        {% if page.categories %}<p class="blog-category">{{ page.categories | first | escape }}</p>{% endif %}
+        <h1 itemprop="headline">{{ page.title | escape }}</h1>
+        <p class="blog-article__description">{{ page.description | escape }}</p>
+        <p class="blog-article__byline">By {{ page.author | default: 'KhataClerk Team' | escape }} <span aria-hidden="true">·</span> <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+      </header>
+      {% if page.image %}<figure class="blog-article__image"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: '' | escape }}"></figure>{% endif %}
+      <div class="blog-prose" itemprop="articleBody">{{ content }}</div>
+      <nav class="blog-post-nav" aria-label="More resources"><a href="/resources/">← Back to all resources</a><a href="/#solution">Explore KhataClerk’s invoice workflow →</a></nav>
+    </article>
+  </div>
+</main>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "author": {"@type": "Organization", "name": {{ page.author | default: 'KhataClerk Team' | jsonify }}},
+  "publisher": {"@type": "Organization", "name": "Perceptive Labs Private Limited", "url": "https://perceptivelabs.in/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": {{ page.url | absolute_url | jsonify }}}{% if page.image %},
+  "image": {{ page.image | absolute_url | jsonify }}{% endif %}
+}
+</script>

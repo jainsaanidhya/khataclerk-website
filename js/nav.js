@@ -7,22 +7,19 @@ function initKhataNav() {
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (!navPlaceholder) return;
 
-    // Direct check: are we in the singular /tutorial/ subfolder?
-    const isSubfolder = /^\/tutorial(?:\/|$)/.test(window.location.pathname);
-    const base = isSubfolder ? '../' : './';
-
     navPlaceholder.innerHTML = `
         <div class="nav__container container">
-            <a href="${base}index.html" class="nav__logo">KhataClerk</a>
+            <a href="/" class="nav__logo">KhataClerk</a>
 
             <!-- Desktop links -->
             <div class="nav__links nav__links--desktop">
-                <a href="${base}index.html#reality" class="nav__link">Reality</a>
-                <a href="${base}index.html#solution" class="nav__link">Solution</a>
-                <a href="${base}index.html#features" class="nav__link">Features</a>
-                <a href="${base}index.html#difference" class="nav__link">Difference</a>
-                <a href="${base}index.html#pricing" class="nav__link">Pricing</a>
-                <a href="${base}index.html#faq" class="nav__link">FAQ</a>
+                <a href="/#reality" class="nav__link">Reality</a>
+                <a href="/#solution" class="nav__link">Solution</a>
+                <a href="/#features" class="nav__link">Features</a>
+                <a href="/#difference" class="nav__link">Difference</a>
+                <a href="/#pricing" class="nav__link">Pricing</a>
+                <a href="/#faq" class="nav__link">FAQ</a>
+                <a href="/resources/" class="nav__link">Resources</a>
             </div>
 
             <!-- Right side -->
@@ -39,23 +36,26 @@ function initKhataNav() {
         <div class="nav__mobile" id="navMobile">
             <div class="nav__mobile-inner container">
                 <div class="nav__mobile-grid">
-                    <a href="${base}index.html#reality" class="nav__mobile-link">
+                    <a href="/#reality" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">Reality</span>
                     </a>
-                    <a href="${base}index.html#solution" class="nav__mobile-link">
+                    <a href="/#solution" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">Solution</span>
                     </a>
-                    <a href="${base}index.html#features" class="nav__mobile-link">
+                    <a href="/#features" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">Features</span>
                     </a>
-                    <a href="${base}index.html#difference" class="nav__mobile-link">
+                    <a href="/#difference" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">Difference</span>
                     </a>
-                    <a href="${base}index.html#pricing" class="nav__mobile-link">
+                    <a href="/#pricing" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">Pricing</span>
                     </a>
-                    <a href="${base}index.html#faq" class="nav__mobile-link">
+                    <a href="/#faq" class="nav__mobile-link">
                         <span class="nav__mobile-link-text">FAQ</span>
+                    </a>
+                    <a href="/resources/" class="nav__mobile-link">
+                        <span class="nav__mobile-link-text">Resources</span>
                     </a>
                 </div>
                 <div class="nav__mobile-actions">

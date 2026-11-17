@@ -1,0 +1,29 @@
+---
+layout: default
+title: Resources
+seo_title: Invoice Automation Resources for Indian Businesses
+description: Practical guides to invoice processing, OCR, GST invoice data, Tally automation, and accounting workflows for Indian businesses.
+permalink: /resources/
+---
+<main class="blog-shell resources-page">
+  <div class="blog-container">
+    <header class="resources-header">
+      <p class="blog-eyebrow">KHATACLERK RESOURCES</p>
+      <h1>Resources</h1>
+      <p>Practical guides for Indian business owners, accountants, and finance teams working with invoices, bills, GST data, and accounting workflows.</p>
+    </header>
+    <section class="resources-list" aria-labelledby="resources-list-title">
+      <h2 id="resources-list-title" class="visually-hidden">Latest articles</h2>
+      {% assign published_posts = site.posts | sort: 'date' | reverse %}
+      {% for post in published_posts %}
+      <article class="resource-card">
+        <div class="resource-card__meta">{% if post.categories %}<span class="blog-category">{{ post.categories | first | escape }}</span>{% endif %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></div>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+        <p>{{ post.description | escape }}</p>
+        <a class="resource-card__link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+      </article>
+      {% endfor %}
+      {% unless published_posts.size > 0 %}<p>New practical guides are on the way.</p>{% endunless %}
+    </section>
+  </div>
+</main>

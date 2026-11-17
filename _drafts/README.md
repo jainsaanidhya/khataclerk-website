@@ -1,0 +1,1 @@
+Place unpublished Jekyll Markdown articles in this directory. Use the same YAML frontmatter as published posts. Drafts are excluded from normal builds and can be previewed locally with `jekyll serve --drafts`.
