@@ -1,0 +1,16 @@
+title: KhataClerk
+description: Invoice and bill automation resources for Indian businesses.
+url: https://www.khataclerk.com
+baseurl: ""
+lang: en-IN
+permalink: /resources/:title/
+markdown: kramdown
+timezone: Asia/Kolkata
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+

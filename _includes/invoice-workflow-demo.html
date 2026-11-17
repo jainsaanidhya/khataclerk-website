@@ -1,0 +1,71 @@
+<section class="invoice-workflow" data-invoice-workflow data-state="idle" aria-labelledby="invoice-workflow-title">
+  <div class="invoice-workflow__intro">
+    <p class="blog-eyebrow">ILLUSTRATIVE WORKFLOW</p>
+    <h2 id="invoice-workflow-title">From invoice to accounting entry</h2>
+    <p>See how document details can move through extraction and review before an entry is sent to Tally.</p>
+  </div>
+
+  <div class="invoice-workflow__canvas">
+    <div class="invoice-workflow__card invoice-workflow__document" data-step="scan">
+      <div class="invoice-workflow__card-head"><span class="invoice-workflow__step">01</span><span>Invoice upload</span></div>
+      <div class="invoice-paper">
+        <div class="invoice-paper__brand"><span class="invoice-paper__mark">S</span><span>Sample Supplier</span></div>
+        <div class="invoice-paper__title">TAX INVOICE</div>
+        <div class="invoice-paper__line invoice-paper__line--short"></div>
+        <div class="invoice-paper__line"></div>
+        <div class="invoice-paper__line invoice-paper__line--medium"></div>
+        <div class="invoice-paper__table">
+          <span>Item details</span><span>Amount</span>
+          <i></i><i></i><i></i><i></i>
+        </div>
+        <div class="invoice-paper__total"><span>GST &amp; total</span><b>••••</b></div>
+        <div class="invoice-paper__scan" aria-hidden="true"></div>
+      </div>
+      <p class="invoice-workflow__caption">PDF or image</p>
+    </div>
+
+    <div class="invoice-workflow__connector" aria-hidden="true">→</div>
+
+    <div class="invoice-workflow__card" data-step="extract">
+      <div class="invoice-workflow__card-head"><span class="invoice-workflow__step">02</span><span>Data extraction</span></div>
+      <div class="invoice-fields">
+        <div class="invoice-fields__row"><span>Supplier</span><b>Sample Supplier</b><span class="invoice-fields__check">✓</span></div>
+        <div class="invoice-fields__row"><span>Invoice date</span><b>14 Nov 2026</b><span class="invoice-fields__check">✓</span></div>
+        <div class="invoice-fields__row"><span>GST details</span><b>Fields detected</b><span class="invoice-fields__check">✓</span></div>
+        <div class="invoice-fields__row"><span>Line items</span><b>2 items</b><span class="invoice-fields__check">✓</span></div>
+      </div>
+      <p class="invoice-workflow__caption">OCR identifies invoice fields</p>
+    </div>
+
+    <div class="invoice-workflow__connector" aria-hidden="true">→</div>
+
+    <div class="invoice-workflow__card" data-step="review">
+      <div class="invoice-workflow__card-head"><span class="invoice-workflow__step">03</span><span>Review</span></div>
+      <div class="invoice-review">
+        <div class="invoice-review__top"><span class="invoice-review__avatar">KC</span><span><b>Check extracted details</b><small>Confirm before posting</small></span></div>
+        <div class="invoice-review__item"><span>Vendor &amp; date</span><b class="invoice-review__status">✓</b></div>
+        <div class="invoice-review__item"><span>GST &amp; line items</span><b class="invoice-review__status">✓</b></div>
+      </div>
+      <p class="invoice-workflow__caption">A person checks the information</p>
+    </div>
+
+    <div class="invoice-workflow__connector" aria-hidden="true">→</div>
+
+    <div class="invoice-workflow__card invoice-workflow__destination" data-step="send">
+      <div class="invoice-workflow__card-head"><span class="invoice-workflow__step">04</span><span>Accounting entry</span></div>
+      <div class="invoice-tally">
+        <div class="invoice-tally__brand"><span class="invoice-tally__mark">T</span><span>Tally</span></div>
+        <div class="invoice-tally__action">Push to Tally <span aria-hidden="true">→</span></div>
+        <div class="invoice-tally__success"><span aria-hidden="true">✓</span><b>Entry sent to Tally</b></div>
+      </div>
+      <p class="invoice-workflow__caption">After review and approval</p>
+    </div>
+  </div>
+
+  <div class="invoice-workflow__controls">
+    <button class="btn btn--primary invoice-workflow__play" type="button" data-play-workflow>Play workflow</button>
+    <p class="invoice-workflow__note">Illustration only. Actual steps depend on your documents and accounting setup.</p>
+  </div>
+  <p class="visually-hidden" data-workflow-announcement aria-live="polite" aria-atomic="true">Workflow ready.</p>
+</section>
+<script defer src="/js/invoice-workflow-demo.js"></script>

@@ -3,3 +3,5 @@
 .agents
 .claude
 skills-lock.json
+.jekyll-cache
+_site

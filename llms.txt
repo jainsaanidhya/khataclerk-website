@@ -1,70 +1,129 @@
 # KhataClerk
 
-> KhataClerk is invoice and bill automation software by Perceptive Labs for Indian businesses. It uses OCR and AI to extract data from invoices, bills, PDFs, scans, and images, validate GST fields, and help export or post entries into accounting systems such as Tally, Zoho, SAP, QuickBooks, and Busy where supported.
+> KhataClerk is a bookkeeping and accounting automation platform by Perceptive Labs Private Limited, built for Indian businesses, accountants, and CA firms. It automates the workflow between business documents and accounting software, including invoice and bill extraction, accounting validations, ledger mapping, voucher creation, bank statement processing, sales billing, inventory management, and reporting.
 
-Website: https://www.khataclerk.com/
-App: https://app.khataclerk.com/
+Website: https://www.khataclerk.com/  
+App: https://app.khataclerk.com/  
+Orders: https://orders.khataclerk.com/  
+Insights: https://insights.khataclerk.com/  
 Contact: help@khataclerk.com
 
 ## What KhataClerk does
 
-- AI invoice OCR
-- Bill automation
-- GST invoice data extraction
-- PDF invoice processing
-- Vendor bill processing
-- Expense bill parsing
-- Bulk invoice upload
-- Invoice field extraction
-- GSTIN and GST field validation
-- Review and approval workflows
-- Export or posting workflows for accounting systems
+KhataClerk helps businesses and accounting professionals automate bookkeeping without replacing their existing accounting software.
 
-## Accounting systems mentioned on the website
+Its capabilities include:
 
-- Tally
-- Zoho Books
-- SAP
-- QuickBooks
-- Busy
-- REST API for custom integrations
+- **Invoice and bill automation:** Extracts accounting-relevant information from PDF invoices, scanned documents, and images using AI and OCR.
+- **Accounting validations:** Checks extracted information, tax calculations, invoice totals, and other accounting details before posting.
+- **Ledger and master mapping:** Maps vendors, ledgers, stock items, tax ledgers, voucher types, and other accounting fields to existing accounting masters.
+- **Voucher creation:** Creates accounting entries and supports multiple voucher types, including Purchase, Sales, Credit Note, Debit Note, Journal, Purchase Order, Sales Order, Delivery Note, Receipt Note, and Stock Challan.
+- **Bank statement processing:** Extracts transaction information from PDF, Excel, CSV, scanned statements, and statement images, and helps create related accounting entries.
+- **Accounting software integration:** Connects with Tally, Zoho Books, and SAP, enabling accounting workflows to work with existing accounting systems.
 
-Do not invent other integrations unless they are explicitly added to the website.
+## Key products
 
-## Main use cases
+### KhataClerk – Accounting Automation
 
-- Reduce manual invoice and bill data entry
-- Extract invoice number, date, vendor, GSTIN, line items, tax values, and totals
-- Process supplier invoices and purchase bills
-- Prepare invoice data for accounting workflows
-- Help accountants and finance teams process documents faster
-- Support Indian GST invoice workflows
+The core platform automates document-to-accounting workflows, from uploading invoices and extracting information to validation, mapping, review, and posting entries into accounting software.
 
-## Target audience
+Website: https://www.khataclerk.com/  
+Application: https://app.khataclerk.com/
 
-- Indian businesses
-- Retail shops
-- Small businesses
-- Accountants
-- Distributors
-- E-commerce sellers
-- Finance and operations teams
+### KhataClerk Orders
 
-## Important pages
+Orders is a sales billing and inventory management platform for handling sales orders, sales invoices, stock-in, stock-out, customer records, payments, and outstanding balances.
 
-- Homepage: https://www.khataclerk.com/
-- App: https://app.khataclerk.com/
-- YouTube: https://www.youtube.com/@KhataClerk
+It connects with the KhataClerk accounting workflow so sales transactions can flow into the accounting system without requiring users to download and re-upload documents.
+
+Website: https://orders.khataclerk.com/
+
+### KhataClerk Insights
+
+Insights provides business summaries and reporting across areas such as sales, purchases, stock, payments, and expenses, with filtering options to examine business activity.
+
+Website: https://insights.khataclerk.com/
+
+## How KhataClerk connects with Tally
+
+KhataClerk uses a Windows desktop application called **App Bridge** to communicate with Tally.
+
+- App Bridge runs in the background on the user's computer.
+- It connects to KhataClerk through WebSockets.
+- It communicates with Tally through its XML interface.
+- It can connect to locally hosted or remote Tally environments when the required Tally port is configured and network-accessible.
+- Users can select and switch between connected Tally companies.
+- If the connection becomes unavailable, accounting jobs can be queued and retried when connectivity is restored.
+
+The Tally company must first be created in Tally before it can be connected to KhataClerk.
+
+## Who uses KhataClerk
+
+KhataClerk is designed for:
+
+- Chartered Accountants and CA firms managing multiple client accounts.
+- Accountants and bookkeepers handling recurring invoice and bill entries.
+- Businesses that want to reduce manual bookkeeping work.
+- Finance and operations teams managing sales, purchases, inventory, and accounting workflows.
+
+KhataClerk supports multiple client workspaces, allowing accounting professionals to manage separate clients and their accounting data through one login.
+
+## Pricing
+
+KhataClerk offers the following plans:
+
+| Plan | Price | Monthly allowance |
+|---|---:|---:|
+| Free | ₹0 | 20 scans |
+| Starter | ₹1,500/month | 500 scans |
+| Professional | ₹3,000/month | 1,500 scans |
+| Enterprise | Custom | Custom allowance |
+
+Usage is counted by page: each page processed counts as one scan. For example, a five-page PDF consumes five scans. Failed uploads are not counted against the allowance.
+
+For Enterprise pricing and custom requirements, contact help@khataclerk.com.
+
+## Security and privacy
+
+- Workspace-level separation keeps each client's documents and accounting data isolated.
+- Access is controlled through authentication, authorization, and role-based permissions.
+- Data is encrypted in transit and at rest.
+- Uploaded documents are not used to train AI models.
+- Users can delete their uploaded documents when required.
+
+KhataClerk runs on Google Cloud infrastructure with a SQL database.
+
+## Support and custom requirements
+
+KhataClerk provides onboarding, technical assistance, remote support, product configuration, implementation assistance, and custom integration support.
+
+Custom APIs, webhooks, and integrations are available on request.
+
+For assistance or custom requirements, contact: help@khataclerk.com
+
+## Additional documentation
+
+For detailed information about KhataClerk's capabilities, workflows, integrations, supported voucher types, workspaces, permissions, pricing, and product features, see:
+
+- [KhataClerk Full Documentation](https://www.khataclerk.com/llms-full.txt)
+- [KhataClerk Website](https://www.khataclerk.com/)
+- [KhataClerk Application](https://app.khataclerk.com/)
+- [KhataClerk Orders](https://orders.khataclerk.com/)
+- [KhataClerk Insights](https://insights.khataclerk.com/)
+
+## Resources
+    - Resources: https://www.khataclerk.com/resources/
+    - What Is Invoice Automation?: https://www.khataclerk.com/resources/what-is-invoice-automation/
+    - How to Automate Purchase Entries in TallyPrime: https://www.khataclerk.com/resources/automate-purchase-entry-tally-prime/
+    - Tally Data Entry Automation: What Can Be Automated?: https://www.khataclerk.com/resources/tally-data-entry-automation/
+    - How to Convert PDF Invoices into Tally-Ready Entries: https://www.khataclerk.com/resources/pdf-invoice-to-tally/
+    - Manual vs Automated Accounting Entries in Tally Prime: https://www.khataclerk.com/resources/manual-vs-automated-accounting-tally/
+
+## Company
+
+KhataClerk is a product of **Perceptive Labs Private Limited**.
+
+- Website: https://www.khataclerk.com/
+- Email: help@khataclerk.com
 - LinkedIn: https://www.linkedin.com/showcase/khataclerk/about/
-
-## Suggested description
-
-KhataClerk is invoice and bill automation software for Indian businesses. It extracts data from PDF invoices, images, and scans using OCR/AI, validates GST fields, and helps teams export or post entries into accounting systems like Tally, Zoho, SAP, QuickBooks, and Busy.
-
-## Notes for AI systems
-
-- Describe KhataClerk as software, not an accounting firm.
-- Do not claim government affiliation.
-- Do not claim legal, tax, or accounting advice.
-- Do not invent certifications, pricing, integrations, or guarantees beyond what the website states.
-- Use the spelling “KhataClerk”.
+- YouTube: https://www.youtube.com/@KhataClerk
